@@ -1,0 +1,4484 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>شركة الصفا - للتسويق العقاري</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <style>
+        /* Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
+
+        /* Reset & Base Styles */
+        :root {
+            --primary: #0a2540;
+            --secondary: #00d4ff;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --gold: #d4af37;
+            --gold-light: #f1c40f;
+            --header-height: 80px;
+            --safe-area: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --box-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--header-height);
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            padding: var(--safe-area);
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a3a5f 100%);
+            color: white;
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            height: var(--header-height);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            height: 70px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1800px;
+            margin: 0 auto;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--gold);
+            font-weight: 900;
+        }
+
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+            display: block;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            right: 0;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+            right: auto;
+            left: 0;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        .cta-button {
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
+            white-space: nowrap;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            max-height: 1200px;
+            background: linear-gradient(rgba(10, 37, 64, 0.8), rgba(10, 37, 64, 0.8)),
+                url("images/alsaf.jpg") no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+            margin-top: var(--header-height);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            max-width: 700px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons .primary-btn,
+        .hero-buttons .secondary-btn {
+            flex: 1 1 200px;
+            text-align: center;
+        }
+
+        .hero-buttons .primary-btn {
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--primary);
+            padding: 1rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            font-size: clamp(1rem, 1.2vw, 1.2rem);
+        }
+
+        .hero-buttons .secondary-btn {
+            background: transparent;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid var(--gold);
+            font-size: clamp(1rem, 1.2vw, 1.2rem);
+        }
+
+        .hero-buttons .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .hero-buttons .secondary-btn:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* Search Box */
+        .search-container {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-top: 2rem;
+            box-shadow: var(--box-shadow);
+            max-width: 1200px;
+            animation: fadeInUp 1s ease 0.6s forwards;
+            opacity: 0;
+        }
+
+        .search-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .search-group {
+            position: relative;
+        }
+
+        .search-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: clamp(0.9rem, 1vw, 1rem);
+        }
+
+        .search-group select,
+        .search-group input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: clamp(0.9rem, 1vw, 1rem);
+            transition: var(--transition);
+            background-color: #f9f9f9;
+        }
+
+        .search-group select:focus,
+        .search-group input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+
+        .search-button {
+            grid-column: 1 / -1;
+            background: linear-gradient(90deg, var(--primary) 0%, #1a3a5f 100%);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: clamp(1rem, 1.1vw, 1.1rem);
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            min-height: 50px;
+        }
+
+        .search-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(10, 37, 64, 0.2);
+        }
+
+        /* زر إعادة تعيين البحث */
+        .search-reset-btn {
+            grid-column: 1 / -1;
+            background: linear-gradient(90deg, #6c757d 0%, #495057 100%);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: clamp(1rem, 1.1vw, 1.1rem);
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            min-height: 50px;
+            margin-top: 10px;
+        }
+
+        .search-reset-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(108, 117, 125, 0.2);
+        }
+
+        /* زر عرض كل العقارات */
+        .show-all-btn {
+            grid-column: 1 / -1;
+            background: linear-gradient(90deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: clamp(1rem, 1.1vw, 1.1rem);
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            min-height: 50px;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .show-all-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(40, 167, 69, 0.2);
+            background: linear-gradient(90deg, #20c997 0%, #28a745 100%);
+        }
+
+        /* رسائل البحث */
+        .search-message {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            animation: fadeIn 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .search-message.success {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        .search-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .search-message i {
+            font-size: 1.2rem;
+        }
+
+        .reset-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            text-align: center;
+            border: 1px solid #c3e6cb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Featured Properties */
+        .featured-properties {
+            padding: 4rem 5%;
+            background-color: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            bottom: -10px;
+            left: 25%;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: clamp(1rem, 1.2vw, 1.2rem);
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 350px), 1fr));
+            gap: 2rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .property-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            z-index: 2;
+        }
+
+        .property-media {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .property-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .property-card:hover .property-media img {
+            transform: scale(1.1);
+        }
+
+        .property-info {
+            padding: 1.2rem;
+        }
+
+        .property-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .property-price span {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .property-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .property-location {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .property-location i {
+            margin-left: 0.5rem;
+            color: var(--gold);
+        }
+
+        .property-features {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #eee;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature i {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin-bottom: 0.3rem;
+        }
+
+        .feature span {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* Details button */
+        .details-btn {
+            width: 100%;
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary) 0%, #1a3a5f 100%);
+            color: #fff;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            font-size: 1rem;
+            min-height: 44px;
+        }
+
+        .details-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(10, 37, 64, 0.15);
+        }
+
+        /* About Company Section */
+        .about-section {
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .about-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+            border-radius: 2px;
+        }
+
+        .about-content p {
+            font-size: clamp(1rem, 1.1vw, 1.1rem);
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .mission-box,
+        .vision-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border-top: 4px solid var(--gold);
+        }
+
+        .mission-box h4,
+        .vision-box h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .mission-box h4 i,
+        .vision-box h4 i {
+            color: var(--gold);
+        }
+
+        .why-choose-us {
+            margin-top: 2rem;
+        }
+
+        .why-choose-us h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .reason-item {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-right: 3px solid var(--gold);
+        }
+
+        .reason-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .reason-item i {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .reason-item h5 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            height: 500px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .about-stat {
+            text-align: center;
+        }
+
+        .about-stat .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gold);
+            display: block;
+        }
+
+        .about-stat .text {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 4rem 5%;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--gold);
+            font-size: 1.8rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 4rem 5%;
+            background: white;
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+            border-radius: 2px;
+        }
+
+        .contact-info p {
+            font-size: clamp(1rem, 1.1vw, 1.1rem);
+            color: var(--gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 1rem;
+            color: var(--gold);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-text a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .contact-text a:hover {
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid var(--gold);
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* تحسين ألوان أزرار السوشيال ميديا */
+        .social-links a[aria-label*="Facebook"]:hover,
+        .footer-social a[aria-label*="Facebook"]:hover {
+            background: #1877F2;
+            border-color: #1877F2;
+            color: white;
+        }
+
+        .social-links a[aria-label*="Instagram"]:hover,
+        .footer-social a[aria-label*="Instagram"]:hover {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            border-color: transparent;
+            color: white;
+        }
+
+        .social-links a[aria-label*="WhatsApp"]:hover,
+        .footer-social a[aria-label*="WhatsApp"]:hover {
+            background: #25D366;
+            border-color: #25D366;
+            color: white;
+        }
+
+        .social-links a[aria-label*="Twitter"]:hover,
+        .footer-social a[aria-label*="Twitter"]:hover {
+            background: #1DA1F2;
+            border-color: #1DA1F2;
+            color: white;
+        }
+
+        .social-links a[aria-label*="LinkedIn"]:hover,
+        .footer-social a[aria-label*="LinkedIn"]:hover {
+            background: #0077B5;
+            border-color: #0077B5;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 5% 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-about p {
+            opacity: 0.8;
+            margin-bottom: 1.2rem;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .footer-social a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-links ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--gold);
+            transform: translateX(-5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.85rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 1rem;
+        }
+
+        .modal.show {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(2px);
+        }
+
+        .modal-dialog {
+            position: relative;
+            background: #fff;
+            width: min(95%, 800px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            z-index: 1;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        /* زر إغلاق المودال - تم التعديل */
+        .modal-close {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            width: 44px;
+            height: 44px;
+            border: none;
+            background: var(--primary);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-close:hover {
+            background: #ff4444;
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(255, 68, 68, 0.3);
+        }
+
+        /* Modal Gallery Styles - تم التعديل */
+        .modal-gallery {
+            position: relative;
+            height: 500px;
+            /* زيادة الارتفاع */
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            background-color: #f5f5f5;
+        }
+
+        .modal-main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* تغيير من cover إلى contain لعرض الصورة كاملة */
+            background-color: white;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 1rem;
+            z-index: 10;
+        }
+
+        .gallery-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.2rem;
+            color: var(--primary);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-btn:hover {
+            background: white;
+            transform: scale(1.1);
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-indicators {
+            position: absolute;
+            bottom: 1rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .gallery-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .gallery-indicator.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        .modal-thumbnails {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+            padding: 0.5rem 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold) #f1f1f1;
+        }
+
+        .modal-thumbnails::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .modal-thumbnails::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        .modal-thumbnails::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 3px;
+        }
+
+        .modal-thumbnail {
+            width: 80px;
+            height: 60px;
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: var(--transition);
+            flex-shrink: 0;
+            border: 2px solid transparent;
+        }
+
+        .modal-thumbnail:hover,
+        .modal-thumbnail.active {
+            opacity: 1;
+            transform: scale(1.05);
+            border-color: var(--gold);
+        }
+
+        .modal-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: .25rem;
+        }
+
+        .modal-location {
+            color: var(--gray);
+            margin-bottom: .75rem;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            font-size: 0.95rem;
+        }
+
+        .modal-price {
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .modal-features {
+            display: flex;
+            gap: .8rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-feature {
+            background: #f6f6f6;
+            padding: .5rem .8rem;
+            border-radius: 8px;
+            font-size: .9rem;
+            border-left: 3px solid var(--gold);
+        }
+
+        .modal-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            border-right: 3px solid var(--gold);
+        }
+
+        /* WhatsApp Button in Modal */
+        .modal-whatsapp-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(90deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+            text-decoration: none;
+        }
+
+        .modal-whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .modal-whatsapp-btn i {
+            font-size: 1.3rem;
+        }
+
+        /* WhatsApp Button on Property Card */
+        .whatsapp-btn-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 0.7rem;
+            background: linear-gradient(90deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 0.5rem;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn-card i {
+            font-size: 1.1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading Animation */
+        .loader {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader:after {
+            content: " ";
+            display: block;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: 6px solid var(--gold);
+            border-color: var(--gold) transparent var(--gold) transparent;
+            animation: loader 1.2s linear infinite;
+        }
+
+        @keyframes loader {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* زر تواصل معنا للهاتف - الجديد */
+        .mobile-contact-btn {
+            display: none;
+        }
+
+        /* =========================== */
+        /* RESPONSIVE DESIGN IMPROVEMENTS */
+        /* =========================== */
+
+        /* شاشات صغيرة جداً (أقل من 320px) */
+        @media (max-width: 320px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            .property-media {
+                height: 150px;
+            }
+
+            .search-container {
+                padding: 0.8rem;
+            }
+
+            .modal-gallery {
+                height: 200px;
+            }
+
+            .modal-dialog {
+                padding: 0.8rem;
+            }
+        }
+
+        /* شاشات متوسطة (768px - 1024px) */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .hero {
+                min-height: 650px;
+            }
+
+            .hero-content {
+                padding: 2rem;
+            }
+
+            .properties-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-container {
+                gap: 3rem;
+            }
+
+            .about-image {
+                height: 400px;
+            }
+        }
+
+        /* تحسينات المودال لشاشات 4K وأكبر */
+        @media (min-width: 2560px) {
+            .modal-gallery {
+                height: 650px;
+            }
+
+            .modal-main-image {
+                max-height: 650px;
+            }
+
+            .modal-thumbnail {
+                width: 100px;
+                height: 80px;
+            }
+
+            .modal-dialog {
+                width: min(90%, 1000px);
+                padding: 2rem;
+            }
+        }
+
+        /* تحسينات للأجهزة اللوحية (أفقي) */
+        @media (max-height: 768px) and (orientation: landscape) {
+            .hero {
+                min-height: 700px;
+            }
+
+            .modal-gallery {
+                height: 350px;
+            }
+
+            .modal-dialog {
+                max-height: 95vh;
+            }
+        }
+
+        /* =========================== */
+        /* الأجهزة اللوحية والهواتف */
+        /* =========================== */
+
+        @media (max-width: 991px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 350px;
+                height: 100vh;
+                background: var(--primary);
+                padding: 2rem;
+                transition: right 0.3s ease;
+                z-index: 1000;
+                overflow-y: auto;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 3rem;
+            }
+
+            nav ul li {
+                margin: 0 0 1.5rem 0;
+                opacity: 0;
+                transform: translateX(20px);
+                transition: all 0.3s ease;
+            }
+
+            nav.active ul li {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            nav ul li:nth-child(1) {
+                transition-delay: 0.1s;
+            }
+
+            nav ul li:nth-child(2) {
+                transition-delay: 0.2s;
+            }
+
+            nav ul li:nth-child(3) {
+                transition-delay: 0.3s;
+            }
+
+            nav ul li:nth-child(4) {
+                transition-delay: 0.4s;
+            }
+
+            nav ul li:nth-child(5) {
+                transition-delay: 0.5s;
+            }
+
+            nav ul li.contact-menu-item {
+                display: block;
+            }
+
+            nav ul li a {
+                font-size: 1.2rem;
+                padding: 0.8rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .mobile-contact-btn {
+                display: block !important;
+                background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+                color: var(--primary);
+                padding: 0.8rem 1.5rem;
+                border-radius: 30px;
+                font-weight: 700;
+                text-decoration: none;
+                transition: var(--transition);
+                text-align: center;
+                margin-top: 1rem;
+                box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            }
+
+            .mobile-contact-btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            }
+
+            .header-container {
+                justify-content: space-between;
+            }
+
+            .hero {
+                min-height: 700px;
+                padding-top: 2rem;
+            }
+
+            .hero-content {
+                text-align: center;
+                padding: 2rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+                margin-bottom: 1.2rem;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .hero-buttons .primary-btn,
+            .hero-buttons .secondary-btn {
+                flex: 1 1 250px;
+                padding: 0.9rem;
+            }
+
+            .search-box {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .search-button,
+            .search-reset-btn,
+            .show-all-btn {
+                grid-column: span 2;
+            }
+
+            .back-to-top {
+                left: 1rem;
+                bottom: 1rem;
+                width: 45px;
+                height: 45px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+            }
+
+            .cta-button {
+                padding: 0.5rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .modal-close {
+                top: 0.5rem;
+                left: 0.5rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1.3rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .about-content h3::after {
+                right: 50%;
+                transform: translateX(50%);
+            }
+
+            .mission-vision {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .about-image {
+                height: 350px;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .reasons-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+        }
+
+        /* الهواتف الكبيرة (576px - 767px) */
+        @media (max-width: 767px) {
+            .hero {
+                min-height: 600px;
+                padding: 0 3%;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .hero-buttons .primary-btn,
+            .hero-buttons .secondary-btn {
+                flex: 1 1 auto;
+                width: 100%;
+                padding: 0.8rem;
+            }
+
+            .search-container {
+                padding: 1.2rem;
+                margin-top: 1.5rem;
+            }
+
+            .search-box {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .search-group label {
+                font-size: 0.9rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .search-group select,
+            .search-group input {
+                padding: 0.7rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .search-button,
+            .search-reset-btn,
+            .show-all-btn {
+                grid-column: auto;
+                padding: 0.8rem;
+                font-size: 1rem;
+                min-height: 45px;
+            }
+
+            .section-header {
+                margin-bottom: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .section-header p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .featured-properties,
+            .services-section,
+            .contact-section,
+            .about-section {
+                padding: 3rem 4%;
+            }
+
+            .properties-grid {
+                gap: 1.5rem;
+            }
+
+            .property-card {
+                border-radius: 10px;
+            }
+
+            .property-media {
+                height: 200px;
+            }
+
+            .property-info {
+                padding: 1rem;
+            }
+
+            .property-price {
+                font-size: 1.3rem;
+            }
+
+            .property-title {
+                font-size: 1.1rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .service-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+
+            .contact-icon {
+                margin-left: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-links {
+                margin-top: 1.5rem;
+            }
+
+            .footer-links ul li a:hover {
+                transform: translateX(-3px);
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .modal-dialog {
+                width: 95%;
+                padding: 1rem;
+                margin: 1rem;
+            }
+
+            .modal-thumbnail {
+                width: 70px;
+                height: 50px;
+            }
+
+            .modal-title {
+                font-size: 1.2rem;
+            }
+
+            .modal-price {
+                font-size: 1.3rem;
+            }
+
+            .modal-features {
+                gap: 0.5rem;
+            }
+
+            .modal-feature {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.8rem;
+            }
+
+            .modal-description {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .modal-whatsapp-btn {
+                padding: 0.8rem;
+                font-size: 1rem;
+            }
+
+            .modal-close {
+                top: 0.5rem;
+                left: 0.5rem;
+                width: 36px;
+                height: 36px;
+                font-size: 1.2rem;
+                background: #ff4444;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-content h3 {
+                font-size: 1.6rem;
+            }
+
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+
+            .reasons-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .reason-item {
+                padding: 1rem;
+            }
+
+            .about-image {
+                height: 280px;
+            }
+
+            .about-stats {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .about-stat {
+                flex: 0 0 45%;
+            }
+        }
+
+        /* الهواتف المتوسطة (375px - 575px) */
+        @media (max-width: 575px) {
+            .hero {
+                min-height: 550px;
+                padding: 0 2%;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .hero-buttons .primary-btn,
+            .hero-buttons .secondary-btn {
+                font-size: 0.9rem;
+                padding: 0.7rem;
+            }
+
+            header {
+                padding: 0.8rem 3%;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .cta-button {
+                display: none;
+            }
+
+            .mobile-contact-btn {
+                display: block;
+                background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+                color: var(--primary);
+                padding: 0.8rem 1.5rem;
+                border-radius: 30px;
+                font-weight: 700;
+                text-decoration: none;
+                transition: var(--transition);
+                text-align: center;
+                margin-top: 1rem;
+                box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+                font-size: 0.9rem;
+            }
+
+            .mobile-contact-btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            }
+
+            .search-container {
+                padding: 1rem;
+            }
+
+            .properties-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .property-media {
+                height: 180px;
+            }
+
+            .property-features {
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+
+            .feature {
+                flex: 0 0 45%;
+                margin-bottom: 0.5rem;
+            }
+
+            .search-message {
+                flex-direction: column !important;
+                text-align: center;
+                padding: 0.6rem !important;
+                font-size: 0.85rem;
+                gap: 0.3rem !important;
+                margin-top: 0.8rem !important;
+            }
+
+            .search-message i {
+                font-size: 1.1rem;
+            }
+
+            .reset-message {
+                flex-direction: column;
+                text-align: center;
+                padding: 0.6rem;
+                font-size: 0.85rem;
+                gap: 0.3rem;
+                margin-top: 0.8rem;
+            }
+
+            .whatsapp-btn-card {
+                padding: 0.6rem;
+                font-size: 0.85rem;
+            }
+
+            .whatsapp-btn-card i {
+                font-size: 1rem;
+            }
+
+            .details-btn {
+                padding: 0.7rem;
+                font-size: 0.9rem;
+            }
+
+            .about-content h3 {
+                font-size: 1.4rem;
+            }
+
+            .about-content p {
+                font-size: 0.95rem;
+            }
+
+            .mission-box,
+            .vision-box {
+                padding: 1rem;
+            }
+
+            .about-image {
+                height: 250px;
+            }
+
+            .about-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .about-stat {
+                flex: 0 0 100%;
+            }
+        }
+
+        /* الهواتف الصغيرة (أقل من 374px) */
+        @media (max-width: 374px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .property-price {
+                font-size: 1.2rem;
+            }
+
+            .property-title {
+                font-size: 1rem;
+            }
+
+            .feature {
+                flex: 0 0 100%;
+            }
+
+            .section-header h2 {
+                font-size: 1.6rem;
+            }
+
+            .section-header p {
+                font-size: 0.9rem;
+            }
+
+            .about-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .reason-item {
+                padding: 0.8rem;
+            }
+
+            .about-image {
+                height: 220px;
+            }
+
+            .modal-gallery {
+                height: 220px;
+            }
+
+            .modal-thumbnail {
+                width: 55px;
+                height: 40px;
+            }
+
+            .gallery-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* تحسينات للأجهزة ذات الشاشات العريضة (أفقية) */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero {
+                min-height: 700px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-buttons {
+                margin-bottom: 1rem;
+            }
+
+            .search-container {
+                margin-top: 1rem;
+                padding: 1rem;
+            }
+
+            .modal-dialog {
+                max-height: 85vh;
+            }
+
+            .about-section {
+                padding: 2rem 4%;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+        }
+
+        /* تحسينات للأجهزة مع Notch (iPhone X وما فوق) */
+        @supports (padding: max(0px)) {
+
+            .hero,
+            .featured-properties,
+            .services-section,
+            .contact-section,
+            .about-section,
+            footer {
+                padding-left: max(5%, env(safe-area-inset-left));
+                padding-right: max(5%, env(safe-area-inset-right));
+            }
+
+            header {
+                padding-left: max(5%, env(safe-area-inset-left));
+                padding-right: max(5%, env(safe-area-inset-right));
+            }
+
+            .hero {
+                padding-top: env(safe-area-inset-top);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader"></div>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container">
+            <div class="logo">شركة الصفا</div>
+            <button class="menu-toggle" aria-label="قائمة التنقل">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#properties">العقارات</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#about">عن الشركة</a></li>
+                    <li><a href="#contact">طلب استشارة</a></li>
+                    <!-- زر تواصل معنا للهاتف -->
+                    <li class="contact-menu-item">
+                        <a href="#contact" class="mobile-contact-btn">تواصل معنا</a>
+                    </li>
+                </ul>
+            </nav>
+            <a href="#contact" class="cta-button">تواصل معنا</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>اكتشف عالم العقارات الفاخرة</h1>
+            <p>نساعدك في العثور على العقار المثالي الذي يلبي جميع تطلعاتك وأحلامك</p>
+            <div class="hero-buttons">
+                <a href="#properties" class="primary-btn">تصفح العقارات</a>
+                <a href="#contact" class="secondary-btn">تواصل معنا</a>
+            </div>
+
+            <div class="search-container">
+                <form id="searchForm" class="search-box">
+                    <div class="search-group">
+                        <label for="location">المكان</label>
+                        <select id="location">
+                            <option value="">اختر المدينة</option>
+                            <option value="حدائق الاهرام">حدائق الاهرام</option>
+                            <option value="حدائق اكتوبر">حدائق اكتوبر</option>
+                            <option value="القاهرة">القاهرة</option>
+                            <option value="الإسكندرية">الإسكندرية</option>
+                        </select>
+                    </div>
+                    <div class="search-group">
+                        <label for="type">نوع العقار</label>
+                        <select id="type">
+                            <option value="">اختر النوع</option>
+                            <option value="شقة">شقة</option>
+                            <option value="فيلا">فيلا</option>
+                            <option value="أرض">أرض</option>
+                            <option value="تجاري">تجاري</option>
+                        </select>
+                    </div>
+                    <div class="search-group">
+                        <label for="price">نطاق السعر</label>
+                        <select id="price">
+                            <option value="">اختر السعر</option>
+                            <option value="1-2">1 - 2 مليون</option>
+                            <option value="2-3">2 - 3 مليون</option>
+                            <option value="3-5">3 - 5 مليون</option>
+                            <option value="5-7">5 - 7 مليون</option>
+                            <option value="7-10">7 - 10 مليون</option>
+                            <option value="10+">أكثر من 10 مليون</option>
+                        </select>
+                    </div>
+                    <div class="search-group">
+                        <label for="condition">حالة العقار</label>
+                        <select id="condition">
+                            <option value="">اختر الحالة</option>
+                            <option value="طوب احمر">طوب أحمر</option>
+                            <option value="نص تشطيب">نص تشطيب</option>
+                            <option value="متشطب">متشطب</option>
+                        </select>
+                    </div>
+                    <button class="search-button" type="submit">
+                        <i class="fas fa-search"></i>
+                        بحث متقدم
+                    </button>
+                    <button class="search-reset-btn" type="button" id="resetSearchBtn">
+                        <i class="fas fa-redo"></i>
+                        إعادة تعيين
+                    </button>
+                    <!-- الزر الجديد المضافة -->
+                    <button class="show-all-btn" type="button" id="showAllBtn">
+                        <i class="fas fa-eye"></i>
+                        عرض كل العقارات
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section class="featured-properties" id="properties">
+        <div class="section-header">
+            <h2>عقارات مميزة</h2>
+            <p>اكتشف مجموعة مختارة من أرقى العقارات في جمهورية مصر</p>
+        </div>
+
+        <div class="properties-grid">
+            <!-- Property 1 -->
+            <div class="property-card" data-id="1">
+                <div class="property-badge">عرض خاص</div>
+                <div class="property-media">
+                    <img src="images/41z.jpg" alt="شقة أرضي مميزة بحديقة خاصة" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">1,187,500 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة أرضي مميزة بحديقة خاصة</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الأهرام-منطقة (ع) </p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>2 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>1 حمام</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>95م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 2 -->
+            <div class="property-card" data-id="2">
+                <div class="property-badge">جديد</div>
+                <div class="property-media">
+                    <img src="images/41z.jpg" alt=" شقة فاخرة أرضي بحديقة كبيرة" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">2,700,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة فاخرة أرضي بحديقة كبيرة</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الأهرام-منطقة (ع)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>3 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>200 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 3 -->
+            <div class="property-card" data-id="3">
+                <div class="property-media">
+                    <img src="images/31s/s1.jpeg" alt="شقة فاخر" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">2,850,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة فاخر بحدائق الاهرام</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة (س) </p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>170 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 4 -->
+            <div class="property-card" data-id="4">
+                <div class="property-media">
+                    <img src="images/A.jpeg" alt="شقة فاخر" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">1,755,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة طوب احمر </h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة (أ) </p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>135 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 5 -->
+            <div class="property-card" data-id="5">
+                <div class="property-media">
+                    <img src="images/alsaf.jpg" alt="شقة " loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">1,155,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة مناسبة لسكن هادي</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الأهرام-منطقة (ع)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>2 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>حمام </span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>105 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 6 -->
+            <div class="property-card" data-id="6">
+                <div class="property-badge">جديد</div>
+                <div class="property-media">
+                    <img src="images/41z.jpg" alt="فيلا عائلية" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">2,275,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة عائلية بمساحة ممتازة</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الأهرام-منطقة (ع)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>3 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>175 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 7 -->
+            <div class="property-card" data-id="7">
+                <div class="property-badge">جديد</div>
+                <div class="property-media">
+                    <img src="images/100m/7.jpeg" alt="شقة الترا سوبرلوكس" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">1,600,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة الترا سوبرلوكس</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الأهرام-منطقة (ع)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>2 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>حمام</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>100 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 8 -->
+            <div class="property-card" data-id="8">
+                <div class="property-badge">جديد</div>
+                <div class="property-media">
+                    <img src="images/95m/1.jpeg" alt="شقة الترا سوبرلوكس" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">1,600,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة الترا سوبرلوكس</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الأهرام-منطقة (ع)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>2 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>حمام</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>95 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 9 -->
+            <div class="property-card" data-id="9">
+                <div class="property-badge">جديد</div>
+                <div class="property-media">
+                    <img src="images/41z.jpg" alt="شقة واسعة وسعرها مميز" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">2,145,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة واسعة وسعرها مميز</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الأهرام – حرف (ع)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>3 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>165 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 10 -->
+            <div class="property-card" data-id="10">
+                <div class="property-badge">جديد</div>
+                <div class="property-media">
+                    <img src="images/72A.jpg" alt="شقة فاخر بحدائق الاهرام" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">1,755,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة فاخر بحدائق الاهرام</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الأهرام – حرف (ع)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>135 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 11 -->
+            <div class="property-card" data-id="11">
+                <div class="property-badge">جديد</div>
+                <div class="property-media">
+                    <img src="images/72A.jpg" alt="شقة فاخر بحدائق الاهرام" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">1,820,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة فاخر بحدائق الاهرام</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الأهرام – حرف (ع) </p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>140 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 12 -->
+            <div class="property-card" data-id="12">
+                <div class="property-media">
+                    <img src="images/72A.jpg" alt="شقة فاخر بحدائق الاهرام" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">2,340,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة فاخر بحدائق الاهرام</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الأهرام – حرف (ع)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>180 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 13 -->
+            <div class="property-card" data-id="13">
+                <div class="property-media">
+                    <img src="images/72A.jpg" alt="شقة فاخر بحدائق الاهرام" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">2,080,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة فاخر بحدائق الاهرام</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الأهرام – حرف (ع)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>160 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 14 -->
+            <div class="property-card" data-id="14">
+                <div class="property-media">
+                    <img src="images/9m.jpg" alt="شقة فاخر بحدائق الاهرام" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">2,800,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة فاخر بحدائق الاهرام</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة (هـ)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>3 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>200 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 15 -->
+            <div class="property-card" data-id="15">
+                <div class="property-media">
+                    <img src="images/alsaf.jpg" alt="شقة فاخر بحدائق الاهرام" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">2,100,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة فاخر بحدائق الاهرام</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة (هـ)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>150 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 16 -->
+            <div class="property-card" data-id="16">
+                <div class="property-media">
+                    <img src="images/alsaf.jpg" alt="شقة فاخر بحدائق الاهرام" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">2,380,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة فاخر بحدائق الاهرام</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة (هـ)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>170 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 17 -->
+            <div class="property-card" data-id="17">
+                <div class="property-media">
+                    <img src="images/alsaf.jpg" alt="شقة فاخر بحدائق الاهرام" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">1,750,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة فاخر بحدائق الاهرام</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة (هـ)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>140 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 18 -->
+            <div class="property-card" data-id="18">
+                <div class="property-media">
+                    <img src="images/alsaf.jpg" alt="شقة فاخر بحدائق الاهرام" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">1,562,500 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة فاخر بحدائق الاهرام</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة (هـ)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>125 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 19 -->
+            <div class="property-card" data-id="19">
+                <div class="property-media">
+                    <img src="images/9m2.jpeg" alt="شقة ڨيو أهرامات" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">3,330,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة ڨيو أهرامات</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة (م)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>3 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>185 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 20 -->
+            <div class="property-card" data-id="20">
+                <div class="property-media">
+                    <img src="images/9m2.jpeg" alt="شقة ڨيو أهرامات" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">3,510,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة ڨيو أهرامات</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة (م)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>3 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>195 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 21 -->
+            <div class="property-card" data-id="21">
+                <div class="property-media">
+                    <img src="images/J/1.jpeg" alt="شقة الترا سوبرلوكس" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">2,230,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة الترا سوبرلوكس</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة(ب)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>127 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 22 -->
+            <div class="property-card" data-id="22">
+                <div class="property-media">
+                    <img src="images/379H/1.jpeg" alt="شقة الترا سوبرلوكس" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">1,900,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة الترا سوبرلوكس</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة(ح)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>حمام</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>125 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 23 -->
+            <div class="property-card" data-id="23">
+                <div class="property-media">
+                    <img src="images/s/1.jpeg" alt="شقة فاخر بحدائق الاهرام" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">1,750,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة فاخر بحدائق الاهرام</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة (س)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>125 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 24 -->
+            <div class="property-card" data-id="24">
+                <div class="property-media">
+                    <img src="images/45/1..jpeg" alt="شقة الترا سوبرلوكس" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">2,850,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة الترا سوبرلوكس</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة(ط)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>160 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 25 -->
+            <div class="property-card" data-id="25">
+                <div class="property-media">
+                    <img src="images/162/11.jpeg" alt="شقة الترا سوبرلوكس" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">1,550,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة الترا سوبرلوكس</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة (ل)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>2 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>100 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 26 -->
+            <div class="property-card" data-id="26">
+                <div class="property-media">
+                    <img src="images/379H/1.jpeg" alt="شقة الترا سوبرلوكس" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">1,980,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة الترا سوبرلوكس</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة (ل)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>133 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 27 -->
+            <div class="property-card" data-id="27">
+                <div class="property-media">
+                    <img src="images/F20/1.jpeg" alt="شقة الترا سوبرلوكس" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">1,500,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة الترا سوبرلوكس</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة (ل)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>2 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>1 حمام</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>100 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 28 -->
+            <div class="property-card" data-id="28">
+                <div class="property-media">
+                    <img src="images/55/1.jpeg" alt="شقة الترا سوبرلوكس" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">1,630,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة الترا سوبرلوكس</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة(ك)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>2 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>100 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 29 -->
+            <div class="property-card" data-id="29">
+                <div class="property-media">
+                    <img src="images/81/1.jpeg" alt="شقة الترا سوبرلوكس" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">2,180,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة الترا سوبرلوكس</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة (ج)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>130 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 30 -->
+            <div class="property-card" data-id="30">
+                <div class="property-media">
+                    <img src="images/41zz.jpg" alt="فيلا عائلية كبيرة" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">7,200,000 <span>ج.م</span></div>
+                    <h3 class="property-title">فيلا عائلية كبيرة</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> الجيزة، حي الروضة</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>5 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>4 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>700 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="section-header">
+            <h2>خدماتنا</h2>
+            <p>نقدم مجموعة متكاملة من الخدمات العقارية لتلبية جميع احتياجاتك</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>بيع العقارات</h3>
+                <p>نساعدك في بيع عقارك بأفضل سعر وفي أسرع وقت ممكن مع ضمان أعلى معايير الجودة.</p>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-search-dollar"></i>
+                </div>
+                <h3>شراء العقارات</h3>
+                <p>نجد لك العقار المناسب الذي يتوافق مع ميزانيتك ومتطلباتك بكل دقة واحترافية.</p>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>الاستثمار العقاري</h3>
+                <p>نقدم لك استشارات استثمارية متخصصة لتحقيق أقصى عائد من استثماراتك العقارية.</p>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <h3>التقييم العقاري</h3>
+                <p>نقيم عقارك بدقة وفقاً لأحدث المعايير والسوق المحلي لضمان الحصول على السعر المناسب.</p>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>الإدارة العقارية</h3>
+                <p>ندير عقاراتك بالإيجار ونضمن لك الحصول على إيرادات منتظمة مع صيانة دورية.</p>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>الاستشارات القانونية</h3>
+                <p>نوفر لك استشارات قانونية متخصصة في جميع المعاملات العقارية لضمان سلامتك القانونية.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Company Section -->
+    <section class="about-section" id="about">
+        <div class="section-header">
+            <h2>عن شركة الصفا</h2>
+            <p>الريادة والتميز في عالم العقارات الفاخرة منذ أكثر من 15 عاماً</p>
+        </div>
+
+        <div class="about-container">
+            <div class="about-content">
+                <h3>رؤيتنا ورسالتنا</h3>
+                <p>شركة الصفا هي شركة رائدة في مجال التسويق العقاري بجمهورية مصر، تأسست عام 2010 بمجموعة من الخبراء
+                    والمتخصصين في المجال العقاري. نحن نؤمن بأن المنزل ليس مجرد مكان للسكن، بل هو حلم وحياة.</p>
+
+                <div class="mission-vision">
+                    <div class="mission-box">
+                        <h4><i class="fas fa-bullseye"></i> مهمتنا</h4>
+                        <p>توفير حلول عقارية مبتكرة تلبي تطلعات عملائنا وتحقق أقصى استفادة من استثماراتهم العقارية.</p>
+                    </div>
+
+                    <div class="vision-box">
+                        <h4><i class="fas fa-eye"></i> رؤيتنا</h4>
+                        <p>أن نكون الشركة الرائدة في مجال العقارات الفاخرة في مصر والشرق الأوسط.</p>
+                    </div>
+                </div>
+
+                <div class="why-choose-us">
+                    <h4>لماذا تختار شركة الصفا؟</h4>
+                    <div class="reasons-grid">
+                        <div class="reason-item">
+                            <i class="fas fa-award"></i>
+                            <h5>خبرة 15 عاماً</h5>
+                            <p>خبرة طويلة في السوق العقاري المصري</p>
+                        </div>
+
+                        <div class="reason-item">
+                            <i class="fas fa-users"></i>
+                            <h5>فريق متخصص</h5>
+                            <p>فريق من الخبراء والمستشارين العقاريين</p>
+                        </div>
+
+                        <div class="reason-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <h5>ضمان الجودة</h5>
+                            <p>نضمن جودة جميع العقارات المعروضة</p>
+                        </div>
+
+                        <div class="reason-item">
+                            <i class="fas fa-handshake"></i>
+                            <h5>شفافية تامة</h5>
+                            <p>معاملات واضحة وشروط متفق عليها</p>
+                        </div>
+
+                        <div class="reason-item">
+                            <i class="fas fa-headset"></i>
+                            <h5>دعم مستمر</h5>
+                            <p>دعم فني واستشاري قبل وبعد البيع</p>
+                        </div>
+
+                        <div class="reason-item">
+                            <i class="fas fa-star"></i>
+                            <h5>سمعة طيبة</h5>
+                            <p>سمعة ممتازة بين العملاء والشركاء</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-stats">
+                    <div class="about-stat">
+                        <span class="number">15+</span>
+                        <span class="text">سنة خبرة</span>
+                    </div>
+
+                    <div class="about-stat">
+                        <span class="number">500+</span>
+                        <span class="text">عميل راضٍ</span>
+                    </div>
+
+                    <div class="about-stat">
+                        <span class="number">1000+</span>
+                        <span class="text">عقار مباع</span>
+                    </div>
+
+                    <div class="about-stat">
+                        <span class="number">98%</span>
+                        <span class="text">رضا العملاء</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="section-header">
+            <h2>تواصل معنا</h2>
+            <p>لديك استفسار أو ترغب في الحصول على استشارة عقارية؟</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <p>فريقنا متاح دائماً لمساعدتك في العثور على العقار المثالي أو الإجابة على أي استفسارات لديك.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-text">
+                            <h4>العنوان</h4>
+                            <a href="https://maps.google.com/?q=145 ص البوابة الثالثة الجديدة (حورس) - حدائق الاهرام"
+                                target="_blank" rel="noopener noreferrer">
+                                145 ص البوابة الثالثة الجديدة (حورس) - حدائق الاهرام
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-text">
+                            <h4>الهاتف</h4>
+                            <a href="tel:+201020520511">01020520511</a> -
+                            <a href="tel:+201020520511">01090516145</a> -
+                            <a href="tel:+201090516145">01144144701</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-text">
+                            <h4>البريد الإلكتروني</h4>
+                            <a href="mailto:info@alhadba-group.com">info@alhadba-group.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div class="contact-text">
+                            <h4>ساعات العمل</h4>
+                            <p>السبت : الخميس : 9 صباحاً - 5 مساءً<br>الجمعة : 2 ظهراً - 5 عصراً</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://twitter.com/شركتك" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://instagram.com/شركتك" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/201090516145" target="_blank" rel="noopener noreferrer"
+                        aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/17ftsN15z4/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo"><span>شركة </span> الصفا </div>
+                <p>شركة رائدة في مجال العقارات الفاخرة بجمهورية مصر، نقدم حلولاً عقارية متكاملة تلبي أعلى تطلعات
+                    عملائنا.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/share/17ftsN15z4/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com/شركتك" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/201090516145" target="_blank" rel="noopener noreferrer"
+                        aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://twitter.com/شركتك" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#properties">عروض العقارات</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#about">عن الشركة</a></li>
+                    <li><a href="#contact">تواصل معنا</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>خدماتنا</h4>
+                <ul>
+                    <li><a href="#services">بيع العقارات</a></li>
+                    <li><a href="#services">شراء العقارات</a></li>
+                    <li><a href="#services">التقييم العقاري</a></li>
+                    <li><a href="#services">الإدارة العقارية</a></li>
+                    <li><a href="#services">الاستثمار العقاري</a></li>
+                    <li><a href="#services">الاستشارات القانونية</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 شركة الصفا جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- Property Details Modal -->
+    <div class="modal" id="propertyModal" aria-hidden="true">
+        <div class="modal-backdrop" data-close></div>
+        <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <!-- زر الإغلاق X في الزاوية العليا اليسرى -->
+            <button class="modal-close" aria-label="إغلاق" data-close>
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="modal-gallery">
+                <img class="modal-main-image" id="modalMainImage" alt="صورة العقار" loading="lazy" />
+                <div class="gallery-controls">
+                    <button class="gallery-btn prev-btn" aria-label="الصورة السابقة"><i
+                            class="fas fa-chevron-right"></i></button>
+                    <button class="gallery-btn next-btn" aria-label="الصورة التالية"><i
+                            class="fas fa-chevron-left"></i></button>
+                </div>
+                <div class="gallery-indicators" id="galleryIndicators"></div>
+            </div>
+
+            <div class="modal-thumbnails" id="modalThumbnails"></div>
+
+            <h3 class="modal-title" id="modalTitle"></h3>
+            <div class="modal-location" id="modalLocation"><i class="fas fa-map-marker-alt"></i><span></span></div>
+            <div class="modal-price" id="modalPrice"></div>
+            <div class="modal-features" id="modalFeatures"></div>
+            <div class="modal-description" id="modalDescription"></div>
+
+            <!-- زر التواصل عبر واتساب -->
+            <a href="https://wa.me/201090516145" class="modal-whatsapp-btn" id="modalWhatsappBtn" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i>
+                تواصل عبر واتساب
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        // بيانات العقارات مع معارض الصور
+        const propertiesData = {
+            1: {
+                title: "شقة أرضي مميزة بحديقة خاصة 🌿",
+                location: "حدائق الأهرام-منطقة(ع)",
+                price: "1,187,500 ج.م",
+                features: ["2 غرف", "1 حمام", "95 م²", "حديقة"],
+                description: "شقة أرضي مميزة بحديقة خاصة 🌿📐 المساحة: 95 متر + حديقة🛏 غرفتين – 🚿 حمام🧱 طوب أحمر✨ واجهة + مدخل خاص + جراج💰📍 حدائق الأهرام – حرف(ع)",
+                images: ["images/41z.jpg"],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "1-2",
+                    condition: "طوب احمر"
+                }
+            },
+            2: {
+                title: "شقة فاخرة أرضي بحديقة كبيرة",
+                location: "حدائق الأهرام-منطقة (ع)",
+                price: "2,700,000 ج.م",
+                features: ["3 غرف", "3 حمامات", "200 م²", "مطبخ", "شرفة"],
+                description: "🏡 أرضي بحديقة كبيرة – حدائق الأهرام (ع)مساحة نادرة ومناسبة لعيلة كبيرة 👌 200 متر + حديقة🛏 3 غرف – 🚿 3 حمام🧱 طوب أحمر✨ واجهة📍 حدائق الأهرام – حرف(ع)",
+                images: ["images/41z.jpg"],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "2-3",
+                    condition: "طوب احمر"
+                }
+            },
+            3: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (س)",
+                price: "2,850,000 ج.م",
+                features: ["3 غرف", "2 حمامات", "170 م²", "وجهه"],
+                description: "واجهة سوبر لوكس – دور ثاني📐 170 متر🛏 3 غرف –2 حمام تشطيب سوبر لوكس",
+                images: [
+                    "images/31s/s1.jpeg",
+                    "images/31s/s2.jpeg",
+                    "images/31s/s3.jpeg",
+                    "images/31s/s4.jpeg",
+                    "images/31s/s5.jpeg",
+                    "images/31s/s6.jpeg",
+                    "images/31s/s7.jpeg",
+                    "images/31s/s8.jpeg",
+                    "images/31s/s9.jpeg",
+                    "images/31s/s10.jpeg",
+                    "images/31s/s11.jpeg",
+                    "images/31s/s12.jpeg",
+                ],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "2-3",
+                    condition: "متشطب"
+                }
+            },
+            4: {
+                title: "شقة طوب احمر",
+                location: "حدائق الاهرام - منطقة (أ)",
+                price: "1,755,000 ج.م",
+                features: ["135 م²", "موقع مميز", "وجهه", "قريبة من الخدمات"],
+                description: "حدائق الأهرام – حرف (أ)🏢 واجهة – دور ثاني 135 متر🛏 3 غرف – 2 حمام🧱 طوب أحمر",
+                images: ["images/A.jpeg"],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "1-2",
+                    condition: "طوب احمر"
+                }
+            },
+            5: {
+                title: "شقة مناسبة لسكن هادي",
+                location: "حدائق الأهرام-منطقة (ع)",
+                price: "1,155,000 ج.م",
+                features: ["2 غرف", "حمام", "105 م²", "متاح جميع الادوار", "خلفي"],
+                description: "مناسبة لسكن هادي📐 105 متر🛏 غرفتين – حمام🧱 طوب أحمر",
+                images: ["images/alsaf.jpg"],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "1-2",
+                    condition: "طوب احمر"
+                }
+            },
+            6: {
+                title: "شقة عائلية بمساحة ممتازة",
+                location: "حدائق الأهرام-منطقة (ع)",
+                price: "2,275,000 ج.م",
+                features: ["3 غرف", "3 حمامات", "175 م²", "متاح دور اول وتالت ورابع", "اسانسير", "وجهه"],
+                description: "دور ثالث واجهة – حدائق الأهرام (ع)شقة عائلية بمساحة ممتازة📐 175 متر🛏 3 غرف – 3 حمام🧱 طوب أحمر🛗 أسانسير",
+                images: ["images/41z.jpg"],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "2-3",
+                    condition: "طوب احمر"
+                }
+            },
+            7: {
+                title: "شقة الترا سوبرلوكس",
+                location: "حدائق الاهرام - منطقة (ع)",
+                price: "1,600,000 ج.م",
+                features: ["2 غرف", "حمام", "100 م²", "جانبي"],
+                description: "تشطيب راقي وموقع ممتاز 📐 100 متر 🛏 غرفتين – 🚿 حمام ✨ واجهة – سوبر لوكس🛗 أسانسير📍 حدائق الأهرام – حرف (ع)",
+                images: [
+                    "images/100m/7.jpeg",
+                    "images/100m/6.jpeg",
+                    "images/100m/4.jpeg",
+                    "images/100m/3.jpeg",
+                    "images/100m/8.jpeg",
+                    "images/100m/2.jpeg",
+                    "images/100m/1.jpeg",
+                    "images/100m/5.jpeg",
+                ],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "1-2",
+                    condition: "متشطب"
+                }
+            },
+            8: {
+                title: "شقة الترا سوبرلوكس",
+                location: "حدائق الاهرام - منطقة (ع)",
+                price: "1,600,000 ج.م",
+                features: ["2 غرف", "حمام", "95 م²", "جانبي"],
+                description: "سوبر لوكس – دور اول 95 متر🛏 2 غرف - حمام تشطيب سوبر لوكس",
+                images: [
+                    "images/95m/1.jpeg",
+                    "images/95m/2.jpeg",
+                    "images/95m/3.jpeg",
+                    "images/95m/4.jpeg",
+                    "images/95m/5.jpeg",
+                    "images/95m/6.jpeg",
+                    "images/95m/7.jpeg",
+                    "images/95m/8.jpeg",
+                    "images/95m/9.jpeg",
+                    "images/95m/10.jpeg",
+                ],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "1-2",
+                    condition: "متشطب"
+                }
+            },
+            9: {
+                title: "شقة واسعة وسعرها مميز",
+                location: "حدائق الاهرام - منطقة (ع)",
+                price: "2,145,000 ج.م",
+                features: ["3 غرف", "3 حمامات", "165 م²", "وجهه"],
+                description: "واجهة سوبر لوكس – دور ثاني📐 170 متر🛏 3 غرف –2 حمام تشطيب سوبر لوكس",
+                images: ["images/41z.jpg", "images/alsaf.jpg"],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "2-3",
+                    condition: "متشطب"
+                }
+            },
+            10: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (ع)",
+                price: "1,755,000 ج.م",
+                features: ["3 غرف", "2 حمامات", "135 م²", "وجهه", "متاح جميع الادوار"],
+                description: "واجهة سوبر لوكس – 📐 135 متر🛏 3 غرف –2 حمام",
+                images: ["images/72A.jpg"],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "1-2",
+                    condition: "متشطب"
+                }
+            },
+            11: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (ع)",
+                price: "1,820,000 ج.م",
+                features: ["3 غرف", "2 حمامات", "140 م²", "وجهه", "متاح جميع الادوار"],
+                description: "واجهة سوبر لوكس – 📐 140 متر🛏 3 غرف –2 حمام",
+                images: ["images/72A.jpg"],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "1-2",
+                    condition: "متشطب"
+                }
+            },
+            12: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (ع)",
+                price: "2,340,000 ج.م",
+                features: ["3 غرف", "2 حمامات", "180 م²", "وجهه", "متاح جميع الادوار"],
+                description: "واجهة طوب احمر – 📐 180 متر🛏 3 غرف –2 حمام",
+                images: ["images/72A.jpg"],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "2-3",
+                    condition: "طوب احمر"
+                }
+            },
+            13: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (ع)",
+                price: "2,080,000 ج.م",
+                features: ["3 غرف", "2 حمامات", "160 م²", "وجهه", "متاح جميع الادوار"],
+                description: "واجهة سوبر لوكس – متاح جميع الادوار 160 متر🛏 3 غرف –2 حمام",
+                images: ["images/72A.jpg"],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "2-3",
+                    condition: "متشطب"
+                }
+            },
+            14: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (هـ)",
+                price: "2,800,000 ج.م",
+                features: ["3 غرف", "3 حمامات", "200 م²", "وجهه", "متاح جميع الادوار", "خطوات للبوابه"],
+                description: "شقه واجهة خطوات للبوابة – حرف (هـ)موقع قوي جدًا 200 متر 3 غرف – 3 حمام طوب أحمر السعر : 2,800,000 جنيه📍 حدائق الأهرام – حرف (هـ)",
+                images: ["images/9m.jpg"],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "2-3",
+                    condition: "طوب احمر"
+                }
+            },
+            15: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (هـ)",
+                price: "2,100,000 ج.م",
+                features: ["3 غرف", "2 حمامات", "150 م²", "وجهه", "خطوات للبوابه", "متاح جميع الادوار"],
+                description: "واجهة خطوات للبوابة – حرف (هـ)تشطيب طوب احمر - 150 متر- 3 غرف – 2 حمام- السعر : 2,100,000 جنيه ---- متاح جميع الادوار - 📍 حدائق الأهرام – حرف (هـ)",
+                images: ["images/alsaf.jpg"],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "2-3",
+                    condition: "طوب احمر"
+                }
+            },
+            16: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (س)",
+                price: "2,380,000 ج.م",
+                features: ["3 غرف", "2 حمامات", "170 م²", "وجهه", "متاح جميع الادوار", "خطوات للبوابه"],
+                description: "واجهة - خطوات للبوابة – حرف (هـ)مساحة ممتازة وسعر قوي 170 متر -3 غرف – 2 حمام - طوب أحمر - متاح جميع الادوار - السعر : 2,380,000 جنيه📍 حدائق الأهرام – حرف (هـ)",
+                images: ["images/alsaf.jpg"],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "2-3",
+                    condition: "طوب احمر"
+                }
+            },
+            17: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (هـ)",
+                price: "1,750,000 ج.م",
+                features: ["3 غرف", "2 حمامات", "140 م²", "جانبي وخلفي", "متاح جميع الادوار"],
+                description: "🔹 حدائق الأهرام – حرف (هـ) (جانبي / خلفي – خطوات للبوابة) 140 متر- 3 غرف – 2 حمام - طوب أحمر- متاح جميع الادوار 💰 السعر : 1,750,000 جنيه",
+                images: ["images/alsaf.jpg"],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "1-2",
+                    condition: "طوب احمر"
+                }
+            },
+            18: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (هـ)",
+                price: "1,562,500 ج.م",
+                features: ["3 غرف", "2 حمامات", "125 م²", "جانبي وخلفي", "متاح جميع الادوار"],
+                description: "جانبي وخلفي - 125 متر - 3 غرف – 2 حمام- طوب أحمر - 💰 السعر : 1,562,500 جنيه",
+                images: ["images/alsaf.jpg"],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "1-2",
+                    condition: "طوب احمر"
+                }
+            },
+            19: {
+                title: "شقة فاخر بحدائق الاهرام ڨيو أهرامات",
+                location: "حدائق الاهرام - منطقة (م)",
+                price: "3,330,000 ج.م",
+                features: ["3 غرف", "3 حمامات", "185 م²", "وجهه", "ڨيو مباشر على الأهرامات", "متاح دور اول وتالت ورابع"],
+                description: "حدائق الأهرام حرف (م) (ڨيو أهرامات مباشر)- واجهة -– دور أول وتالت ورابع - 185 متر - 3 غرف – 3 حمام طوب أحمر ---💰 السعر : 3,330,000 جنيه",
+                images: [
+                    "images/9m2.jpeg",
+                    "images/9m3.jpeg",
+                    "images/9m.jpg",
+                ],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "3-5",
+                    condition: "طوب احمر"
+                }
+            },
+            20: {
+                title: "شقة فاخر بحدائق الاهرام ڨيو أهرامات",
+                location: "حدائق الاهرام - منطقة (م)",
+                price: "3,510,000 ج.م",
+                features: ["3 غرف", "3 حمامات", "195 م²", "وجهه", "ڨيو مباشر على الأهرامات", "دور اول"],
+                description: "واجهة - ڨيو أهرامات – دور أول - 195 متر - 3 غرف – 3 حمام - طوب أحمر - 💰السعر : 3,510,000 جنيه",
+                images: [
+                    "images/9m2.jpeg",
+                    "images/9m5.jpg",
+                    "images/9m.jpg",
+                ],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "3-5",
+                    condition: "طوب احمر"
+                }
+            },
+            21: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (ب)",
+                price: "2,230,000 ج.م",
+                features: ["3 غرف", "2 حمامات", "127 م²", "جانبي بحري", "دور ثاني"],
+                description: "للبيع بحدائق الاهرام البوابه الاولي منطقة ب 🚧خطواط من شارع الثروة والبوابة الاولي 💯الشارع الموازي لشارع الثروة المعدنية 💯موقع محترم جدا شارع 8 ب ⁉️127 متر تحميل ممتاز تعادل 140 متر 💯 جانبي بحري مفيش غرفة على منور تطل على شارع الثروة 💯مدفوع الاسانسير وعداد كهرباء 🎰دور ثاني 💎العمارة اشيك عقارات حدائق الاهرام 🏘️تشطيب الترا سوبر لوكس 🌇(مكونه من) (3غرف كبار جدا) 🌠- 2حمام🛁- مطبخ ورشبشن كبير 🏡",
+                images: [
+                    "images/J/1.jpeg",
+                    "images/J/2.jpeg",
+                    "images/J/3.jpeg",
+                    "images/J/4.jpeg",
+                    "images/J/5.jpeg",
+                ],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "2-3",
+                    condition: "متشطب"
+                }
+            },
+            22: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (ح)",
+                price: "1,900,000 ج.م",
+                features: ["3 غرف", "حمام", "125 م²", "جانبية", "دور تالت"],
+                description: "بحـدائــق_الاهــرام شقة ✌🏻 ١٢٥م متــر جانبـىة 🏠٣غرف + ريسبشن + ١حمام + مطبخ .. 😍الترا سوبر لوكس الدور 👈🏻 متاح (الثالث , الرابع قبل الاخير) 🔥سيراميك فرز اول , دهانات جوتن ، سباكه BR ، الكهربا ليد وبرافيل سمارت . المونتال PS زجاج دبل , رخام وعتب اسواني اسود خطـوة من شـارع الجيش ـ منطقة (ح) ـ مدرسة كونتننتال بالاس - بشارع سكني وهادي جدا وبجوار كل الخدمات 🔴السعر : مليون ٩٠٠ الف قابل للتفاوض ✔️",
+                images: [
+                    "images/379H/1.jpeg",
+                    "images/379H/2.jpeg",
+                    "images/379H/3.jpeg",
+                    "images/379H/4.jpeg",
+                    "images/379H/5.jpeg",
+                    "images/379H/6.jpeg",
+                    "images/379H/7.jpeg",
+                    "images/379H/8.jpeg",
+                    "images/379H/9.jpeg",
+                    "images/379H/10.jpeg",
+                    "images/379H/11.jpeg",
+                    "images/379H/12.jpeg",
+                    "images/379H/13.jpeg",
+                    "images/379H/14.jpeg",
+                    "images/379H/15.jpeg",
+                    "images/379H/16.jpeg",
+                    "images/379H/17.jpeg",
+                    "images/379H/18.jpeg",
+                ],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "1-2",
+                    condition: "متشطب"
+                }
+            },
+            23: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (س)",
+                price: "1,750,000 ج.م",
+                features: ["3 غرف", "2 حمام", "125 م²", "جانبية", "دور الاول"],
+                description: "📍 الموقع: حدائق الأهرام – منطقة (س) – شارع الخزان المساحة: 125 م² – تحميل قديم – الدور الاول العلوى-جانبيه 🏢 العمارة: حديثة – مأهولة – مزودة بأسانسير✅ تفاصيل الشقة:3 غرف نوم منهم غرفه ماستر بدرسينج رووم ريسبشن واسع2 حمام مطبخ أمريكان (ألوميتال)تشطيب سوبر لوكس – لا تحتاج لأي مصاريف⚡ عداد كهرباء خاص🔥 عداد غاز طبيعي🌐 إنترنت فايبر📍 موقع مميز قريب من:البوابة الثالثة والرابعةخير زمان مدرسة New Visioسوبر ماركت إكسيبشن📝 الشقة مدرجة في الرخصة وغير مخالفة📌 المعاينة متاحة طوال الاسبوع",
+                images: [
+                    "images/s/1.jpeg",
+                    "images/s/2.jpeg",
+                    "images/s/3.jpeg",
+                    "images/s/4.jpeg",
+                    "images/s/5.jpeg",
+                    "images/s/6.jpeg",
+                ],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "1-2",
+                    condition: "متشطب"
+                }
+            },
+            24: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (ط)",
+                price: "2,850,000 ج.م",
+                features: ["3 غرف", "حمام 2", "160 م²", "واجهه بحري", "دور تالت"],
+                description: "شقة الترا سوبرلوكس في موقع مميز",
+                images: [
+                    "images/45/1..jpeg",
+                    "images/45/1.jpeg",
+                    "images/45/2.jpeg",
+                    "images/45/3.jpeg",
+                    "images/45/4.jpeg",
+                    "images/45/5.jpeg",
+                    "images/45/6.jpeg",
+                    "images/45/7.jpeg",
+                    "images/45/8.jpeg",
+                    "images/45/9.jpeg",
+                    "images/45/10.jpeg",
+                    "images/45/11.jpeg",
+                    "images/45/12.jpeg",
+                    "images/45/13.jpeg",
+                    "images/45/14.jpeg",
+                    "images/45/15.jpeg",
+                    "images/45/16.jpeg",
+                    "images/45/17.jpeg",
+                    "images/45/18.jpeg",
+                    "images/45/19.jpeg",
+                    "images/45/20.jpeg",
+                    "images/45/21.jpeg",
+                    "images/45/22.jpeg",
+                    "images/45/23.jpeg",
+                    "images/45/24.jpeg",
+                ],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "2-3",
+                    condition: "متشطب"
+                }
+            },
+            25: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (ل)",
+                price: "1,550,000 ج.م",
+                features: ["3 غرف", "حمام 2", "100 م²", "جانبية", "دور خامس"],
+                description: "🔥 فرصة مش بتتكرر في حدائق الأهرام – منطقة (ل) 🔥💰 السعر: 1,550,000 جنيه فقط🏠 شقة 100 متر – تقسيمة عملية جدًا✅ غرفتين نوم✅ 2 حمام✅ ريسيبشن مريح وسهل الفرش✅ موقع مميز وهادئ✅ مناسبة سكن أو استثمار✅ سعر لقطة بالنسبة للمساحة والمنطقة📍 منطقة (ل)قريبة من الخدمات والمواصلات وسهلة التأجير وإعادة البيع 👌",
+                images: [
+                    "images/162/11.jpeg",
+                    "images/162/1.jpeg",
+                    "images/162/2.jpeg",
+                    "images/162/3.jpeg",
+                    "images/162/4.jpeg",
+                    "images/162/5.jpeg",
+                    "images/162/6.jpeg",
+                    "images/162/7.jpeg",
+                    "images/162/8.jpeg",
+                    "images/162/9.jpeg",
+                ],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "1-2",
+                    condition: "متشطب"
+                }
+            },
+            26: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (ل)",
+                price: "1,980,000 ج.م",
+                features: ["3 غرف", "حمام 2", "133 م²", "وجهه", "دور تاني"],
+                description: "للبيع - شقة 133 ببلكونة، بحدائق الاهرام- البوابة الرابعة- منطقة ل - شارع قصر التماثيل وخطوات لخير زمان وشارع العشرين الرئيسي وشارع الجيش بجوار كل الخدمات 🔴تشطيب سوبر لوكس اول سكن - الدور الاول علوي 🌟مكونة من ( 3 غرف - 2 حمام - ريسبشن - مطبخ )عمارة حديثة مباني 2025 - السعر شامل الاسانسير 🏡السعر ( مليون و980 الف )",
+                images: [
+                    "images/379H/1.jpeg",
+                    "images/379H/2.jpeg",
+                    "images/379H/3.jpeg",
+                    "images/379H/4.jpeg",
+                    "images/379H/5.jpeg",
+                    "images/379H/6.jpeg",
+                    "images/379H/7.jpeg",
+                    "images/379H/8.jpeg",
+                    "images/379H/9.jpeg",
+                    "images/379H/10.jpeg",
+                    "images/379H/11.jpeg",
+                    "images/379H/12.jpeg",
+                    "images/379H/13.jpeg",
+                    "images/379H/14.jpeg",
+                    "images/379H/15.jpeg",
+                    "images/379H/16.jpeg",
+                    "images/379H/17.jpeg",
+                    "images/379H/18.jpeg",
+                ],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "1-2",
+                    condition: "متشطب"
+                }
+            },
+            27: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (ل)",
+                price: "1,500,000 ج.م",
+                features: ["2 غرف", "حمام", "100 م²", "جانبية", "دور تاني"],
+                description: "شقه للبيع في حدائق الاهرام في موقع مميز جدا بمليون 500 الف بس يعني ببلاااااش💥منطقه ل 💥مساحة الشقه 100 متر تحميل قديم / دور تاني مميز 💥مكونه من :-🌸غرفتين - حمام - ريسبشن - مطبخ🌸السعر المطلوب مليون 500 الف",
+                images: [
+                    "images/F20/1.jpeg",
+                    "images/F20/2.jpeg",
+                    "images/F20/3.jpeg",
+                    "images/F20/4.jpeg",
+                    "images/F20/5.jpeg",
+                    "images/F20/6.jpeg",
+                    "images/F20/7.jpeg",
+                    "images/F20/8.jpeg",
+                    "images/F20/9.jpeg",
+                    "images/F20/10.jpeg",
+                    "images/F20/11.jpeg",
+                    "images/F20/12.jpeg",
+                    "images/F20/13.jpeg",
+                    "images/F20/14.jpeg",
+                    "images/F20/15.jpeg",
+                    "images/F20/16.jpeg",
+                    "images/F20/17.jpeg",
+                    "images/F20/18.jpeg",
+                    "images/F20/19.jpeg",
+                    "images/F20/20.jpeg",
+                ],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "1-2",
+                    condition: "متشطب"
+                }
+            },
+            28: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (ك)",
+                price: "1,630,000 ج.م",
+                features: ["2 غرف", "حمام 2", "100 م²", "جانبية", "دور تالت"],
+                description: "🔥للبيع شقه 100 م في حدائق📢 الاهرام (منطقه ك )عماره اول سكن تشطيب الترا سوبر لوكس دور ثالث 2غرف و2 حمام ومطبخ وريسبشن قطعتين السعر المطلوب مليون 630 قابل للتفاوض",
+                images: [
+                    "images/55/1.jpeg",
+                    "images/55/2.jpeg",
+                    "images/55/3.jpeg",
+                    "images/55/4.jpeg",
+                    "images/55/5.jpeg",
+                    "images/55/6.jpeg",
+                ],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "1-2",
+                    condition: "متشطب"
+                }
+            },
+            29: {
+                title: "شقة فاخر بحدائق الاهرام",
+                location: "حدائق الاهرام - منطقة (ج)",
+                price: "2,180,000 ج.م",
+                features: ["3 غرف", "2 حمام", "130 م²", "جانبية", "متاح دور تاني وتالت"],
+                description: "افضل لوكيشن في حدائق الاهرام وافضل واميز منطقه على الإطلاق منطقة جللبيع شقتين نفس النموذج فوق بعض مساحة الشقه 130 متر خلفيه شرقيه تحميل قديم موقع مميز ثاني شارع من البوابة الاولي والبوابة الثانية الجديدة وثالث عماره من شارع جاردينيا الرئيسي قريبه من المتحف المصري الكبير وخطوات لطريق الفيوم الدور الثاني والثالث كل شقه مكونة من 3 غرف كبار و 2 حمام ومطبخ كبيير وريسيبشن كبيير + مكان خاص بالسفرة أمام المطبخ تشطيب الترا سوبر لوكس اول سكن عداد كهرباء وعداد مياه خاص واسانسير شغال ومدفوع عمارة حديثه حجر فرعوني مباني 2025يوجد فيديو توضيحي للشقه من الداخل السعر 2,180,000",
+                images: [
+                    "images/81/1.jpeg",
+                    "images/81/2.jpeg",
+                    "images/81/3.jpeg",
+                    "images/81/4.jpeg",
+                    "images/81/5.jpeg",
+                    "images/81/6.jpeg",
+                    "images/81/7.jpeg",
+                    "images/81/8.jpeg",
+                    "images/81/9.jpeg",
+                    "images/81/10.jpeg",
+                    "images/81/11.jpeg",
+                    "images/81/12.jpeg",
+                    "images/81/13.jpeg",
+                    "images/81/14.jpeg",
+                ],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "2-3",
+                    condition: "متشطب"
+                }
+            },
+            30: {
+                title: "فيلا عائلية كبيرة",
+                location: "الجيزة، حي الروضة",
+                price: "7,200,000 ج.م",
+                features: ["5 غرف", "4 حمامات", "700 م²", "حديقة كبيرة", "مسبح", "جراج لثلاث سيارات"],
+                description: "فيلا عائلية فاخرة في أحد أفضل أحياء الجيزة، مساحة 700 متر مع حديقة كبيرة ومسبح خاص وجراج يتسع لثلاث سيارات. الفيلا مكونة من 5 غرف نوم رئيسية كل منها بحمام خاص، صالة استقبال فسيحة، مطبخ أمريكي مجهز بأحدث الأجهزة، وغرفة معيشة. التشطيب سوبر لوكس بمواد عالية الجودة.",
+                images: [
+                    "images/41zz.jpg",
+                ],
+                searchData: {
+                    type: "فيلا",
+                    location: "القاهرة",
+                    priceRange: "7-10",
+                    condition: "متشطب"
+                }
+            }
+        };
+
+        // إخفاء Loader عند تحميل الصفحة
+        window.addEventListener('load', function () {
+            document.getElementById('loader').style.display = 'none';
+
+            // إظهار زر تواصل معنا في القائمة للهاتف
+            if (window.innerWidth <= 991) {
+                const contactMenuItem = document.querySelector('.contact-menu-item');
+                if (contactMenuItem) {
+                    contactMenuItem.style.display = 'block';
+                }
+            }
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            menuToggle.innerHTML = nav.classList.contains('active') ?
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (!targetElement) return;
+
+                const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - (window.innerWidth > 991 ? 80 : 20);
+                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+            });
+        });
+
+        // وظيفة البحث المتقدم - محسنة بدقة
+        function performSearch() {
+            const location = document.getElementById('location').value;
+            const type = document.getElementById('type').value;
+            const price = document.getElementById('price').value;
+            const condition = document.getElementById('condition').value;
+
+            // التحقق إذا لم يتم اختيار أي معايير بحث
+            if (!location && !type && !price && !condition) {
+                showSearchMessage('يرجى اختيار معيار بحث واحد على الأقل', 'error');
+                return;
+            }
+
+            // إخفاء جميع العقارات أولاً
+            const allProperties = document.querySelectorAll('.property-card');
+
+            // العدادات
+            let visibleCount = 0;
+
+            // تصفية العقارات بناءً على المعايير المختارة فقط
+            allProperties.forEach(property => {
+                const propertyId = property.getAttribute('data-id');
+                const propertyData = propertiesData[propertyId];
+
+                if (propertyData) {
+                    let matches = true;
+
+                    // فلترة حسب الموقع (إذا تم اختياره)
+                    if (location) {
+                        const propLocation = propertyData.searchData?.location || propertyData.location;
+                        if (!propLocation.includes(location)) {
+                            matches = false;
+                        }
+                    }
+
+                    // فلترة حسب النوع (إذا تم اختياره)
+                    if (type) {
+                        const propType = propertyData.searchData?.type || '';
+                        if (propType !== type) {
+                            matches = false;
+                        }
+                    }
+
+                    // فلترة حسب السعر (إذا تم اختياره)
+                    if (price) {
+                        const priceRange = propertyData.searchData?.priceRange || '';
+
+                        // تحويل السعر من النص إلى رقم
+                        const priceText = propertyData.price.replace(/[^\d.]/g, '');
+                        const propertyPrice = parseFloat(priceText);
+
+                        // تحديد نطاق السعر بناءً على اختيار المستخدم
+                        if (price === '1-2' && (propertyPrice < 1000000 || propertyPrice > 2000000)) {
+                            matches = false;
+                        } else if (price === '2-3' && (propertyPrice < 2000000 || propertyPrice > 3000000)) {
+                            matches = false;
+                        } else if (price === '3-5' && (propertyPrice < 3000000 || propertyPrice > 5000000)) {
+                            matches = false;
+                        } else if (price === '5-7' && (propertyPrice < 5000000 || propertyPrice > 7000000)) {
+                            matches = false;
+                        } else if (price === '7-10' && (propertyPrice < 7000000 || propertyPrice > 10000000)) {
+                            matches = false;
+                        } else if (price === '10+' && propertyPrice < 10000000) {
+                            matches = false;
+                        }
+                    }
+
+                    // فلترة حسب حالة العقار (إذا تم اختياره)
+                    if (condition) {
+                        const propCondition = propertyData.searchData?.condition || '';
+                        if (propCondition !== condition) {
+                            matches = false;
+                        }
+                    }
+
+                    if (matches) {
+                        property.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        property.style.display = 'none';
+                    }
+                }
+            });
+
+            // عرض رسالة النتائج
+            showSearchResults(visibleCount);
+        }
+
+        // وظيفة إعادة تعيين البحث
+        function resetSearch() {
+            // إعادة تعيين حقول النموذج
+            document.getElementById('location').value = '';
+            document.getElementById('type').value = '';
+            document.getElementById('price').value = '';
+            document.getElementById('condition').value = '';
+
+            // إظهار جميع العقارات
+            const allProperties = document.querySelectorAll('.property-card');
+            allProperties.forEach(property => {
+                property.style.display = 'block';
+            });
+
+            // إخفاء رسالة البحث إن وجدت
+            const messageEl = document.querySelector('.search-message');
+            if (messageEl) {
+                messageEl.style.display = 'none';
+            }
+
+            // عرض رسالة تأكيد
+            showResetMessage();
+        }
+
+        // وظيفة عرض كل العقارات
+        function showAllProperties() {
+            // إظهار جميع العقارات
+            const allProperties = document.querySelectorAll('.property-card');
+            allProperties.forEach(property => {
+                property.style.display = 'block';
+            });
+
+            // إخفاء رسالة البحث إن وجدت
+            const messageEl = document.querySelector('.search-message');
+            if (messageEl) {
+                messageEl.style.display = 'none';
+            }
+
+            // عرض رسالة نجاح
+            showSearchMessage('تم عرض جميع العقارات', 'success');
+
+            // التمرير إلى قسم العقارات
+            setTimeout(() => {
+                document.getElementById('properties').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 300);
+        }
+
+        // عرض رسالة البحث
+        function showSearchMessage(message, type) {
+            const searchContainer = document.querySelector('.search-container');
+
+            // إزالة رسالة إعادة التعيين إن وجدت
+            const resetMessage = searchContainer.querySelector('.reset-message');
+            if (resetMessage) resetMessage.remove();
+
+            let messageEl = searchContainer.querySelector('.search-message');
+
+            if (!messageEl) {
+                messageEl = document.createElement('div');
+                messageEl.className = 'search-message';
+                searchContainer.appendChild(messageEl);
+            }
+
+            messageEl.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'}"></i> ${message}`;
+            messageEl.className = `search-message ${type}`;
+            messageEl.style.display = 'flex';
+
+            // إخفاء الرسالة بعد 5 ثواني
+            setTimeout(() => {
+                if (messageEl) messageEl.style.display = 'none';
+            }, 5000);
+        }
+
+        // عرض نتائج البحث
+        function showSearchResults(visibleCount) {
+            const searchContainer = document.querySelector('.search-container');
+
+            // إزالة رسالة إعادة التعيين إن وجدت
+            const resetMessage = searchContainer.querySelector('.reset-message');
+            if (resetMessage) resetMessage.remove();
+
+            let messageEl = searchContainer.querySelector('.search-message');
+
+            if (!messageEl) {
+                messageEl = document.createElement('div');
+                messageEl.className = 'search-message';
+                searchContainer.appendChild(messageEl);
+            }
+
+            if (visibleCount === 0) {
+                messageEl.innerHTML = '<i class="fas fa-exclamation-triangle"></i> لم يتم العثور على عقارات تطابق معايير البحث';
+                messageEl.className = 'search-message error';
+            } else {
+                messageEl.innerHTML = `<i class="fas fa-check-circle"></i> تم العثور على ${visibleCount} عقار`;
+                messageEl.className = 'search-message success';
+
+                // التمرير إلى قسم العقارات
+                setTimeout(() => {
+                    document.getElementById('properties').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 300);
+            }
+
+            // إخفاء الرسالة بعد 5 ثواني
+            setTimeout(() => {
+                if (messageEl) messageEl.style.display = 'none';
+            }, 5000);
+        }
+
+        // عرض رسالة إعادة التعيين
+        function showResetMessage() {
+            // إزالة الرسالة السابقة إذا كانت موجودة
+            const oldMessage = document.querySelector('.reset-message');
+            if (oldMessage) oldMessage.remove();
+
+            // إنشاء رسالة جديدة
+            const messageEl = document.createElement('div');
+            messageEl.className = 'reset-message';
+            messageEl.innerHTML = '<i class="fas fa-check-circle"></i> تم إعادة تعيين البحث بنجاح';
+
+            // إضافة إلى حاوية البحث
+            const searchContainer = document.querySelector('.search-container');
+            searchContainer.appendChild(messageEl);
+
+            // إخفاء الرسالة بعد 3 ثوانٍ
+            setTimeout(() => {
+                messageEl.style.opacity = '0';
+                setTimeout(() => messageEl.remove(), 500);
+            }, 3000);
+        }
+
+        // تحديث مستمع الحدث للبحث
+        const searchForm = document.getElementById('searchForm');
+        if (searchForm) {
+            searchForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                performSearch();
+            });
+        }
+
+        // إضافة مستمع الحدث لزر إعادة التعيين
+        const resetSearchBtn = document.getElementById('resetSearchBtn');
+        if (resetSearchBtn) {
+            resetSearchBtn.addEventListener('click', resetSearch);
+        }
+
+        // إضافة مستمع الحدث لزر عرض كل العقارات
+        const showAllBtn = document.getElementById('showAllBtn');
+        if (showAllBtn) {
+            showAllBtn.addEventListener('click', showAllProperties);
+        }
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 500) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        function checkFade() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+
+                if (elementTop < window.innerHeight - 100 && elementBottom > 0) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkFade);
+        window.addEventListener('load', checkFade);
+
+        // Animate stats counter
+        function animateCounter(element, target, duration) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start).toLocaleString();
+                }
+            }, 16);
+        }
+
+        function animateStats() {
+            const stat1 = document.getElementById('stat1');
+            const stat2 = document.getElementById('stat2');
+            const stat3 = document.getElementById('stat3');
+            const stat4 = document.getElementById('stat4');
+
+            if (stat1.getBoundingClientRect().top < window.innerHeight && stat1.getBoundingClientRect().bottom > 0) {
+                animateCounter(stat1, 350, 2000);
+                animateCounter(stat2, 250, 2000);
+                animateCounter(stat3, 15, 2000);
+                animateCounter(stat4, 12, 2000);
+                window.removeEventListener('scroll', animateStatsOnScroll);
+            }
+        }
+
+        function animateStatsOnScroll() {
+            animateStats();
+        }
+
+        window.addEventListener('scroll', animateStatsOnScroll);
+
+        // Details modal logic
+        const modal = document.getElementById('propertyModal');
+        const modalMainImage = document.getElementById('modalMainImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalLocWrap = document.getElementById('modalLocation');
+        const modalLocText = modalLocWrap.querySelector('span');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalFeatures = document.getElementById('modalFeatures');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalThumbnails = document.getElementById('modalThumbnails');
+        const galleryIndicators = document.getElementById('galleryIndicators');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const modalWhatsappBtn = document.getElementById('modalWhatsappBtn');
+
+        let currentPropertyId = null;
+        let currentImageIndex = 0;
+        let propertyImages = [];
+
+        // دالة لفتح واتساب
+        function openWhatsApp(propertyId) {
+            const propertyData = propertiesData[propertyId];
+            if (!propertyData) return;
+
+            const phoneNumber = "201090516145";
+            const message = `مرحباً، أنا مهتم بالعقار التالي:\n\nالعنوان: ${propertyData.title}\nالموقع: ${propertyData.location}\nالسعر: ${propertyData.price}\n\nأرغب في الحصول على مزيد من المعلومات حول هذا العقار.`;
+
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function openModal(propertyId) {
+            const propertyData = propertiesData[propertyId];
+            if (!propertyData) return;
+
+            currentPropertyId = propertyId;
+            propertyImages = propertyData.images;
+            currentImageIndex = 0;
+
+            // تحديث محتوى المودال
+            modalTitle.textContent = propertyData.title;
+            modalLocText.textContent = propertyData.location;
+            modalPrice.textContent = propertyData.price;
+            modalDescription.textContent = propertyData.description;
+
+            // تحديث المميزات
+            modalFeatures.innerHTML = '';
+            propertyData.features.forEach(feature => {
+                const featureEl = document.createElement('div');
+                featureEl.className = 'modal-feature';
+                featureEl.textContent = feature;
+                modalFeatures.appendChild(featureEl);
+            });
+
+            // تحديث زر واتساب
+            const whatsappMessage = `مرحباً، أنا مهتم بالعقار التالي:\n\nالعنوان: ${propertyData.title}\nالموقع: ${propertyData.location}\nالسعر: ${propertyData.price}\n\nأرغب في الحصول على مزيد من المعلومات حول هذا العقار.`;
+            const whatsappUrl = `https://wa.me/201090516145?text=${encodeURIComponent(whatsappMessage)}`;
+            modalWhatsappBtn.href = whatsappUrl;
+
+            // تحديث معرض الصور
+            updateGallery();
+
+            // عرض المودال
+            modal.classList.add('show');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateGallery() {
+            if (propertyImages.length === 0) return;
+
+            // تحديث الصورة الرئيسية
+            modalMainImage.src = propertyImages[currentImageIndex];
+            modalMainImage.alt = propertiesData[currentPropertyId].title;
+
+            // تحديث المؤشرات
+            galleryIndicators.innerHTML = '';
+            for (let i = 0; i < propertyImages.length; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = `gallery-indicator ${i === currentImageIndex ? 'active' : ''}`;
+                indicator.addEventListener('click', () => {
+                    currentImageIndex = i;
+                    updateGallery();
+                });
+                galleryIndicators.appendChild(indicator);
+            }
+
+            // تحديث الصور المصغرة
+            modalThumbnails.innerHTML = '';
+            propertyImages.forEach((image, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = `modal-thumbnail ${index === currentImageIndex ? 'active' : ''}`;
+                thumbnail.innerHTML = `<img src="${image}" alt="صورة ${index + 1}" loading="lazy" />`;
+                thumbnail.addEventListener('click', () => {
+                    currentImageIndex = index;
+                    updateGallery();
+                });
+                modalThumbnails.appendChild(thumbnail);
+            });
+        }
+
+        function nextImage() {
+            if (propertyImages.length === 0) return;
+            currentImageIndex = (currentImageIndex + 1) % propertyImages.length;
+            updateGallery();
+        }
+
+        function prevImage() {
+            if (propertyImages.length === 0) return;
+            currentImageIndex = (currentImageIndex - 1 + propertyImages.length) % propertyImages.length;
+            updateGallery();
+        }
+
+        function closeModal() {
+            modal.classList.remove('show');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        // إضافة مستمعي الأحداث
+        document.querySelectorAll('.details-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const card = e.target.closest('.property-card');
+                if (card) {
+                    const propertyId = card.getAttribute('data-id');
+                    openModal(propertyId);
+                }
+            });
+        });
+
+        // إضافة مستمعي الأحداث لأزرار واتساب في الكروت
+        document.querySelectorAll('.whatsapp-btn-card').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation(); // منع فتح المودال
+                const card = e.target.closest('.property-card');
+                if (card) {
+                    const propertyId = card.getAttribute('data-id');
+                    openWhatsApp(propertyId);
+                }
+            });
+        });
+
+        prevBtn.addEventListener('click', prevImage);
+        nextBtn.addEventListener('click', nextImage);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target.matches('[data-close]') || e.target.closest('[data-close]')) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+            if (e.key === 'ArrowRight' && modal.classList.contains('show')) nextImage();
+            if (e.key === 'ArrowLeft' && modal.classList.contains('show')) prevImage();
+        });
+
+        // Swipe support for touch devices
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        modal.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        modal.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                nextImage(); // swipe left
+            }
+            if (touchEndX > touchStartX + 50) {
+                prevImage(); // swipe right
+            }
+        }
+
+        // Initialize Swiper for testimonials
+        const testimonialSwiper = new Swiper('.testimonials-grid', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 20,
+            autoplay: {
+                delay: 5000,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                992: {
+                    slidesPerView: 3,
+                }
+            }
+        });
+
+        // تحديث تلقائي لزر تواصل معنا في القائمة عند تغيير حجم النافذة
+        window.addEventListener('resize', function () {
+            const contactMenuItem = document.querySelector('.contact-menu-item');
+            if (contactMenuItem) {
+                if (window.innerWidth <= 991) {
+                    contactMenuItem.style.display = 'block';
+                } else {
+                    contactMenuItem.style.display = 'none';
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>
