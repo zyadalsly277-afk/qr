@@ -104,6 +104,18 @@
             display: flex;
             align-items: center;
             white-space: nowrap;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 65px;
+            width: auto;
+            border-radius: 10px;
+            object-fit: contain;
+            border: 3px solid var(--gold);
+            padding: 3px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
         }
 
         .logo span {
@@ -1483,6 +1495,10 @@
                 font-size: 1.1rem;
             }
 
+            .logo-img {
+                height: 35px;
+            }
+
             .property-media {
                 height: 150px;
             }
@@ -1521,6 +1537,10 @@
             .about-image {
                 height: 400px;
             }
+
+            .logo-img {
+                height: 55px;
+            }
         }
 
         /* تحسينات المودال لشاشات 4K وأكبر */
@@ -1541,6 +1561,10 @@
             .modal-dialog {
                 width: min(90%, 1000px);
                 padding: 2rem;
+            }
+
+            .logo-img {
+                height: 75px;
             }
         }
 
@@ -1751,6 +1775,14 @@
 
             .reasons-grid {
                 grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+
+            .logo-img {
+                height: 50px;
+            }
+
+            .logo {
+                gap: 12px;
             }
         }
 
@@ -1985,6 +2017,14 @@
             .about-stat {
                 flex: 0 0 45%;
             }
+
+            .logo-img {
+                height: 45px;
+            }
+
+            .logo {
+                gap: 10px;
+            }
         }
 
         /* الهواتف المتوسطة (375px - 575px) */
@@ -2124,6 +2164,15 @@
             .about-stat {
                 flex: 0 0 100%;
             }
+
+            .logo-img {
+                height: 40px;
+            }
+
+            .logo {
+                gap: 8px;
+                font-size: 1.2rem;
+            }
         }
 
         /* الهواتف الصغيرة (أقل من 374px) */
@@ -2185,6 +2234,15 @@
                 width: 30px;
                 height: 30px;
                 font-size: 0.9rem;
+            }
+
+            .logo-img {
+                height: 38px;
+            }
+
+            .logo {
+                font-size: 1.1rem;
+                gap: 7px;
             }
         }
 
@@ -2263,7 +2321,10 @@
     <!-- Header -->
     <header id="header">
         <div class="header-container">
-            <div class="logo">شركة الصفا</div>
+            <div class="logo">
+                <img src="images/alsaf.jpg" alt="شعار شركة الصفا" class="logo-img">
+                <span>شركة </span> الصفا
+            </div>
             <button class="menu-toggle" aria-label="قائمة التنقل">
                 <i class="fas fa-bars"></i>
             </button>
@@ -2302,8 +2363,8 @@
                             <option value="">اختر المدينة</option>
                             <option value="حدائق الاهرام">حدائق الاهرام</option>
                             <option value="حدائق اكتوبر">حدائق اكتوبر</option>
-                            <option value="القاهرة">القاهرة</option>
-                            <option value="الإسكندرية">الإسكندرية</option>
+                            <!-- <option value="القاهرة">القاهرة</option>
+                            <option value="الإسكندرية">الإسكندرية</option> -->
                         </select>
                     </div>
                     <div class="search-group">
@@ -3226,20 +3287,21 @@
                 <p>شركة رائدة في مجال العقارات الفاخرة بجمهورية مصر، نقدم حلولاً عقارية متكاملة تلبي أعلى تطلعات
                     عملائنا.</p>
                 <div class="footer-social">
-                    <a href="https://www.facebook.com/share/17ftsN15z4/" target="_blank" rel="noopener noreferrer"
-                        aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
+
                     <a href="https://instagram.com/شركتك" target="_blank" rel="noopener noreferrer"
                         aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://YouTube.com/شركتك" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <i class="fab fa-YouTube"></i>
                     </a>
                     <a href="https://wa.me/201090516145" target="_blank" rel="noopener noreferrer"
                         aria-label="WhatsApp">
                         <i class="fab fa-whatsapp"></i>
                     </a>
-                    <a href="https://twitter.com/شركتك" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
+                    <a href="https://www.facebook.com/share/17ftsN15z4/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
                     </a>
                 </div>
             </div>
@@ -3517,7 +3579,7 @@
                 location: "حدائق الاهرام - منطقة (ع)",
                 price: "2,080,000 ج.م",
                 features: ["3 غرف", "2 حمامات", "160 م²", "وجهه", "متاح جميع الادوار"],
-                description: "واجهة سوبر لوكس – متاح جميع الادوار 160 متر🛏 3 غرف –2 حمام",
+                description: "واجهة   – متاح جميع الادوار 160 متر🛏 3 غرف –2 حمام",
                 images: ["images/72A.jpg"],
                 searchData: {
                     type: "شقة",
@@ -4472,7 +4534,7 @@
             if (contactMenuItem) {
                 if (window.innerWidth <= 991) {
                     contactMenuItem.style.display = 'block';
-                } else {
+                } else{
                     contactMenuItem.style.display = 'none';
                 }
             }
