@@ -108,8 +108,7 @@
         }
 
         .logo-img {
-            height: 80px;
-            /* كان 65px - تم زيادة الارتفاع */
+            height: 80px; /* تم التعديل من 65px إلى 80px */
             width: auto;
             border-radius: 10px;
             object-fit: contain;
@@ -1497,7 +1496,7 @@
             }
 
             .logo-img {
-                height: 35px;
+                height: 45px; /* تم التعديل من 35px إلى 45px */
             }
 
             .property-media {
@@ -1540,7 +1539,7 @@
             }
 
             .logo-img {
-                height: 55px;
+                height: 70px; /* تم التعديل من 55px إلى 70px */
             }
         }
 
@@ -1565,7 +1564,7 @@
             }
 
             .logo-img {
-                height: 75px;
+                height: 90px; /* تم التعديل من 75px إلى 90px */
             }
         }
 
@@ -1779,7 +1778,7 @@
             }
 
             .logo-img {
-                height: 50px;
+                height: 60px; /* تم التعديل من 50px إلى 60px */
             }
 
             .logo {
@@ -2020,7 +2019,7 @@
             }
 
             .logo-img {
-                height: 45px;
+                height: 55px; /* تم التعديل من 45px إلى 55px */
             }
 
             .logo {
@@ -2167,7 +2166,7 @@
             }
 
             .logo-img {
-                height: 40px;
+                height: 50px; /* تم التعديل من 40px إلى 50px */
             }
 
             .logo {
@@ -2238,7 +2237,7 @@
             }
 
             .logo-img {
-                height: 38px;
+                height: 45px; /* تم التعديل من 38px إلى 45px */
             }
 
             .logo {
@@ -2323,7 +2322,7 @@
     <header id="header">
         <div class="header-container">
             <div class="logo">
-                <img src="images/alsaf.jpg" alt="شعار شركة الصفا" class="logo-img">
+              <a href="#home"><img src="images/alsaf.jpg" alt="شعار شركة الصفا" class="logo-img"></a>
                 <span>شركة </span> الصفا
             </div>
             <button class="menu-toggle" aria-label="قائمة التنقل">
@@ -3045,16 +3044,36 @@
             <!-- Property 30 -->
             <div class="property-card" data-id="30">
                 <div class="property-media">
-                    <img src="images/41zz.jpg" alt="فيلا عائلية كبيرة" loading="lazy" />
+                    <img src="images/132/1.jpeg" alt="شقة الترا سوبرلوكس" loading="lazy" />
                 </div>
                 <div class="property-info">
-                    <div class="property-price">7,200,000 <span>ج.م</span></div>
-                    <h3 class="property-title">فيلا عائلية كبيرة</h3>
-                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> الجيزة، حي الروضة</p>
+                    <div class="property-price">1,540,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة الترا سوبرلوكس</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة (ط)</p>
                     <div class="property-features">
-                        <div class="feature"><i class="fas fa-bed"></i><span>5 غرف</span></div>
-                        <div class="feature"><i class="fas fa-bath"></i><span>4 حمامات</span></div>
-                        <div class="feature"><i class="fas fa-vector-square"></i><span>700 م²</span></div>
+                        <div class="feature"><i class="fas fa-bed"></i><span>2 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>1 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>100 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <button class="whatsapp-btn-card" type="button">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </button>
+                </div>
+            </div>
+            <!-- Property 31 -->
+            <div class="property-card" data-id="31">
+                <div class="property-media">
+                    <img src="images/104/2.jpeg" alt="فيلا عائلية كبيرة" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">1,762,500 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة فاخر بحدائق الاهرام</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - منطقة(ع)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>141 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
                     <button class="whatsapp-btn-card" type="button">
@@ -3953,19 +3972,50 @@
                 }
             },
             30: {
-                title: "فيلا عائلية كبيرة",
-                location: "الجيزة، حي الروضة",
-                price: "7,200,000 ج.م",
-                features: ["5 غرف", "4 حمامات", "700 م²", "حديقة كبيرة", "مسبح", "جراج لثلاث سيارات"],
-                description: "فيلا عائلية فاخرة في أحد أفضل أحياء الجيزة، مساحة 700 متر مع حديقة كبيرة ومسبح خاص وجراج يتسع لثلاث سيارات. الفيلا مكونة من 5 غرف نوم رئيسية كل منها بحمام خاص، صالة استقبال فسيحة، مطبخ أمريكي مجهز بأحدث الأجهزة، وغرفة معيشة. التشطيب سوبر لوكس بمواد عالية الجودة.",
+                title: "شقة الترا سوبرلوكس",
+                location: "حدائق الاهرام - منطقة (ط)",
+                price: "1,540,000 ج.م",
+                features: ["2 غرف", "1 حمامات", "100 م²","دور تاني ",],
+                description: "تم تنزيل السعر لسرعة البيع شقه للبيع بحدائق الاهرام(١٠٠م)  جانبيه  ٢غرفه كبار  حمام مطبخ وريسبشن تشطيب شخصي الترا سوبر لوكس اول سكن منطقه ط 🏛 دور تاني اسانسير شغال 🌴عماره جديده حجر هاشمي قريبه من مسجد العوضي والنادي خطوات للشارع الرئيسي  السعر مليون ٥٤٠الف",
                 images: [
-                    "images/41zz.jpg",
+                    "images/132/1.jpeg",
+                    "images/132/2.jpeg",
+                    "images/132/3.jpeg",
+                    "images/132/4.jpeg",
+                    "images/132/5.jpeg",
+                    "images/132/6.jpeg",
+                    "images/132/7.jpeg",
+                    "images/132/8.jpeg",
+                    "images/132/9.jpeg",
+                    "images/132/10.jpeg",
+                    "images/132/11.jpeg",
+                    "images/132/12.jpeg",
+                    "images/132/13.jpeg",
+                    "images/132/14.jpeg",
                 ],
                 searchData: {
-                    type: "فيلا",
-                    location: "القاهرة",
-                    priceRange: "7-10",
+                    type: "شقة",
+                    location: "حدائق الاهرام",
+                    priceRange: "1-2",
                     condition: "متشطب"
+                }
+            },
+            31: {
+                title:"شقة بسعر بقطة",
+                location: "حدائق الأهرام-منطقة (ع)",
+                price: "1,762,500 ج.م",
+                features: ["3 غرف", "2 حمامات", "141 م²","دور اول ","شارع  هادي مشجر","طوب احمر"],
+                description: "الدور الاول ١٤١ متر واجهة اماميةثلاث غرف منهم اتنين علي الشارع ريسبشن علي الشارع ببلكونةحمامينمبطخشارع متسفلت وسكني هادئ مشجر بين البوابة الرابعه والثالثة بجوار شارع الجيش مسجد المدينة طريق الواحات والطريق السياحيطوب احمر اسانسير مدفوع",
+                images: [
+                    "images/104/2.jpeg",
+                    "images/104/1.jpeg",
+                    "images/104/3.jpeg",
+                ],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الأهرام",
+                    priceRange: "1-2",
+                    condition: "طوب احمر"
                 }
             }
         };
@@ -4535,7 +4585,7 @@
             if (contactMenuItem) {
                 if (window.innerWidth <= 991) {
                     contactMenuItem.style.display = 'block';
-                } else {
+                } else{
                     contactMenuItem.style.display = 'none';
                 }
             }
