@@ -2314,6 +2314,663 @@
                 padding-top: env(safe-area-inset-top);
             }
         }
+
+        /* Elite Social Section */
+        .elite-section {
+            min-height: 100vh;
+            background:
+                linear-gradient(135deg, #080808 0%, #0f0f0f 50%, #080808 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            isolation: isolate;
+        }
+
+        /* Background Layers */
+        .bg-layer {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .layer-1 {
+            background:
+                radial-gradient(circle at 30% 20%,
+                    rgba(212, 175, 55, 0.05) 0%,
+                    transparent 70%),
+                radial-gradient(circle at 70% 80%,
+                    rgba(212, 175, 55, 0.03) 0%,
+                    transparent 70%);
+            animation: layerFloat 30s infinite ease-in-out;
+        }
+
+        .layer-2 {
+            background:
+                repeating-linear-gradient(90deg,
+                    transparent 0px,
+                    transparent 1px,
+                    rgba(255, 255, 255, 0.01) 1px,
+                    rgba(255, 255, 255, 0.01) 2px);
+            background-size: 4px 100%;
+            animation: gridMove 20s infinite linear;
+        }
+
+        @keyframes layerFloat {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(-2%, 2%);
+            }
+
+            50% {
+                transform: translate(2%, -2%);
+            }
+
+            75% {
+                transform: translate(-2%, -2%);
+            }
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(4px);
+            }
+        }
+
+        /* Animated Orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: orbFloat 25s infinite ease-in-out;
+            z-index: -1;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            top: 10%;
+            left: 10%;
+            background: radial-gradient(circle,
+                    rgba(212, 175, 55, 0.1) 0%,
+                    transparent 70%);
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            bottom: 20%;
+            right: 15%;
+            background: radial-gradient(circle,
+                    rgba(37, 211, 102, 0.05) 0%,
+                    transparent 70%);
+            animation-delay: 8s;
+        }
+
+        .orb-3 {
+            width: 250px;
+            height: 250px;
+            top: 50%;
+            left: 80%;
+            background: radial-gradient(circle,
+                    rgba(24, 119, 242, 0.03) 0%,
+                    transparent 70%);
+            animation-delay: 16s;
+        }
+
+        @keyframes orbFloat {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(50px, -30px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-30px, 50px) scale(0.9);
+            }
+        }
+
+        /* Elite Container */
+        .elite-container {
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Name Elite */
+        .name-elite {
+            text-align: center;
+            margin-bottom: 100px;
+            position: relative;
+        }
+
+        .name-line {
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(212, 175, 55, 0.5),
+                    transparent);
+            margin: 40px auto;
+            position: relative;
+        }
+
+        .name-line::before,
+        .name-line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 12px;
+            height: 12px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            animation: pulseDot 2s infinite;
+        }
+
+        .name-line::before {
+            left: 0;
+        }
+
+        .name-line::after {
+            right: 0;
+        }
+
+        .name-line-top {
+            margin-bottom: 60px;
+        }
+
+        .name-line-bottom {
+            margin-top: 60px;
+        }
+
+        @keyframes pulseDot {
+
+            0%,
+            100% {
+                opacity: 0.5;
+                transform: translateY(-50%) scale(0.8);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateY(-50%) scale(1);
+            }
+        }
+
+        .elite-name {
+            font-size: 5.5rem;
+            font-weight: 200;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 8px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .name-char {
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .name-char:hover {
+            transform: translateY(-5px);
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .name-char.highlight {
+            color: var(--gold);
+            font-weight: 300;
+        }
+
+        .name-space {
+            width: 30px;
+        }
+
+        .name-sub {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .sub-text {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.3);
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .sub-text:hover {
+            color: rgba(212, 175, 55, 0.7);
+        }
+
+        .sub-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: subPulse 2s infinite;
+        }
+
+        @keyframes subPulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(0.8);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        /* Diamond Grid */
+        .diamond-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 350px;
+            margin-bottom: 80px;
+            padding: 0 20px;
+        }
+
+        .diamond-item {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            position: relative;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .diamond-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .diamond-inner {
+            width: 120px;
+            height: 120px;
+            position: relative;
+            transform: rotate(45deg);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+        }
+
+        .diamond-item:hover .diamond-inner {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: rotate(45deg) scale(1.1);
+        }
+
+        .whatsapp:hover .diamond-inner {
+            border-color: rgba(37, 211, 102, 0.3);
+        }
+
+        .facebook:hover .diamond-inner {
+            border-color: rgba(24, 119, 242, 0.3);
+        }
+
+        .instagram:hover .diamond-inner {
+            border-color: rgba(195, 42, 163, 0.3);
+        }
+
+        .github:hover .diamond-inner {
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .diamond-icon {
+            transform: rotate(-45deg);
+            font-size: 2.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.4s ease;
+        }
+
+        .diamond-item:hover .diamond-icon {
+            transform: rotate(-45deg) scale(1.2);
+        }
+
+        .whatsapp .diamond-icon {
+            color: rgba(37, 211, 102, 0.9);
+        }
+
+        .facebook .diamond-icon {
+            color: rgba(24, 119, 242, 0.9);
+        }
+
+        .instagram .diamond-icon {
+            background: linear-gradient(45deg, #405DE6, #C13584);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .github .diamond-icon {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .diamond-glow {
+            position: absolute;
+            inset: -2px;
+            background: conic-gradient(from 0deg,
+                    transparent,
+                    rgba(212, 175, 55, 0.1),
+                    transparent);
+            filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: inherit;
+        }
+
+        .diamond-item:hover .diamond-glow {
+            opacity: 1;
+            animation: rotateGlow 3s linear infinite;
+        }
+
+        @keyframes rotateGlow {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .diamond-label {
+            text-align: center;
+            position: relative;
+        }
+
+        .diamond-label span {
+            display: block;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .diamond-item:hover .diamond-label span {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .diamond-line {
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    var(--gold),
+                    transparent);
+            margin: 0 auto;
+            transition: width 0.6s ease;
+        }
+
+        .diamond-item:hover .diamond-line {
+            width: 60px;
+        }
+
+        /* Contact Beam */
+        .contact-beam {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .beam-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(212, 175, 55, 0.2),
+                    transparent);
+            position: relative;
+         }
+
+        .beam-line::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    var(--gold),
+                    transparent);
+            transform: translateY(-50%);
+            animation: beamScan 3s infinite linear;
+        }
+
+        @keyframes beamScan {
+            0% {
+                transform: translateY(-50%) translateX(-100%);
+            }
+
+            100% {
+                transform: translateY(-50%) translateX(100%);
+            }
+        }
+
+        .beam-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .beam-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: beamPulse 2s infinite;
+        }
+
+        @keyframes beamPulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+            }
+
+            50% {
+                opacity: 1;
+                box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+            }
+        }
+
+        .beam-text {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 300;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        /* Floating Code */
+        .floating-code {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 1;
+            opacity: 0.1;
+        }
+
+        .code-symbol {
+            font-family: monospace;
+            font-size: 1.5rem;
+            color: var(--gold);
+            animation: codeFloat 6s infinite ease-in-out;
+        }
+
+        .code-symbol:nth-child(2) {
+            animation-delay: 2s;
+        }
+
+        .code-symbol:nth-child(3) {
+            animation-delay: 4s;
+        }
+
+        @keyframes codeFloat {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .elite-name {
+                font-size: 4.5rem;
+                letter-spacing: 6px;
+            }
+
+            .diamond-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .elite-section {
+                padding: 40px 20px;
+                min-height: 90vh;
+            }
+
+            .elite-name {
+                font-size: 3.5rem;
+                letter-spacing: 1px;
+                gap: 4px;
+            }
+
+            .name-space {
+                width: 15px;
+            }
+
+            .diamond-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto 60px;
+            }
+
+            .contact-beam {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .beam-line {
+                width: 200px;
+            }
+
+            .floating-code {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .elite-name {
+                font-size: 2.8rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .name-char {
+                margin: 0 2px;
+            }
+
+            .name-sub {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .diamond-inner {
+                width: 100px;
+                height: 100px;
+            }
+
+            .diamond-icon {
+                font-size: 1.8rem;
+            }
+            .beam-text {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        }
+
+        /* Performance Optimizations */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Touch Device Optimizations */
+        @media (hover: none) {
+
+            .name-char:hover,
+            .diamond-item:hover,
+            .sub-text:hover {
+                transform: none;
+            }
+
+            .diamond-item:hover .diamond-inner,
+            .diamond-item:hover .diamond-icon {
+                transform: none;
+            }
+
+            .diamond-item:hover .diamond-glow {
+                opacity: 0.5;
+            }
+        }
     </style>
 </head>
 
@@ -2342,7 +2999,7 @@
                     <li><a href="#properties">العقارات</a></li>
                     <li><a href="#services">خدماتنا</a></li>
                     <li><a href="#about">عن الشركة</a></li>
-                    <li><a href="#contact">طلب استشارة</a></li>
+                    <li><a href="#developer"> المبرمج</a></li>
                     <!-- زر تواصل معنا للهاتف -->
                     <li class="contact-menu-item">
                         <a href="#contact" class="mobile-contact-btn">تواصل معنا</a>
@@ -3327,6 +3984,128 @@
         </div>
     </section>
 
+    <!-- Elite Social Section -->
+    <section class="elite-section" id="developer">
+        <!-- Background Layers -->
+        <div class="bg-layer layer-1"></div>
+        <div class="bg-layer layer-2"></div>
+
+        <!-- Animated Orbs -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+
+        <!-- Main Container -->
+        <div class="elite-container">
+            <!-- Name Display with Glow -->
+            <div class="name-elite">
+                <div class="name-line name-line-top"></div>
+                <h1 class="elite-name">
+                    <span class="name-char" data-char="i">i</span>
+                    <span class="name-char" data-char="l">l</span>
+                    <span class="name-char" data-char="a">a</span>
+                    <span class="name-char" data-char="s">s</span>
+                    <span class="name-char" data-char="A">A</span>-
+                    <span class="name-char" data-char="L">L</span>
+                    <span class="name-char" data-char="A">A</span>
+                    <span class="name-space"></span>
+                    <!-- <span class="name-char highlight" data-char="A">Z</span>
+                    <span class="name-char highlight" data-char="l">l</span> -->
+                    <span class="name-char highlight" data-char="S">d</span>
+                    <span class="name-char highlight" data-char="a">a</span>
+                    <span class="name-char highlight" data-char="i">i</span>
+                    <span class="name-char highlight" data-char="Z">Z</span>
+                </h1>
+                <div class="name-sub">
+                    <span class="sub-text">programmer</span>
+                    <div class="sub-dot"></div>
+                    <span class="sub-text">WEB CRAFTSMAN</span>
+                </div>
+                <div class="name-line name-line-bottom"></div>
+            </div>
+
+            <!-- Social Diamond Grid -->
+            <div class="diamond-grid">
+                <!-- WhatsApp Diamond -->
+                <a href="https://wa.me/201092504745" class="diamond-item whatsapp" target="_blank"
+                    rel="noopener noreferrer">
+                    <div class="diamond-inner">
+                        <div class="diamond-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="diamond-glow"></div>
+                    </div>
+                    <div class="diamond-label">
+                        <span>WhatsApp</span>
+                        <div class="diamond-line"></div>
+                    </div>
+                </a>
+
+                <!-- Facebook Diamond -->
+                <a href="https://www.facebook.com/share/17YbbBS8SA/" class="diamond-item facebook" target="_blank"
+                    rel="noopener noreferrer">
+                    <div class="diamond-inner">
+                        <div class="diamond-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="diamond-glow"></div>
+                    </div>
+                    <div class="diamond-label">
+                        <span>Facebook</span>
+                        <div class="diamond-line"></div>
+                    </div>
+                </a>
+
+                <!-- Instagram Diamond -->
+                <a href="https://www.instagram.com/zaiyd_alasly?igsh=MWZvNjMyMXBidGh0aA==" class="diamond-item instagram" target="_blank"
+                    rel="noopener noreferrer">
+                    <div class="diamond-inner">
+                        <div class="diamond-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="diamond-glow"></div>
+                    </div>
+                    <div class="diamond-label">
+                        <span>Instagram</span>
+                        <div class="diamond-line"></div>
+                    </div>
+                </a>
+
+                <!-- GitHub Diamond -->
+                <!-- <a href="https://github.com/zyadalsali" class="diamond-item github" target="_blank"
+                    rel="noopener noreferrer">
+                    <div class="diamond-inner">
+                        <div class="diamond-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="diamond-glow"></div>
+                    </div>
+                    <div class="diamond-label">
+                        <span>GitHub</span>
+                        <div class="diamond-line"></div>
+                    </div>
+                </a> -->
+            </div>
+
+            <!-- Contact Beam -->
+            <div class="contact-beam">
+                <div class="beam-line"></div>
+                <div class="beam-content">
+                    <div class="beam-dot"></div>
+                    <span class="beam-text">This website was created by Ziad Al-Asali</span>
+                    <div class="beam-dot"></div>
+                </div>
+                <div class="beam-line"></div>
+            </div>
+        </div>
+
+        <!-- Floating Code -->
+        <div class="floating-code">
+            <span class="code-symbol">&lt;/&gt;</span>
+            <span class="code-symbol">{ }</span>
+            <span class="code-symbol">#</span>
+        </div>
+    </section>
     <!-- Footer -->
     <footer>
         <div class="footer-container">
@@ -3605,7 +4384,7 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "1-2",
-                    condition:"طوب احمر"
+                    condition: "طوب احمر"
                 }
             },
             12: {
@@ -4046,11 +4825,11 @@
                     condition: "طوب احمر"
                 }
             },
-            32:{
+            32: {
                 title: "شقة بسعر بقطة",
                 location: "حدائق الأهرام-منطقة (و)",
                 price: "1,890,000 ج.م",
-                features: ["3 غرف", "2 حمامات", "125 م²", "دور تالت ","الترا سوبر لوكس"," جانبي"],
+                features: ["3 غرف", "2 حمامات", "125 م²", "دور تالت ", "الترا سوبر لوكس", " جانبي"],
                 description: "للبيع شقة ١٢٥ متر جانبي دور ثالث ٣ غرف ٢ حمام افضل منطقة سكنية في حدائق الاهرام 👌🏻مفيش غرف علي مناور ✨تشطيب الترا سوبر لوكس ✨تشطيب فندقي بأعلي الخامات 💯السعر مليون ٨٩٠ 👌🏻قابل للتفاوض البسيط عند الجدية",
                 images: [
                     "images/222/1.jpeg",
