@@ -903,7 +903,7 @@
             color: var(--gray);
             text-decoration: none;
             transition: color 0.3s ease;
-            font-size: 0.95rem;
+            font-size: 0.88rem;
         }
 
         .contact-text a:hover {
@@ -2759,7 +2759,7 @@
                     rgba(212, 175, 55, 0.2),
                     transparent);
             position: relative;
-         }
+        }
 
         .beam-line::before {
             content: '';
@@ -2934,14 +2934,15 @@
             .diamond-icon {
                 font-size: 1.8rem;
             }
+
             .beam-text {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.4);
-            font-weight: 300;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
+                font-size: 0.9rem;
+                color: rgba(255, 255, 255, 0.4);
+                font-weight: 300;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                white-space: nowrap;
+            }
         }
 
         /* Performance Optimizations */
@@ -2969,6 +2970,334 @@
 
             .diamond-item:hover .diamond-glow {
                 opacity: 0.5;
+            }
+        }
+
+        /* تنسيقات قسم التواصل المحسن */
+        .company-card {
+            background: linear-gradient(135deg, #1a5f7a 0%, #2a8eb5 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .company-logo {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .company-info h3 {
+            margin: 0 0 5px 0;
+            font-size: 22px;
+        }
+
+        .company-info p {
+            margin: 0 0 10px 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .owner-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .contact-title,
+        .social-title {
+            color: #1a5f7a;
+            font-size: 22px;
+            margin-bottom: 10px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .contact-title:after,
+        .social-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60px;
+            height: 3px;
+            background: #1a5f7a;
+        }
+
+        .contact-description,
+        .social-description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-right: 3px solid transparent;
+        }
+
+        .contact-item:hover {
+            background: #e9f7fe;
+            border-right-color: #1a5f7a;
+            transform: translateX(-5px);
+        }
+
+        .contact-item.highlighted {
+            background: #e9f7fe;
+            border: 1px solid #b6e0fe;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: #1a5f7a;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            margin: 0 0 8px 0;
+            color: #333;
+        }
+
+        .phone-numbers {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .phone-link,
+        .email-link,
+        .address-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #1a5f7a;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .phone-link:hover,
+        .email-link:hover,
+        .address-link:hover {
+            color: #0d455f;
+            gap: 12px;
+        }
+
+        .work-hours {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .work-day {
+            display: flex;
+            gap: 10px;
+        }
+
+        .day {
+            font-weight: 600;
+            color: #333;
+            min-width: 100px;
+        }
+
+        .time {
+            color: #666;
+        }
+
+        /* تنسيقات وسائل التواصل الاجتماعي */
+        .social-links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .social-platform {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .social-platform:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .social-link.instagram {
+            border-right: 4px solid #E4405F;
+        }
+
+        .social-link.whatsapp {
+            border-right: 4px solid #25D366;
+        }
+
+        .social-link.facebook {
+            border-right: 4px solid #1877F2;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: white;
+        }
+
+        .social-link.instagram .social-icon {
+            background: linear-gradient(45deg, #405DE6, #E4405F, #FFDC80);
+        }
+
+        .social-link.whatsapp .social-icon {
+            background: #25D366;
+        }
+
+        .social-link.facebook .social-icon {
+            background: #1877F2;
+        }
+
+        .social-info h4 {
+            margin: 0 0 5px 0;
+            color: #333;
+        }
+
+        .social-info p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .social-cta {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-cta p {
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .whatsapp-btn,
+        .call-btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+        }
+
+        .call-btn {
+            background: #1a5f7a;
+            color: white;
+        }
+
+        .whatsapp-btn:hover {
+            background: #1da851;
+            transform: translateY(-2px);
+        }
+
+        .call-btn:hover {
+            background: #0d455f;
+            transform: translateY(-2px);
+        }
+
+        /* تصميم متجاوب */
+        @media (max-width: 992px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+            }
+
+            .company-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-icon {
+                margin: 0 auto;
+            }
+
+            .work-day {
+                flex-direction: column;
+                gap: 3px;
             }
         }
     </style>
@@ -3926,59 +4255,142 @@
         </div>
 
         <div class="contact-container">
-            <div class="contact-info">
-                <p>فريقنا متاح دائماً لمساعدتك في العثور على العقار المثالي أو الإجابة على أي استفسارات لديك.</p>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="contact-text">
-                            <h4>العنوان</h4>
-                            <a href="https://maps.google.com/?q=145 ص البوابة الثالثة الجديدة (حورس) - حدائق الاهرام"
-                                target="_blank" rel="noopener noreferrer">
-                                145 ص البوابة الثالثة الجديدة (حورس) - حدائق الاهرام
-                            </a>
-                        </div>
+            <!-- بطاقة تعريف صاحب الشركة -->
+            <div class="company-card">
+                <div class="company-logo">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="company-info">
+                    <h3>شركة الصفا</h3>
+                    <p>نساعدك في العثور على العقار المثالي والإستثمار الأمثل</p>
+                    <div class="owner-badge">
+                        <i class="fas fa-user-tie"></i>
+                        <span>المدير:م/ شعبان العسلي </span>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-                        <div class="contact-text">
-                            <h4>الهاتف</h4>
-                            <a href="tel:+201020520511">01020520511</a> -
-                            <a href="tel:+201020520511">01090516145</a> -
-                            <a href="tel:+201090516145">01144144701</a>
+                </div>
+            </div>
+
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3 class="contact-title">معلومات التواصل</h3>
+                    <p class="contact-description">فريقنا متاح دائماً لمساعدتك في العثور على العقار المثالي أو الإجابة
+                        على أي استفسارات لديك.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item highlighted">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="contact-text">
+                                <h4>العنوان الرئيسي</h4>
+                                <a href="https://maps.google.com/?q=145 ص البوابة الثالثة الجديدة (حورس) - حدائق الاهرام"
+                                    target="_blank" rel="noopener noreferrer" class="address-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    145 ص البوابة الثالثة الجديدة (حورس) - حدائق الاهرام
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="contact-text">
-                            <h4>البريد الإلكتروني</h4>
-                            <a href="mailto:info@alhadba-group.com">info@alhadba-group.com</a>
+
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div class="contact-text">
+                                <h4>الهاتف</h4>
+                                <div class="phone-numbers">
+                                    <a href="tel:+201020520511" class="phone-link">
+                                        <i class="fas fa-phone"></i> 01020520511
+                                    </a>
+                                    <a href="tel:+201090516145" class="phone-link">
+                                        <i class="fas fa-phone"></i> 01090516145
+                                    </a>
+                                    <a href="tel:+201144144701" class="phone-link">
+                                        <i class="fas fa-phone"></i> 01144144701
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
-                        <div class="contact-text">
-                            <h4>ساعات العمل</h4>
-                            <p>السبت : الخميس : 9 صباحاً - 5 مساءً<br>الجمعة : 2 ظهراً - 5 عصراً</p>
+
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-text">
+                                <h4>البريد الإلكتروني</h4>
+                                <a href="mailto:info@alhadba-group.com" class="email-link">
+                                    <i class="fas fa-envelope"></i> info@alhadba-group.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                            <div class="contact-text">
+                                <h4>ساعات العمل</h4>
+                                <div class="work-hours">
+                                    <div class="work-day">
+                                        <span class="day">السبت - الخميس:</span>
+                                        <span class="time">9 صباحاً - 5 مساءً</span>
+                                    </div>
+                                    <div class="work-day">
+                                        <span class="day">الجمعة:</span>
+                                        <span class="time">2 ظهراً - 5 عصراً</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="social-links">
-                    <a href="https://twitter.com/شركتك" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://instagram.com/شركتك" target="_blank" rel="noopener noreferrer"
-                        aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://wa.me/201090516145" target="_blank" rel="noopener noreferrer"
-                        aria-label="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="https://www.facebook.com/share/17ftsN15z4/" target="_blank" rel="noopener noreferrer"
-                        aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
+
+                <!-- قسم وسائل التواصل الاجتماعي المحسن -->
+                <div class="social-section">
+                    <h3 class="social-title">تابعنا على وسائل التواصل الاجتماعي</h3>
+                    <p class="social-description">ابق على اطلاع بأحدث العروض والعقارات المتاحة</p>
+                    <div class="social-platform">
+                        <a href="https://www.facebook.com/share/17ftsN15z4/" target="_blank" rel="noopener noreferrer"
+                            class="social-link facebook" aria-label="Facebook">
+                            <div class="social-icon"><i class="fab fa-facebook-f"></i></div>
+                            <div class="social-info">
+                                <h4>فيسبوك</h4>
+                                <p>صفحة الشركة الرسمية</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <br>
+
+                    <div class="social-platform">
+                        <a href="https://wa.me/201090516145" target="_blank" rel="noopener noreferrer"
+                            class="social-link whatsapp" aria-label="WhatsApp">
+                            <div class="social-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div class="social-info">
+                                <h4>واتساب</h4>
+                                <p>راسلنا مباشرة</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="social-links-container">
+                        <div class="social-platform">
+                            <a href="https://www.instagram.com/alsafa1.company?igsh=MjloZG5ybDBlNWJs" target="_blank"
+                                rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram">
+                                <div class="social-icon"><i class="fab fa-instagram"></i></div>
+                                <div class="social-info">
+                                    <h4>إنستجرام</h4>
+                                    <p>@alsafa1.company</p>
+                                </div>
+                            </a>
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div class="social-cta">
+                        <p>تواصل معنا مباشرة عبر:</p>
+                        <div class="social-buttons">
+                            <a href="https://wa.me/201090516145" class="whatsapp-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> واتساب الآن
+                            </a>
+                            <a href="tel:+201090516145" class="call-btn">
+                                <i class="fas fa-phone-alt"></i> اتصل بنا
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -4057,8 +4469,8 @@
                 </a>
 
                 <!-- Instagram Diamond -->
-                <a href="https://www.instagram.com/zaiyd_alasly?igsh=MWZvNjMyMXBidGh0aA==" class="diamond-item instagram" target="_blank"
-                    rel="noopener noreferrer">
+                <a href="https://www.instagram.com/zaiyd_alasly?igsh=MWZvNjMyMXBidGh0aA=="
+                    class="diamond-item instagram" target="_blank" rel="noopener noreferrer">
                     <div class="diamond-inner">
                         <div class="diamond-icon">
                             <i class="fab fa-instagram"></i>
@@ -5157,14 +5569,27 @@
             showAllBtn.addEventListener('click', showAllProperties);
         }
 
-        // Back to top button
+        // Back to top button - محسنة
         const backToTopButton = document.getElementById('backToTop');
+        
+        // التحكم في ظهور/اختفاء الزر
         window.addEventListener('scroll', function () {
             if (window.scrollY > 500) {
                 backToTopButton.classList.add('visible');
             } else {
                 backToTopButton.classList.remove('visible');
             }
+        });
+
+        // إضافة مستمع حدث للنقر على زر الرجوع للأعلى
+        backToTopButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            // الرجوع إلى الأعلى بنعومة
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
 
         // Scroll animations
