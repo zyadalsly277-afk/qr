@@ -622,6 +622,68 @@
             box-shadow: 0 8px 16px rgba(10, 37, 64, 0.15);
         }
 
+        /* تنسيقات أزرار بطاقة العقار - محسنة */
+        .property-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .whatsapp-btn-card,
+        .call-btn-card {
+            flex: 1;
+            padding: 0.8rem 0.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+            text-decoration: none;
+            min-height: 60px;
+            text-align: center;
+        }
+
+        .whatsapp-btn-card {
+            background: linear-gradient(135deg, #25D366 0%, #1DA851 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+        }
+
+        .whatsapp-btn-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .call-btn-card {
+            background: linear-gradient(135deg, #2a8eb5 0%, #1a5f7a 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(26, 95, 122, 0.2);
+        }
+
+        .call-btn-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 95, 122, 0.3);
+        }
+
+        .whatsapp-btn-card i,
+        .call-btn-card i {
+            font-size: 1.2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .whatsapp-btn-card span,
+        .call-btn-card span {
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
         /* About Company Section */
         .about-section {
             padding: 4rem 5%;
@@ -1357,62 +1419,62 @@
             border-right: 3px solid var(--gold);
         }
 
-        /* WhatsApp Button in Modal */
-        .modal-whatsapp-btn {
+        /* تنسيقات أزرار المودال - محسنة */
+        .modal-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .modal-whatsapp-btn,
+        .modal-call-btn {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            width: 100%;
             padding: 1rem;
-            background: linear-gradient(90deg, #25D366 0%, #128C7E 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             cursor: pointer;
             transition: var(--transition);
-            margin-top: 1rem;
             text-decoration: none;
+            text-align: center;
+            min-height: 80px;
+        }
+
+        .modal-whatsapp-btn {
+            background: linear-gradient(135deg, #25D366 0%, #1DA851 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
         }
 
         .modal-whatsapp-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
         }
 
-        .modal-whatsapp-btn i {
-            font-size: 1.3rem;
-        }
-
-        /* WhatsApp Button on Property Card */
-        .whatsapp-btn-card {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            width: 100%;
-            padding: 0.7rem;
-            background: linear-gradient(90deg, #25D366 0%, #128C7E 100%);
+        .modal-call-btn {
+            background: linear-gradient(135deg, #2a8eb5 0%, #1a5f7a 100%);
             color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(26, 95, 122, 0.2);
+        }
+
+        .modal-call-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(26, 95, 122, 0.3);
+        }
+
+        .modal-buttons i {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .modal-buttons span {
             font-size: 0.9rem;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 0.5rem;
-            text-decoration: none;
-        }
-
-        .whatsapp-btn-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
-        }
-
-        .whatsapp-btn-card i {
-            font-size: 1.1rem;
+            font-weight: 600;
         }
 
         /* Animations */
@@ -1974,7 +2036,8 @@
                 font-size: 0.9rem;
             }
 
-            .modal-whatsapp-btn {
+            .modal-whatsapp-btn,
+            .modal-call-btn {
                 padding: 0.8rem;
                 font-size: 1rem;
             }
@@ -2131,12 +2194,14 @@
                 margin-top: 0.8rem;
             }
 
-            .whatsapp-btn-card {
+            .whatsapp-btn-card,
+            .call-btn-card {
                 padding: 0.6rem;
                 font-size: 0.85rem;
             }
 
-            .whatsapp-btn-card i {
+            .whatsapp-btn-card i,
+            .call-btn-card i {
                 font-size: 1rem;
             }
 
@@ -3299,6 +3364,59 @@
                 flex-direction: column;
                 gap: 3px;
             }
+
+            .property-buttons {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.6rem;
+            }
+
+            .whatsapp-btn-card,
+            .call-btn-card {
+                min-height: 55px;
+                padding: 0.5rem;
+                font-size: 0.8rem;
+            }
+
+            .whatsapp-btn-card i,
+            .call-btn-card i {
+                font-size: 1rem;
+                margin-bottom: 0.1rem;
+            }
+
+            .whatsapp-btn-card span,
+            .call-btn-card span {
+                font-size: 0.7rem;
+            }
+
+            .modal-buttons {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .modal-whatsapp-btn,
+            .modal-call-btn {
+                min-height: 70px;
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .modal-buttons i {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 374px) {
+            .property-buttons {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .whatsapp-btn-card,
+            .call-btn-card {
+                min-height: 50px;
+                padding: 0.4rem;
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -3434,9 +3552,16 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>95م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>واتساب</span>
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>اتصال</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3456,9 +3581,16 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>200 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>واتساب</span>
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>اتصال</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3477,9 +3609,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>170 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i>  واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3498,9 +3635,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>135 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3519,9 +3661,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>105 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3541,9 +3688,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>175 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3563,9 +3715,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>100 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3585,9 +3742,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>95 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3607,9 +3769,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>165 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3629,9 +3796,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>135 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3651,9 +3823,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>140 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3672,9 +3849,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>180 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3693,9 +3875,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>160 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3714,9 +3901,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>200 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3735,9 +3927,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>150 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3756,9 +3953,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>170 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3777,9 +3979,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>140 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3798,9 +4005,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>125 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3819,9 +4031,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>185 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3840,9 +4057,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>195 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3861,9 +4083,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>127 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3882,9 +4109,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>125 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3903,9 +4135,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>125 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3924,9 +4161,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>160 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3945,9 +4187,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>100 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3966,9 +4213,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>133 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -3987,9 +4239,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>100 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -4008,9 +4265,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>100 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -4029,9 +4291,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>130 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -4050,9 +4317,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>100 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i>واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
             <!-- Property 31 -->
@@ -4070,9 +4342,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>141 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
             <!-- Property 31 -->
@@ -4090,9 +4367,14 @@
                         <div class="feature"><i class="fas fa-vector-square"></i><span>125 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
-                    <button class="whatsapp-btn-card" type="button">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                    </button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل 
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -4265,7 +4547,7 @@
                     <p>نساعدك في العثور على العقار المثالي والإستثمار الأمثل</p>
                     <div class="owner-badge">
                         <i class="fas fa-user-tie"></i>
-                        <span>المدير:م/ شعبان العسلي </span>
+                        <span>المدير: م/ شعبان العسلي </span>
                     </div>
                 </div>
             </div>
@@ -4374,10 +4656,6 @@
                                 </div>
                             </a>
                         </div>
-
-
-
-
                     </div>
 
                     <div class="social-cta">
@@ -4527,13 +4805,13 @@
                     عملائنا.</p>
                 <div class="footer-social">
 
-                    <a href="https://instagram.com/شركتك" target="_blank" rel="noopener noreferrer"
-                        aria-label="Instagram">
+                    <a href="https://www.instagram.com/alsafa1.company?igsh=MjloZG5ybDBlNWJs" target="_blank"
+                        rel="noopener noreferrer" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://YouTube.com/شركتك" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                    <!-- <a href="https://YouTube.com/شركتك" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                         <i class="fab fa-YouTube"></i>
-                    </a>
+                    </a> -->
                     <a href="https://wa.me/201090516145" target="_blank" rel="noopener noreferrer"
                         aria-label="WhatsApp">
                         <i class="fab fa-whatsapp"></i>
@@ -4599,16 +4877,24 @@
             <div class="modal-features" id="modalFeatures"></div>
             <div class="modal-description" id="modalDescription"></div>
 
-            <!-- زر التواصل عبر واتساب -->
-            <a href="https://wa.me/201090516145" class="modal-whatsapp-btn" id="modalWhatsappBtn" target="_blank"
-                rel="noopener noreferrer">
-                <i class="fab fa-whatsapp"></i>
-                تواصل عبر واتساب
-            </a>
+            <!-- أزرار التواصل في المودال -->
+            <div class="modal-buttons">
+                <a href="https://wa.me/201090516145" class="modal-whatsapp-btn" id="modalWhatsappBtn" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i>
+                    تواصل عبر واتساب
+                </a>
+                <a href="tel:01020520511" class="modal-call-btn" id="modalCallBtn">
+                    <i class="fas fa-phone-alt"></i>
+                    اتصل بي
+                </a>
+            </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    </div>
+    </section>
+
     <script>
         // بيانات العقارات مع معارض الصور
         const propertiesData = {
@@ -5571,7 +5857,7 @@
 
         // Back to top button - محسنة
         const backToTopButton = document.getElementById('backToTop');
-        
+
         // التحكم في ظهور/اختفاء الزر
         window.addEventListener('scroll', function () {
             if (window.scrollY > 500) {
@@ -5584,7 +5870,7 @@
         // إضافة مستمع حدث للنقر على زر الرجوع للأعلى
         backToTopButton.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             // الرجوع إلى الأعلى بنعومة
             window.scrollTo({
                 top: 0,
@@ -5659,6 +5945,7 @@
         const prevBtn = document.querySelector('.prev-btn');
         const nextBtn = document.querySelector('.next-btn');
         const modalWhatsappBtn = document.getElementById('modalWhatsappBtn');
+        const modalCallBtn = document.getElementById('modalCallBtn');
 
         let currentPropertyId = null;
         let currentImageIndex = 0;
@@ -5674,6 +5961,12 @@
 
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
+        }
+
+        // دالة للاتصال
+        function makeCall() {
+            const phoneNumber = "01090516145";
+            window.location.href = `tel:${phoneNumber}`;
         }
 
         function openModal(propertyId) {
@@ -5703,6 +5996,9 @@
             const whatsappMessage = `مرحباً، أنا مهتم بالعقار التالي:\n\nالعنوان: ${propertyData.title}\nالموقع: ${propertyData.location}\nالسعر: ${propertyData.price}\n\nأرغب في الحصول على مزيد من المعلومات حول هذا العقار.`;
             const whatsappUrl = `https://wa.me/201090516145?text=${encodeURIComponent(whatsappMessage)}`;
             modalWhatsappBtn.href = whatsappUrl;
+
+            // تحديث زر الاتصال
+            modalCallBtn.href = "tel:01090516145";
 
             // تحديث معرض الصور
             updateGallery();
@@ -5787,6 +6083,14 @@
             });
         });
 
+        // إضافة مستمعي الأحداث لأزرار الاتصال في الكروت
+        document.querySelectorAll('.call-btn-card').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation(); // منع فتح المودال
+                makeCall();
+            });
+        });
+
         prevBtn.addEventListener('click', prevImage);
         nextBtn.addEventListener('click', nextImage);
 
@@ -5853,6 +6157,7 @@
         });
 
     </script>
+
 </body>
 
 </html>
