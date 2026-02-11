@@ -109,7 +109,6 @@
 
         .logo-img {
             height: 80px;
-            /* تم التعديل من 65px إلى 80px */
             width: auto;
             border-radius: 10px;
             object-fit: contain;
@@ -1246,7 +1245,6 @@
         .modal-gallery {
             position: relative;
             height: 500px;
-            /* زيادة الارتفاع */
             border-radius: 12px;
             overflow: hidden;
             margin-bottom: 1rem;
@@ -1257,7 +1255,6 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            /* تغيير من cover إلى contain لعرض الصورة كاملة */
             background-color: white;
             transition: opacity 0.3s ease;
         }
@@ -1560,7 +1557,6 @@
 
             .logo-img {
                 height: 45px;
-                /* تم التعديل من 35px إلى 45px */
             }
 
             .property-media {
@@ -1577,6 +1573,19 @@
 
             .modal-dialog {
                 padding: 0.8rem;
+            }
+
+            .popup-dialog {
+                width: 95%;
+                padding: 1rem;
+            }
+
+            .popup-image {
+                height: 160px;
+            }
+
+            .popup-title {
+                font-size: 1.2rem;
             }
         }
 
@@ -1604,7 +1613,6 @@
 
             .logo-img {
                 height: 70px;
-                /* تم التعديل من 55px إلى 70px */
             }
         }
 
@@ -1630,7 +1638,14 @@
 
             .logo-img {
                 height: 90px;
-                /* تم التعديل من 75px إلى 90px */
+            }
+
+            .popup-dialog {
+                width: min(80%, 1000px);
+            }
+
+            .popup-image {
+                height: 400px;
             }
         }
 
@@ -1646,6 +1661,14 @@
 
             .modal-dialog {
                 max-height: 95vh;
+            }
+
+            .popup-dialog {
+                max-height: 95vh;
+            }
+
+            .popup-image {
+                height: 250px;
             }
         }
 
@@ -1845,7 +1868,6 @@
 
             .logo-img {
                 height: 60px;
-                /* تم التعديل من 50px إلى 60px */
             }
 
             .logo {
@@ -2088,11 +2110,23 @@
 
             .logo-img {
                 height: 55px;
-                /* تم التعديل من 45px إلى 55px */
             }
 
             .logo {
                 gap: 10px;
+            }
+
+            .popup-dialog {
+                width: 95%;
+                padding: 1.2rem;
+            }
+
+            .popup-image {
+                height: 180px;
+            }
+
+            .popup-buttons {
+                flex-direction: column;
             }
         }
 
@@ -2238,12 +2272,36 @@
 
             .logo-img {
                 height: 50px;
-                /* تم التعديل من 40px إلى 50px */
             }
 
             .logo {
                 gap: 8px;
                 font-size: 1.2rem;
+            }
+
+            .popup-dialog {
+                padding: 1rem;
+            }
+
+            .popup-image {
+                height: 160px;
+            }
+
+            .popup-title {
+                font-size: 1.1rem;
+            }
+
+            .popup-price {
+                font-size: 1.3rem;
+            }
+
+            .popup-features span {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.75rem;
+            }
+
+            .popup-description {
+                font-size: 0.9rem;
             }
         }
 
@@ -2310,12 +2368,30 @@
 
             .logo-img {
                 height: 45px;
-                /* تم التعديل من 38px إلى 45px */
             }
 
             .logo {
                 font-size: 1.1rem;
                 gap: 7px;
+            }
+
+            .popup-dialog {
+                padding: 0.8rem;
+            }
+
+            .popup-image {
+                height: 140px;
+            }
+
+            .popup-badge {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.6rem;
+            }
+
+            .popup-buttons .details-popup-btn,
+            .popup-buttons .close-popup-btn {
+                padding: 0.6rem;
+                font-size: 0.85rem;
             }
         }
 
@@ -2355,6 +2431,14 @@
             .about-image {
                 height: 300px;
             }
+
+            .popup-dialog {
+                max-height: 90vh;
+            }
+
+            .popup-image {
+                height: 200px;
+            }
         }
 
         /* تحسينات للأجهزة مع Notch (iPhone X وما فوق) */
@@ -2377,6 +2461,13 @@
 
             .hero {
                 padding-top: env(safe-area-inset-top);
+            }
+
+            .popup-dialog {
+                padding-left: max(1.5rem, env(safe-area-inset-left));
+                padding-right: max(1.5rem, env(safe-area-inset-right));
+                padding-top: max(1.5rem, env(safe-area-inset-top));
+                padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
             }
         }
 
@@ -3389,7 +3480,6 @@
             }
 
             .modal-buttons {
-                /* grid-template-columns: 1fr; */
                 gap: 0.75rem;
             }
 
@@ -3416,6 +3506,282 @@
                 min-height: 50px;
                 padding: 0.4rem;
                 font-size: 0.75rem;
+            }
+        }
+
+        /* ==================== */
+        /* Popup Modal Styles - إعلان منبثق */
+        /* ==================== */
+        .popup-modal {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            padding: 1rem;
+        }
+
+        .popup-modal.show {
+            display: flex;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .popup-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .popup-dialog {
+            position: relative;
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            width: min(90%, 500px);
+            border-radius: 20px;
+            padding: 1.8rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            animation: slideInUp 0.5s ease;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: var(--primary);
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup-close:hover {
+            background: #ff4444;
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 6px 16px rgba(255, 68, 68, 0.3);
+        }
+
+        .popup-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(90deg, var(--accent), #ff8a8a);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            z-index: 2;
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .popup-image {
+            height: 220px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border: 3px solid white;
+        }
+
+        .popup-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .popup-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .popup-info {
+            text-align: right;
+        }
+
+        .popup-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .popup-location {
+            color: var(--gray);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .popup-location i {
+            color: var(--gold);
+        }
+
+        .popup-price {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .popup-features {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .popup-features span {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .popup-description {
+            color: var(--dark);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 12px;
+            border-right: 4px solid var(--gold);
+        }
+
+        .popup-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .popup-buttons .details-popup-btn {
+            flex: 2;
+            background: linear-gradient(90deg, var(--primary) 0%, #1a3a5f 100%);
+            color: white;
+            padding: 0.9rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .popup-buttons .details-popup-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(10, 37, 64, 0.2);
+        }
+
+        .popup-buttons .close-popup-btn {
+            flex: 1;
+            background: linear-gradient(90deg, #6c757d 0%, #495057 100%);
+            color: white;
+            padding: 0.9rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .popup-buttons .close-popup-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(108, 117, 125, 0.2);
+        }
+
+        @media (max-width: 576px) {
+            .popup-dialog {
+                padding: 1.2rem;
+            }
+
+            .popup-image {
+                height: 180px;
+            }
+
+            .popup-title {
+                font-size: 1.2rem;
+            }
+
+            .popup-price {
+                font-size: 1.4rem;
+            }
+
+            .popup-buttons {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 374px) {
+            .popup-image {
+                height: 160px;
+            }
+
+            .popup-badge {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.8rem;
+            }
+
+            .popup-title {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -3460,7 +3826,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>اكتشف عالم العقارات الفاخرة</h1>
+            <h1>نحقق احلامك العقارية</h1>
             <p>نساعدك في العثور على العقار المثالي الذي يلبي جميع تطلعاتك وأحلامك</p>
             <div class="hero-buttons">
                 <a href="#properties" class="primary-btn">تصفح العقارات</a>
@@ -3475,8 +3841,6 @@
                             <option value="">اختر المدينة</option>
                             <option value="حدائق الاهرام">حدائق الاهرام</option>
                             <option value="حدائق اكتوبر">حدائق اكتوبر</option>
-                            <!-- <option value="القاهرة">القاهرة</option>
-                            <option value="الإسكندرية">الإسكندرية</option> -->
                         </select>
                     </div>
                     <div class="search-group">
@@ -3518,7 +3882,6 @@
                         <i class="fas fa-redo"></i>
                         إعادة تعيين
                     </button>
-                    <!-- الزر الجديد المضافة -->
                     <button class="show-all-btn" type="button" id="showAllBtn">
                         <i class="fas fa-eye"></i>
                         عرض كل العقارات
@@ -4379,6 +4742,8 @@
             </div>
         </div>
     </section>
+    </div>
+    </section>
 
     <!-- Services Section -->
     <section class="services-section" id="services">
@@ -4593,7 +4958,7 @@
                             <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                             <div class="contact-text">
                                 <h4>البريد الإلكتروني</h4>
-                                <a href="mailto:info@alhadba-group.com" class="email-link">
+                                <a href="mailto:info@alsaf.com" class="email-link">
                                     <i class="fas fa-envelope"></i> info@alsaf.com
                                 </a>
                             </div>
@@ -4699,8 +5064,6 @@
                     <span class="name-char" data-char="L">L</span>
                     <span class="name-char" data-char="A">A</span>
                     <span class="name-space"></span>
-                    <!-- <span class="name-char highlight" data-char="A">Z</span>
-                    <span class="name-char highlight" data-char="l">l</span> -->
                     <span class="name-char highlight" data-char="S">d</span>
                     <span class="name-char highlight" data-char="a">a</span>
                     <span class="name-char highlight" data-char="i">i</span>
@@ -4760,21 +5123,6 @@
                         <div class="diamond-line"></div>
                     </div>
                 </a>
-
-                <!-- GitHub Diamond -->
-                <!-- <a href="https://github.com/zyadalsali" class="diamond-item github" target="_blank"
-                    rel="noopener noreferrer">
-                    <div class="diamond-inner">
-                        <div class="diamond-icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div class="diamond-glow"></div>
-                    </div>
-                    <div class="diamond-label">
-                        <span>GitHub</span>
-                        <div class="diamond-line"></div>
-                    </div>
-                </a> -->
             </div>
 
             <!-- Contact Beam -->
@@ -4796,6 +5144,7 @@
             <span class="code-symbol">#</span>
         </div>
     </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer-container">
@@ -4804,14 +5153,10 @@
                 <p>شركة رائدة في مجال العقارات الفاخرة بجمهورية مصر، نقدم حلولاً عقارية متكاملة تلبي أعلى تطلعات
                     عملائنا.</p>
                 <div class="footer-social">
-
                     <a href="https://www.instagram.com/alsafa1.company?igsh=MjloZG5ybDBlNWJs" target="_blank"
                         rel="noopener noreferrer" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <!-- <a href="https://YouTube.com/شركتك" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                        <i class="fab fa-YouTube"></i>
-                    </a> -->
                     <a href="https://wa.me/201090516145" target="_blank" rel="noopener noreferrer"
                         aria-label="WhatsApp">
                         <i class="fab fa-whatsapp"></i>
@@ -4886,14 +5231,53 @@
                 </a>
                 <a href="tel:01020520511" class="modal-call-btn" id="modalCallBtn">
                     <i class="fas fa-phone-alt"></i>
-                    اتصل 
+                    اتصل
                 </a>
             </div>
         </div>
     </div>
 
+    <!-- ========================================== -->
+    <!-- POPUP MODAL - إعلان منبثق عند دخول الموقع  -->
+    <!-- ========================================== -->
+    <div class="popup-modal" id="popupModal">
+        <div class="popup-backdrop" data-popup-close></div>
+        <div class="popup-dialog">
+            <button class="popup-close" aria-label="إغلاق" data-popup-close>
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="popup-badge">🔥 عرض خاص</div>
+            <div class="popup-image">
+                <img src="images/100m/7.jpeg" alt="عقار مميز" id="popupPropertyImage">
+            </div>
+            <div class="popup-info">
+                <h3 class="popup-title" id="popupPropertyTitle">شقة الترا سوبرلوكس</h3>
+                <p class="popup-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="popupPropertyLocation">حدائق الاهرام - منطقة (ع)</span>
+                </p>
+                <div class="popup-price" id="popupPropertyPrice">1,600,000 ج.م</div>
+                <div class="popup-features" id="popupPropertyFeatures">
+                    <span>2 غرف</span>
+                    <span>حمام</span>
+                    <span>100 م²</span>
+                </div>
+                <p class="popup-description" id="popupPropertyDescription">
+                    تشطيب راقي وموقع ممتاز 📐 100 متر 🛏 غرفتين – 🚿 حمام ✨ واجهة – سوبر لوكس
+                    🛗 أسانسير 📍 حدائق الأهرام – حرف (ع) - فرصة استثمارية لا تعوض
+                </p>
+                <div class="popup-buttons">
+                    <button class="details-popup-btn" id="popupDetailsBtn">
+                        <i class="fas fa-info-circle"></i> عرض التفاصيل
+                    </button>
+                    <button class="close-popup-btn" id="popupCloseBtn" data-popup-close>
+                        <i class="fas fa-times"></i> إغلاق
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
-    </section>
 
     <script>
         // بيانات العقارات مع معارض الصور
@@ -5554,6 +5938,7 @@
             }
         };
 
+
         // إخفاء Loader عند تحميل الصفحة
         window.addEventListener('load', function () {
             document.getElementById('loader').style.display = 'none';
@@ -5565,7 +5950,277 @@
                     contactMenuItem.style.display = 'block';
                 }
             }
+
+            // تأخير بسيط لعرض الإعلان المنبثق بعد تحميل الصفحة
+            setTimeout(function () {
+                showPopupModal();
+            }, 1500);
         });
+
+        // ==========================================
+        // POPUP MODAL FUNCTIONS - الإعلان المنبثق
+        // ==========================================
+        const popupModal = document.getElementById('popupModal');
+
+        // دالة لعرض الإعلان المنبثق
+        function showPopupModal() {
+            // التأكد من عدم ظهور الإعلان مرة أخرى في نفس الجلسة
+            const popupShown = sessionStorage.getItem('popupShown');
+            if (!popupShown) {
+                popupModal.classList.add('show');
+                popupModal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                // تسجيل أن الإعلان قد ظهر
+                sessionStorage.setItem('popupShown', 'true');
+            }
+        }
+
+        // دالة لإغلاق الإعلان المنبثق
+        function closePopupModal() {
+            popupModal.classList.remove('show');
+            popupModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        // إضافة مستمعي الأحداث للإعلان المنبثق
+        document.addEventListener('DOMContentLoaded', function () {
+            // إغلاق عند النقر على الخلفية أو زر الإغلاق
+            popupModal.addEventListener('click', function (e) {
+                if (e.target.matches('[data-popup-close]') || e.target.closest('[data-popup-close]')) {
+                    closePopupModal();
+                }
+            });
+
+            // زر عرض التفاصيل في الإعلان المنبثق
+            const popupDetailsBtn = document.getElementById('popupDetailsBtn');
+            if (popupDetailsBtn) {
+                popupDetailsBtn.addEventListener('click', function () {
+                    // إغلاق الإعلان المنبثق
+                    closePopupModal();
+
+                    // فتح مودال التفاصيل للعقار رقم 7 (شقة الترا سوبرلوكس)
+                    setTimeout(function () {
+                        openModal('7');
+
+                        // التمرير إلى قسم العقارات
+                        document.getElementById('properties').scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, 300);
+                });
+            }
+
+            // زر الإغلاق في الإعلان المنبثق
+            const popupCloseBtn = document.getElementById('popupCloseBtn');
+            if (popupCloseBtn) {
+                popupCloseBtn.addEventListener('click', closePopupModal);
+            }
+
+            // إغلاق عند الضغط على زر ESC
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && popupModal.classList.contains('show')) {
+                    closePopupModal();
+                }
+            });
+        });
+
+        // ==========================================
+        // PROPERTY DETAILS MODAL FUNCTIONS
+        // ==========================================
+        const modal = document.getElementById('propertyModal');
+        const modalMainImage = document.getElementById('modalMainImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalLocWrap = document.getElementById('modalLocation');
+        const modalLocText = modalLocWrap.querySelector('span');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalFeatures = document.getElementById('modalFeatures');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalThumbnails = document.getElementById('modalThumbnails');
+        const galleryIndicators = document.getElementById('galleryIndicators');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const modalWhatsappBtn = document.getElementById('modalWhatsappBtn');
+        const modalCallBtn = document.getElementById('modalCallBtn');
+
+        let currentPropertyId = null;
+        let currentImageIndex = 0;
+        let propertyImages = [];
+
+        // دالة لفتح واتساب
+        function openWhatsApp(propertyId) {
+            const propertyData = propertiesData[propertyId];
+            if (!propertyData) return;
+
+            const phoneNumber = "201090516145";
+            const message = `مرحباً، أنا مهتم بالعقار التالي:\n\nالعنوان: ${propertyData.title}\nالموقع: ${propertyData.location}\nالسعر: ${propertyData.price}\n\nأرغب في الحصول على مزيد من المعلومات حول هذا العقار.`;
+
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // دالة للاتصال
+        function makeCall() {
+            const phoneNumber = "01090516145";
+            window.location.href = `tel:${phoneNumber}`;
+        }
+
+        function openModal(propertyId) {
+            const propertyData = propertiesData[propertyId];
+            if (!propertyData) return;
+
+            currentPropertyId = propertyId;
+            propertyImages = propertyData.images;
+            currentImageIndex = 0;
+
+            // تحديث محتوى المودال
+            modalTitle.textContent = propertyData.title;
+            modalLocText.textContent = propertyData.location;
+            modalPrice.textContent = propertyData.price;
+            modalDescription.textContent = propertyData.description;
+
+            // تحديث المميزات
+            modalFeatures.innerHTML = '';
+            propertyData.features.forEach(feature => {
+                const featureEl = document.createElement('div');
+                featureEl.className = 'modal-feature';
+                featureEl.textContent = feature;
+                modalFeatures.appendChild(featureEl);
+            });
+
+            // تحديث زر واتساب
+            const whatsappMessage = `مرحباً، أنا مهتم بالعقار التالي:\n\nالعنوان: ${propertyData.title}\nالموقع: ${propertyData.location}\nالسعر: ${propertyData.price}\n\nأرغب في الحصول على مزيد من المعلومات حول هذا العقار.`;
+            const whatsappUrl = `https://wa.me/201090516145?text=${encodeURIComponent(whatsappMessage)}`;
+            modalWhatsappBtn.href = whatsappUrl;
+
+            // تحديث زر الاتصال
+            modalCallBtn.href = "tel:01090516145";
+
+            // تحديث معرض الصور
+            updateGallery();
+
+            // عرض المودال
+            modal.classList.add('show');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateGallery() {
+            if (propertyImages.length === 0) return;
+
+            // تحديث الصورة الرئيسية
+            modalMainImage.src = propertyImages[currentImageIndex];
+            modalMainImage.alt = propertiesData[currentPropertyId].title;
+
+            // تحديث المؤشرات
+            galleryIndicators.innerHTML = '';
+            for (let i = 0; i < propertyImages.length; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = `gallery-indicator ${i === currentImageIndex ? 'active' : ''}`;
+                indicator.addEventListener('click', () => {
+                    currentImageIndex = i;
+                    updateGallery();
+                });
+                galleryIndicators.appendChild(indicator);
+            }
+
+            // تحديث الصور المصغرة
+            modalThumbnails.innerHTML = '';
+            propertyImages.forEach((image, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = `modal-thumbnail ${index === currentImageIndex ? 'active' : ''}`;
+                thumbnail.innerHTML = `<img src="${image}" alt="صورة ${index + 1}" loading="lazy" />`;
+                thumbnail.addEventListener('click', () => {
+                    currentImageIndex = index;
+                    updateGallery();
+                });
+                modalThumbnails.appendChild(thumbnail);
+            });
+        }
+
+        function nextImage() {
+            if (propertyImages.length === 0) return;
+            currentImageIndex = (currentImageIndex + 1) % propertyImages.length;
+            updateGallery();
+        }
+
+        function prevImage() {
+            if (propertyImages.length === 0) return;
+            currentImageIndex = (currentImageIndex - 1 + propertyImages.length) % propertyImages.length;
+            updateGallery();
+        }
+
+        function closeModal() {
+            modal.classList.remove('show');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        // إضافة مستمعي الأحداث
+        document.querySelectorAll('.details-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const card = e.target.closest('.property-card');
+                if (card) {
+                    const propertyId = card.getAttribute('data-id');
+                    openModal(propertyId);
+                }
+            });
+        });
+
+        // إضافة مستمعي الأحداث لأزرار واتساب في الكروت
+        document.querySelectorAll('.whatsapp-btn-card').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation(); // منع فتح المودال
+                const card = e.target.closest('.property-card');
+                if (card) {
+                    const propertyId = card.getAttribute('data-id');
+                    openWhatsApp(propertyId);
+                }
+            });
+        });
+
+        // إضافة مستمعي الأحداث لأزرار الاتصال في الكروت
+        document.querySelectorAll('.call-btn-card').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation(); // منع فتح المودال
+                makeCall();
+            });
+        });
+
+        prevBtn.addEventListener('click', prevImage);
+        nextBtn.addEventListener('click', nextImage);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target.matches('[data-close]') || e.target.closest('[data-close]')) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+            if (e.key === 'ArrowRight' && modal.classList.contains('show')) nextImage();
+            if (e.key === 'ArrowLeft' && modal.classList.contains('show')) prevImage();
+        });
+
+        // Swipe support for touch devices
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        modal.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        modal.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                nextImage(); // swipe left
+            }
+            if (touchEndX > touchStartX + 50) {
+                prevImage(); // swipe right
+            }
+        }
 
         // Header scroll effect
         const header = document.getElementById('header');
@@ -5895,255 +6550,6 @@
         window.addEventListener('scroll', checkFade);
         window.addEventListener('load', checkFade);
 
-        // Animate stats counter
-        function animateCounter(element, target, duration) {
-            let start = 0;
-            const increment = target / (duration / 16);
-            const timer = setInterval(() => {
-                start += increment;
-                if (start >= target) {
-                    element.textContent = target.toLocaleString();
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(start).toLocaleString();
-                }
-            }, 16);
-        }
-
-        function animateStats() {
-            const stat1 = document.getElementById('stat1');
-            const stat2 = document.getElementById('stat2');
-            const stat3 = document.getElementById('stat3');
-            const stat4 = document.getElementById('stat4');
-
-            if (stat1.getBoundingClientRect().top < window.innerHeight && stat1.getBoundingClientRect().bottom > 0) {
-                animateCounter(stat1, 350, 2000);
-                animateCounter(stat2, 250, 2000);
-                animateCounter(stat3, 15, 2000);
-                animateCounter(stat4, 12, 2000);
-                window.removeEventListener('scroll', animateStatsOnScroll);
-            }
-        }
-
-        function animateStatsOnScroll() {
-            animateStats();
-        }
-
-        window.addEventListener('scroll', animateStatsOnScroll);
-
-        // Details modal logic
-        const modal = document.getElementById('propertyModal');
-        const modalMainImage = document.getElementById('modalMainImage');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalLocWrap = document.getElementById('modalLocation');
-        const modalLocText = modalLocWrap.querySelector('span');
-        const modalPrice = document.getElementById('modalPrice');
-        const modalFeatures = document.getElementById('modalFeatures');
-        const modalDescription = document.getElementById('modalDescription');
-        const modalThumbnails = document.getElementById('modalThumbnails');
-        const galleryIndicators = document.getElementById('galleryIndicators');
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        const modalWhatsappBtn = document.getElementById('modalWhatsappBtn');
-        const modalCallBtn = document.getElementById('modalCallBtn');
-
-        let currentPropertyId = null;
-        let currentImageIndex = 0;
-        let propertyImages = [];
-
-        // دالة لفتح واتساب
-        function openWhatsApp(propertyId) {
-            const propertyData = propertiesData[propertyId];
-            if (!propertyData) return;
-
-            const phoneNumber = "201090516145";
-            const message = `مرحباً، أنا مهتم بالعقار التالي:\n\nالعنوان: ${propertyData.title}\nالموقع: ${propertyData.location}\nالسعر: ${propertyData.price}\n\nأرغب في الحصول على مزيد من المعلومات حول هذا العقار.`;
-
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
-
-        // دالة للاتصال
-        function makeCall() {
-            const phoneNumber = "01090516145";
-            window.location.href = `tel:${phoneNumber}`;
-        }
-
-        function openModal(propertyId) {
-            const propertyData = propertiesData[propertyId];
-            if (!propertyData) return;
-
-            currentPropertyId = propertyId;
-            propertyImages = propertyData.images;
-            currentImageIndex = 0;
-
-            // تحديث محتوى المودال
-            modalTitle.textContent = propertyData.title;
-            modalLocText.textContent = propertyData.location;
-            modalPrice.textContent = propertyData.price;
-            modalDescription.textContent = propertyData.description;
-
-            // تحديث المميزات
-            modalFeatures.innerHTML = '';
-            propertyData.features.forEach(feature => {
-                const featureEl = document.createElement('div');
-                featureEl.className = 'modal-feature';
-                featureEl.textContent = feature;
-                modalFeatures.appendChild(featureEl);
-            });
-
-            // تحديث زر واتساب
-            const whatsappMessage = `مرحباً، أنا مهتم بالعقار التالي:\n\nالعنوان: ${propertyData.title}\nالموقع: ${propertyData.location}\nالسعر: ${propertyData.price}\n\nأرغب في الحصول على مزيد من المعلومات حول هذا العقار.`;
-            const whatsappUrl = `https://wa.me/201090516145?text=${encodeURIComponent(whatsappMessage)}`;
-            modalWhatsappBtn.href = whatsappUrl;
-
-            // تحديث زر الاتصال
-            modalCallBtn.href = "tel:01090516145";
-
-            // تحديث معرض الصور
-            updateGallery();
-
-            // عرض المودال
-            modal.classList.add('show');
-            modal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function updateGallery() {
-            if (propertyImages.length === 0) return;
-
-            // تحديث الصورة الرئيسية
-            modalMainImage.src = propertyImages[currentImageIndex];
-            modalMainImage.alt = propertiesData[currentPropertyId].title;
-
-            // تحديث المؤشرات
-            galleryIndicators.innerHTML = '';
-            for (let i = 0; i < propertyImages.length; i++) {
-                const indicator = document.createElement('div');
-                indicator.className = `gallery-indicator ${i === currentImageIndex ? 'active' : ''}`;
-                indicator.addEventListener('click', () => {
-                    currentImageIndex = i;
-                    updateGallery();
-                });
-                galleryIndicators.appendChild(indicator);
-            }
-
-            // تحديث الصور المصغرة
-            modalThumbnails.innerHTML = '';
-            propertyImages.forEach((image, index) => {
-                const thumbnail = document.createElement('div');
-                thumbnail.className = `modal-thumbnail ${index === currentImageIndex ? 'active' : ''}`;
-                thumbnail.innerHTML = `<img src="${image}" alt="صورة ${index + 1}" loading="lazy" />`;
-                thumbnail.addEventListener('click', () => {
-                    currentImageIndex = index;
-                    updateGallery();
-                });
-                modalThumbnails.appendChild(thumbnail);
-            });
-        }
-
-        function nextImage() {
-            if (propertyImages.length === 0) return;
-            currentImageIndex = (currentImageIndex + 1) % propertyImages.length;
-            updateGallery();
-        }
-
-        function prevImage() {
-            if (propertyImages.length === 0) return;
-            currentImageIndex = (currentImageIndex - 1 + propertyImages.length) % propertyImages.length;
-            updateGallery();
-        }
-
-        function closeModal() {
-            modal.classList.remove('show');
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        }
-
-        // إضافة مستمعي الأحداث
-        document.querySelectorAll('.details-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const card = e.target.closest('.property-card');
-                if (card) {
-                    const propertyId = card.getAttribute('data-id');
-                    openModal(propertyId);
-                }
-            });
-        });
-
-        // إضافة مستمعي الأحداث لأزرار واتساب في الكروت
-        document.querySelectorAll('.whatsapp-btn-card').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation(); // منع فتح المودال
-                const card = e.target.closest('.property-card');
-                if (card) {
-                    const propertyId = card.getAttribute('data-id');
-                    openWhatsApp(propertyId);
-                }
-            });
-        });
-
-        // إضافة مستمعي الأحداث لأزرار الاتصال في الكروت
-        document.querySelectorAll('.call-btn-card').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation(); // منع فتح المودال
-                makeCall();
-            });
-        });
-
-        prevBtn.addEventListener('click', prevImage);
-        nextBtn.addEventListener('click', nextImage);
-
-        modal.addEventListener('click', (e) => {
-            if (e.target.matches('[data-close]') || e.target.closest('[data-close]')) closeModal();
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
-            if (e.key === 'ArrowRight' && modal.classList.contains('show')) nextImage();
-            if (e.key === 'ArrowLeft' && modal.classList.contains('show')) prevImage();
-        });
-
-        // Swipe support for touch devices
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        modal.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-
-        modal.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-
-        function handleSwipe() {
-            if (touchEndX < touchStartX - 50) {
-                nextImage(); // swipe left
-            }
-            if (touchEndX > touchStartX + 50) {
-                prevImage(); // swipe right
-            }
-        }
-
-        // Initialize Swiper for testimonials
-        const testimonialSwiper = new Swiper('.testimonials-grid', {
-            loop: true,
-            slidesPerView: 1,
-            spaceBetween: 20,
-            autoplay: {
-                delay: 5000,
-            },
-            breakpoints: {
-                768: {
-                    slidesPerView: 2,
-                },
-                992: {
-                    slidesPerView: 3,
-                }
-            }
-        });
-
         // تحديث تلقائي لزر تواصل معنا في القائمة عند تغيير حجم النافذة
         window.addEventListener('resize', function () {
             const contactMenuItem = document.querySelector('.contact-menu-item');
@@ -6157,7 +6563,6 @@
         });
 
     </script>
-
 </body>
 
 </html>
