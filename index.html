@@ -195,6 +195,34 @@
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
         }
 
+        /* Sell Button Styles */
+        .sell-btn {
+            background: linear-gradient(90deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+            font-size: clamp(1rem, 1.2vw, 1.2rem);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .sell-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+        }
+
+        .sell-btn i {
+            font-size: 1.2rem;
+        }
+
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -245,7 +273,8 @@
         }
 
         .hero-buttons .primary-btn,
-        .hero-buttons .secondary-btn {
+        .hero-buttons .secondary-btn,
+        .hero-buttons .sell-btn {
             flex: 1 1 200px;
             text-align: center;
         }
@@ -449,6 +478,81 @@
             justify-content: center;
             gap: 0.5rem;
             animation: fadeIn 0.5s ease;
+        }
+
+        /* No Results Message - جديدة */
+        .no-results-message {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            margin: 3rem 0;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .no-results-message i {
+            font-size: 5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            opacity: 0.7;
+            animation: pulse 2s infinite;
+        }
+
+        .no-results-message h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .no-results-message p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .no-results-message .reset-search-btn {
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--primary);
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .no-results-message .reset-search-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
         }
 
         /* Featured Properties */
@@ -812,6 +916,14 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .about-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .about-stats {
@@ -1797,7 +1909,8 @@
             }
 
             .hero-buttons .primary-btn,
-            .hero-buttons .secondary-btn {
+            .hero-buttons .secondary-btn,
+            .hero-buttons .sell-btn {
                 flex: 1 1 250px;
                 padding: 0.9rem;
             }
@@ -1898,7 +2011,8 @@
             }
 
             .hero-buttons .primary-btn,
-            .hero-buttons .secondary-btn {
+            .hero-buttons .secondary-btn,
+            .hero-buttons .sell-btn {
                 flex: 1 1 auto;
                 width: 100%;
                 padding: 0.8rem;
@@ -2146,7 +2260,8 @@
             }
 
             .hero-buttons .primary-btn,
-            .hero-buttons .secondary-btn {
+            .hero-buttons .secondary-btn,
+            .hero-buttons .sell-btn {
                 font-size: 0.9rem;
                 padding: 0.7rem;
             }
@@ -2302,6 +2417,27 @@
 
             .popup-description {
                 font-size: 0.9rem;
+            }
+
+            .no-results-message {
+                padding: 2rem 1rem;
+            }
+
+            .no-results-message i {
+                font-size: 3.5rem;
+            }
+
+            .no-results-message h3 {
+                font-size: 1.4rem;
+            }
+
+            .no-results-message p {
+                font-size: 1rem;
+            }
+
+            .no-results-message .reset-search-btn {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
             }
         }
 
@@ -3601,20 +3737,6 @@
             animation: pulse 2s infinite;
         }
 
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
         .popup-image {
             height: 220px;
             border-radius: 16px;
@@ -3831,6 +3953,12 @@
             <div class="hero-buttons">
                 <a href="#properties" class="primary-btn">تصفح العقارات</a>
                 <a href="#contact" class="secondary-btn">تواصل معنا</a>
+                <!-- زر عايز ابيع عقار -->
+                <a href="https://wa.me/201090516145?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A8%D9%8A%D8%B9%20%D8%B9%D9%82%D8%A7%D8%B1%D9%8A%20%D9%88%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%A5%D9%84%D9%89%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%A7%D9%84%D8%AE%D8%B7%D9%88%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A5%D8%AC%D8%B1%D8%A7%D8%A1%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%B7%D9%84%D9%88%D8%A8%D8%A9."
+                    class="sell-btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    عايز ابيع عقار
+                </a>
             </div>
 
             <div class="search-container">
@@ -3890,12 +4018,22 @@
             </div>
         </div>
     </section>
-
     <!-- Featured Properties -->
     <section class="featured-properties" id="properties">
         <div class="section-header">
             <h2>عقارات مميزة</h2>
             <p>اكتشف مجموعة مختارة من أرقى العقارات في جمهورية مصر</p>
+        </div>
+
+        <!-- رسالة عدم وجود نتائج - سيتم التحكم في ظهورها عبر JavaScript -->
+        <div class="no-results-message" style="display: none;">
+            <i class="fas fa-search"></i>
+            <h3>عذراً، لا توجد نتائج</h3>
+            <p>لم يتم العثور على عقارات تطابق معايير البحث الخاصة بك</p>
+            <button class="reset-search-btn">
+                <i class="fas fa-redo-alt"></i>
+                عرض جميع العقارات
+            </button>
         </div>
 
         <div class="properties-grid">
@@ -4430,7 +4568,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Property 21 -->
             <div class="property-card" data-id="21">
                 <div class="property-media">
@@ -4715,7 +4852,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Property 31 -->
+            <!-- Property 32 -->
             <div class="property-card" data-id="32">
                 <div class="property-media">
                     <img src="images/222/1.jpeg" alt="شقة فاخر بحدائق الاهرام" loading="lazy" />
@@ -4728,6 +4865,31 @@
                         <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
                         <div class="feature"><i class="fas fa-bath"></i><span>2 حمامات</span></div>
                         <div class="feature"><i class="fas fa-vector-square"></i><span>125 م²</span></div>
+                    </div>
+                    <button class="details-btn" type="button">عرض التفاصيل</button>
+                    <div class="property-buttons">
+                        <button class="whatsapp-btn-card" type="button">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="call-btn-card" type="button">
+                            <i class="fas fa-phone-alt"></i> اتصل
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Property 33 -->
+            <div class="property-card" data-id="33">
+                <div class="property-media">
+                    <img src="images/162m/2.jpeg" alt="شقة فاخر بحدائق الاهرام" loading="lazy" />
+                </div>
+                <div class="property-info">
+                    <div class="property-price">3,300,000 <span>ج.م</span></div>
+                    <h3 class="property-title">شقة فاخر بحدائق الاهرام</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حدائق الاهرام - من طقة(ل)</p>
+                    <div class="property-features">
+                        <div class="feature"><i class="fas fa-bed"></i><span>3 غرف</span></div>
+                        <div class="feature"><i class="fas fa-bath"></i><span>3 حمامات</span></div>
+                        <div class="feature"><i class="fas fa-vector-square"></i><span>175 م²</span></div>
                     </div>
                     <button class="details-btn" type="button">عرض التفاصيل</button>
                     <div class="property-buttons">
@@ -4909,7 +5071,7 @@
                 </div>
                 <div class="company-info">
                     <h3>شركة الصفا</h3>
-                    <p>نساعدك في العثور على العقار المثالي والإستثمار الأمثل</p>
+                    <p>نحقق احلامك العقارية</p>
                     <div class="owner-badge">
                         <i class="fas fa-user-tie"></i>
                         <span>المدير: م/ شعبان العسلي </span>
@@ -5255,17 +5417,17 @@
                 <h3 class="popup-title" id="popupPropertyTitle">شقة الترا سوبرلوكس</h3>
                 <p class="popup-location">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span id="popupPropertyLocation">حدائق الاهرام - منطقة (ع)</span>
+                    <span id="popupPropertyLocation">حدائق الاهرام - منطقة (ل)</span>
                 </p>
-                <div class="popup-price" id="popupPropertyPrice">1,600,000 ج.م</div>
+                <div class="popup-price" id="popupPropertyPrice">1,550,000 ج.م</div>
                 <div class="popup-features" id="popupPropertyFeatures">
                     <span>2 غرف</span>
                     <span>حمام</span>
                     <span>100 م²</span>
                 </div>
                 <p class="popup-description" id="popupPropertyDescription">
-                    تشطيب راقي وموقع ممتاز 📐 100 متر 🛏 غرفتين – 🚿 حمام ✨ واجهة – سوبر لوكس
-                    🛗 أسانسير 📍 حدائق الأهرام – حرف (ع) - فرصة استثمارية لا تعوض
+                    🔥 "تشطيب راقي وموقع ممتاز 📐 100 متر 🛏 غرفتين – 🚿 حمام ✨ واجهة – سوبر لوكس🛗 أسانسير📍 حدائق
+                    الأهرام – حرف (ع)
                 </p>
                 <div class="popup-buttons">
                     <button class="details-popup-btn" id="popupDetailsBtn">
@@ -5935,7 +6097,36 @@
                     priceRange: "1-2",
                     condition: "متشطب"
                 }
-            }
+            },
+            33: {
+                title: "شقة بسعر بقطة",
+                location: "حدائق الأهرام-منطقة (ل)",
+                price: "3,300,000 ج.م",
+                features: ["3 غرف", "3 حمامات", "175 م²", "دور تالت ", "الترا سوبر لوكس", " وجهه"],
+                description: "للبيع - شقة مميزة جدا 175 واجه امامية بحدائق الاهرام - البوابة الرابعة - منطقة ل- بشارع مرصوف ، خطوات  لخير زمان وشارع الجيش بجوار كل الخدمات 🔴 تشطيب التراا سوووبر لوكس اول سكن - الدور التالت أميز دور  مكونة من ( 3 غرف كبار - 3حمام - ريسبشن 3 قطع - مطبخ ) عمارة حديثة مباني 2025 - السعر 3 مليون 300شامل الاسانسير 🏡",
+                images: [
+                    "images/162m/1.jpeg",
+                    "images/222/2.jpeg",
+                    "images/222/3.jpeg",
+                    "images/222/4.jpeg",
+                    "images/222/5.jpeg",
+                    "images/222/6.jpeg",
+                    "images/222/7.jpeg",
+                    "images/222/8.jpeg",
+                    "images/222/9.jpeg",
+                    "images/222/10.jpeg",
+                    "images/222/11.jpeg",
+                    "images/222/12.jpeg",
+                    "images/222/13.jpeg",
+                    "images/222/14.jpeg",
+                ],
+                searchData: {
+                    type: "شقة",
+                    location: "حدائق الأهرام",
+                    priceRange: "3-5",
+                    condition: "متشطب"
+                }
+            },
         };
 
 
@@ -6265,7 +6456,7 @@
             });
         });
 
-        // وظيفة البحث المتقدم - محسنة بدقة
+        // وظيفة البحث المتقدم - محسنة مع رسالة عدم وجود نتائج والتمرير للأسفل
         function performSearch() {
             const location = document.getElementById('location').value;
             const type = document.getElementById('type').value;
@@ -6280,6 +6471,9 @@
 
             // إخفاء جميع العقارات أولاً
             const allProperties = document.querySelectorAll('.property-card');
+
+            // الحصول على عنصر رسالة عدم وجود نتائج
+            const noResultsMessage = document.querySelector('.no-results-message');
 
             // العدادات
             let visibleCount = 0;
@@ -6349,8 +6543,41 @@
                 }
             });
 
-            // عرض رسالة النتائج
-            showSearchResults(visibleCount);
+            // التمرير إلى قسم العقارات في جميع الحالات
+            setTimeout(() => {
+                document.getElementById('properties').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 300);
+
+            // إظهار أو إخفاء رسالة عدم وجود نتائج
+            if (visibleCount === 0) {
+                noResultsMessage.style.display = 'block';
+
+                // إضافة حدث للزر داخل الرسالة
+                const resetBtnInMessage = noResultsMessage.querySelector('.reset-search-btn');
+                if (resetBtnInMessage) {
+                    // إزالة أي مستمع قديم لتجنب التكرار
+                    const newResetBtn = resetBtnInMessage.cloneNode(true);
+                    resetBtnInMessage.parentNode.replaceChild(newResetBtn, resetBtnInMessage);
+
+                    newResetBtn.addEventListener('click', function () {
+                        resetSearch();
+                        noResultsMessage.style.display = 'none';
+                    });
+                }
+
+                // عرض رسالة منبثقة صغيرة
+                showSearchMessage('لم يتم العثور على نتائج', 'error');
+            } else {
+                noResultsMessage.style.display = 'none';
+            }
+
+            // عرض رسالة النتائج (إذا كان هناك نتائج)
+            if (visibleCount > 0) {
+                showSearchResults(visibleCount);
+            }
         }
 
         // وظيفة إعادة تعيين البحث
@@ -6366,6 +6593,12 @@
             allProperties.forEach(property => {
                 property.style.display = 'block';
             });
+
+            // إخفاء رسالة عدم وجود نتائج
+            const noResultsMessage = document.querySelector('.no-results-message');
+            if (noResultsMessage) {
+                noResultsMessage.style.display = 'none';
+            }
 
             // إخفاء رسالة البحث إن وجدت
             const messageEl = document.querySelector('.search-message');
@@ -6384,6 +6617,12 @@
             allProperties.forEach(property => {
                 property.style.display = 'block';
             });
+
+            // إخفاء رسالة عدم وجود نتائج
+            const noResultsMessage = document.querySelector('.no-results-message');
+            if (noResultsMessage) {
+                noResultsMessage.style.display = 'none';
+            }
 
             // إخفاء رسالة البحث إن وجدت
             const messageEl = document.querySelector('.search-message');
@@ -6445,21 +6684,9 @@
                 searchContainer.appendChild(messageEl);
             }
 
-            if (visibleCount === 0) {
-                messageEl.innerHTML = '<i class="fas fa-exclamation-triangle"></i> لم يتم العثور على عقارات تطابق معايير البحث';
-                messageEl.className = 'search-message error';
-            } else {
-                messageEl.innerHTML = `<i class="fas fa-check-circle"></i> تم العثور على ${visibleCount} عقار`;
-                messageEl.className = 'search-message success';
-
-                // التمرير إلى قسم العقارات
-                setTimeout(() => {
-                    document.getElementById('properties').scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }, 300);
-            }
+            messageEl.innerHTML = `<i class="fas fa-check-circle"></i> تم العثور على ${visibleCount} عقار`;
+            messageEl.className = 'search-message success';
+            messageEl.style.display = 'flex';
 
             // إخفاء الرسالة بعد 5 ثواني
             setTimeout(() => {
@@ -6509,6 +6736,17 @@
         if (showAllBtn) {
             showAllBtn.addEventListener('click', showAllProperties);
         }
+
+        // إضافة مستمع الحدث لزر إعادة التعيين داخل رسالة عدم وجود نتائج
+        document.addEventListener('DOMContentLoaded', function () {
+            const resetBtnInMessage = document.querySelector('.no-results-message .reset-search-btn');
+            if (resetBtnInMessage) {
+                resetBtnInMessage.addEventListener('click', function () {
+                    resetSearch();
+                    document.querySelector('.no-results-message').style.display = 'none';
+                });
+            }
+        });
 
         // Back to top button - محسنة
         const backToTopButton = document.getElementById('backToTop');
