@@ -7,8 +7,6 @@
     <title>شركة الصفا - للتسويق العقاري</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <!-- <script src="js/script.js"></script> -->
     <style>
         /* Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
@@ -1529,6 +1527,150 @@
             border-radius: 8px;
             border-right: 3px solid var(--gold);
         }
+
+        /* ==================== */
+        /* قسم طلب المعاينة - الجديد والمنظم */
+        /* ==================== */
+        .viewing-section {
+            margin: 2rem 0 1.5rem;
+            background: linear-gradient(145deg, #fafafa, #f0f5fa);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+        }
+
+        .viewing-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .viewing-header i {
+            font-size: 2rem;
+            color: var(--gold);
+            background: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 12px rgba(212, 175, 55, 0.2);
+        }
+
+        .viewing-header h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .viewing-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .form-row label {
+            font-weight: 600;
+            color: var(--dark);
+            min-width: 80px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-row label i {
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .form-row input,
+        .form-row select {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 14px;
+            font-size: 1rem;
+            background: white;
+            transition: var(--transition);
+        }
+
+        .form-row input:focus,
+        .form-row select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+        }
+
+        .viewing-note {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(212, 175, 55, 0.07);
+            padding: 0.8rem 1.2rem;
+            border-radius: 40px;
+            margin: 0.5rem 0;
+        }
+
+        .viewing-note i {
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .viewing-note span {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .viewing-submit {
+            background: linear-gradient(90deg, var(--gold), #e7c14b);
+            border: none;
+            color: var(--primary);
+            font-weight: 800;
+            padding: 1rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 6px 18px rgba(212, 175, 55, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .viewing-submit:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(212, 175, 55, 0.35);
+        }
+
+        .viewing-success {
+            background: #d4edda;
+            color: #155724;
+            padding: 0.8rem;
+            border-radius: 50px;
+            text-align: center;
+            margin-top: 1rem;
+            font-weight: 600;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            animation: fadeIn 0.3s;
+        }
+
+        /* ======================== */
 
         /* تنسيقات أزرار المودال - محسنة */
         .modal-buttons {
@@ -5579,7 +5721,7 @@
                                 </div>
                             </div>
                         </div>
-<!-- 
+                        <!-- 
                         <div class="contact-item">
                             <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                             <div class="contact-text">
@@ -5847,6 +5989,47 @@
             <div class="modal-price" id="modalPrice"></div>
             <div class="modal-features" id="modalFeatures"></div>
             <div class="modal-description" id="modalDescription"></div>
+
+            <!-- ==================== -->
+            <!-- قسم طلب المعاينة - الجديد والمنظم -->
+            <!-- ==================== -->
+            <div class="viewing-section" id="viewingSection">
+                <div class="viewing-header">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>طلب معاينة العقار</h3>
+                </div>
+                <div class="viewing-form">
+                    <div class="form-row">
+                        <label><i class="fas fa-calendar-alt"></i> التاريخ:</label>
+                        <input type="date" id="viewingDate" min="">
+                    </div>
+                    <div class="form-row">
+                        <label><i class="fas fa-clock"></i> الوقت:</label>
+                        <select id="viewingTime">
+                            <option value="09:00 صباحاً">09:00 صباحاً</option>
+                            <option value="10:00 صباحاً">10:00 صباحاً</option>
+                            <option value="11:00 صباحاً">11:00 صباحاً</option>
+                            <option value="12:00 ظهراً">12:00 ظهراً</option>
+                            <option value="13:00 مساءً">01:00 مساءً</option>
+                            <option value="14:00 مساءً">02:00 مساءً</option>
+                            <option value="15:00 مساءً">03:00 مساءً</option>
+                            <option value="16:00 مساءً">04:00 مساءً</option>
+                            <option value="17:00 مساءً">05:00 مساءً</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="viewing-note">
+                    <i class="fas fa-info-circle"></i>
+                    <span>سيتم التواصل معك خلال 30 دقيقة لتأكيد الموعد</span>
+                </div>
+                <button class="viewing-submit" id="submitViewingBtn">
+                    <i class="fas fa-paper-plane"></i> إرسال طلب المعاينة
+                </button>
+                <div class="viewing-success" id="viewingSuccess">
+                    <i class="fas fa-check-circle"></i> تم إرسال الطلب، سنتواصل معك قريباً
+                </div>
+            </div>
+            <!-- ==================== -->
 
             <!-- أزرار التواصل في المودال -->
             <div class="modal-buttons">
@@ -6754,6 +6937,14 @@
             // تحديث معرض الصور
             updateGallery();
 
+            // تعيين أقل تاريخ لاختيار المعاينة (اليوم)
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('viewingDate').min = today;
+            document.getElementById('viewingDate').value = today;
+
+            // إخفاء رسالة النجاح عند فتح مودال جديد
+            document.getElementById('viewingSuccess').style.display = 'none';
+
             // عرض المودال
             modal.classList.add('show');
             modal.setAttribute('aria-hidden', 'false');
@@ -7262,6 +7453,44 @@
                     contactMenuItem.style.display = 'none';
                 }
             }
+        });
+
+        // ==========================================
+        // VIEWING REQUEST FUNCTIONALITY - الجديد
+        // ==========================================
+        const submitViewingBtn = document.getElementById('submitViewingBtn');
+        const viewingSuccess = document.getElementById('viewingSuccess');
+
+        submitViewingBtn.addEventListener('click', function () {
+            const date = document.getElementById('viewingDate').value;
+            const timeSelect = document.getElementById('viewingTime');
+            const time = timeSelect.options[timeSelect.selectedIndex]?.text || timeSelect.value;
+
+            if (!date) {
+                alert('يرجى اختيار تاريخ المعاينة');
+                return;
+            }
+
+            const property = propertiesData[currentPropertyId];
+            if (!property) return;
+
+            // إنشاء رسالة واتساب منظمة
+            const message = `🔍 *طلب معاينة عقار*\n\nالعقار: ${property.title}\nالموقع: ${property.location}\nالسعر: ${property.price}\n📅 التاريخ: ${date}\n⏰ الوقت: ${time}\n\nأرجو تأكيد الموعد. شكراً`;
+
+            const whatsappUrl = `https://wa.me/201090516145?text=${encodeURIComponent(message)}`;
+
+            // إظهار رسالة النجاح
+            viewingSuccess.style.display = 'flex';
+
+            // فتح واتساب بعد ثانية واحدة
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+            }, 1000);
+
+            // إخفاء رسالة النجاح بعد 5 ثواني
+            setTimeout(() => {
+                viewingSuccess.style.display = 'none';
+            }, 5000);
         });
 
     </script>
