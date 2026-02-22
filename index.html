@@ -4503,52 +4503,32 @@
                 height: 100px;
             }
         }
+        /* كل اثنين جنب بعض في جميع الشاشات */
+.search-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) !important; /*强制执行两列*/
+    gap: 1rem;
+    width: 100%;
+}
 
-        /* التعديل النهائي - كل اثنين جنب بعض في التلفونات */
-        .search-box {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
+.search-group {
+    grid-column: span 1 !important; /* كل مجموعة تأخذ عمود واحد */
+    width: 100%;
+}
 
-        .search-group {
-            grid-column: span 1;
-            /* كل حقل ياخد عمود واحد */
-        }
+.search-button,
+.search-reset-btn,
+.show-all-btn {
+    grid-column: span 2 !important; /* الأزرار تأخذ عرض كامل */
+    width: 100%;
+}
 
-        .search-button {
-            grid-column: span 2;
-            /* الزر ياخد عمودين كاملين */
-        }
-
-        .search-reset-btn {
-            grid-column: span 2;
-            /* الزر ياخد عمودين كاملين */
-        }
-
-        /* للشاشات الكبيرة والمتوسطة - كل اتنين جنب بعض برضه */
-        @media (min-width: 769px) {
-            .search-box {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* للشاشات الصغيرة جداً (اقل من 400px) */
-        @media (max-width: 400px) {
-            .search-box {
-                grid-template-columns: 1fr;
-                /* لو الشاشة صغيرة قوي يبقى كل واحد لوحده */
-            }
-
-            .search-group {
-                grid-column: span 1;
-            }
-
-            .search-button,
-            .search-reset-btn {
-                grid-column: span 1;
-            }
-        }
+/* بدون أي استثناءات - كل حقلين جنب بعض في كل الأحوال */
+@media (max-width: 480px) {
+    .search-box {
+        grid-template-columns: repeat(2, 1fr) !important; /* حتى في أصغر الشاشات */
+    }
+}
     </style>
 
 </head>
@@ -4621,9 +4601,9 @@
                             <option value="">اختر النوع</option>
                             <option value="شقة">شقة</option>
                             <option value="فيلا">فيلا</option>
-                            <option value="دوبلكس">دوبلكس</option>
                             <option value="أرض">أرض</option>
                             <option value="تجاري">تجاري</option>
+                            <option value="دوبلكس">دوبلكس</option>
                         </select>
                     </div>
                     <div class="search-group">
