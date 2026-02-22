@@ -3440,17 +3440,11 @@
 
         .company-info p {
             margin: 10px 0 15px 0;
-            /* زيادة المسافة */
             opacity: 1;
-            /* جعل النص غير شفاف (واضح جداً) */
             font-size: 1rem;
-            /* استخدام وحدة مرنة */
             font-weight: 500;
-            /* جعله أوضح */
             line-height: 1.5;
-            /* تحسين التباعد */
             color: rgba(255, 255, 255, 0.95);
-            /* لون أبيض نقي مع شفافية بسيطة */
         }
 
         .owner-badge {
@@ -4280,7 +4274,6 @@
         nav ul {
             display: flex;
             list-style: none;
-            /* gap: 0.5rem; */
         }
 
         nav ul li a {
@@ -4367,7 +4360,6 @@
 
             nav ul {
                 flex-direction: column;
-                /* gap: 1rem; */
             }
 
             nav ul li {
@@ -4511,8 +4503,54 @@
                 height: 100px;
             }
         }
+
+        /* التعديل النهائي - كل اثنين جنب بعض في التلفونات */
+        .search-box {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .search-group {
+            grid-column: span 1;
+            /* كل حقل ياخد عمود واحد */
+        }
+
+        .search-button {
+            grid-column: span 2;
+            /* الزر ياخد عمودين كاملين */
+        }
+
+        .search-reset-btn {
+            grid-column: span 2;
+            /* الزر ياخد عمودين كاملين */
+        }
+
+        /* للشاشات الكبيرة والمتوسطة - كل اتنين جنب بعض برضه */
+        @media (min-width: 769px) {
+            .search-box {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* للشاشات الصغيرة جداً (اقل من 400px) */
+        @media (max-width: 400px) {
+            .search-box {
+                grid-template-columns: 1fr;
+                /* لو الشاشة صغيرة قوي يبقى كل واحد لوحده */
+            }
+
+            .search-group {
+                grid-column: span 1;
+            }
+
+            .search-button,
+            .search-reset-btn {
+                grid-column: span 1;
+            }
+        }
     </style>
-    
+
 </head>
 
 <body>
@@ -4583,6 +4621,7 @@
                             <option value="">اختر النوع</option>
                             <option value="شقة">شقة</option>
                             <option value="فيلا">فيلا</option>
+                            <option value="دوبلكس">دوبلكس</option>
                             <option value="أرض">أرض</option>
                             <option value="تجاري">تجاري</option>
                         </select>
@@ -4591,6 +4630,7 @@
                         <label for="price">نطاق السعر</label>
                         <select id="price">
                             <option value="">اختر السعر</option>
+                            <option value="0-1">أقل من مليون</option>
                             <option value="1-2">1 - 2 مليون</option>
                             <option value="2-3">2 - 3 مليون</option>
                             <option value="3-5">3 - 5 مليون</option>
@@ -4608,6 +4648,26 @@
                             <option value="متشطب">متشطب</option>
                         </select>
                     </div>
+                    <div class="search-group">
+                        <label for="bedrooms">عدد الغرف</label>
+                        <select id="bedrooms">
+                            <option value="">اختر العدد</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4+</option>
+                        </select>
+                    </div>
+                    <div class="search-group">
+                        <label for="bathrooms">عدد الحمامات</label>
+                        <select id="bathrooms">
+                            <option value="">اختر العدد</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4+</option>
+                        </select>
+                    </div>
                     <button class="search-button" type="submit">
                         <i class="fas fa-search"></i>
                         بحث متقدم
@@ -4616,10 +4676,6 @@
                         <i class="fas fa-redo"></i>
                         إعادة تعيين
                     </button>
-                    <!-- <button class="show-all-btn" type="button" id="showAllBtn">
-                        <i class="fas fa-eye"></i>
-                        عرض كل العقارات
-                    </button> -->
                 </form>
             </div>
         </div>
@@ -5722,16 +5778,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- 
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                            <div class="contact-text">
-                                <h4>البريد الإلكتروني</h4>
-                                <a href="mailto:info@alsaf.com" class="email-link">
-                                    <i class="fas fa-envelope"></i> info@alsaf.com
-                                </a>
-                            </div>
-                        </div> -->
 
                         <div class="contact-item">
                             <div class="contact-icon"><i class="fas fa-clock"></i></div>
@@ -6103,7 +6149,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "1-2",
-                    condition: "طوب احمر"
+                    condition: "طوب احمر",
+                    bedrooms: 2,
+                    bathrooms: 1
                 }
             },
             2: {
@@ -6117,7 +6165,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "2-3",
-                    condition: "طوب احمر"
+                    condition: "طوب احمر",
+                    bedrooms: 3,
+                    bathrooms: 3
                 }
             },
             3: {
@@ -6144,7 +6194,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "2-3",
-                    condition: "متشطب"
+                    condition: "متشطب",
+                    bedrooms: 3,
+                    bathrooms: 2
                 }
             },
             4: {
@@ -6158,7 +6210,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "1-2",
-                    condition: "طوب احمر"
+                    condition: "طوب احمر",
+                    bedrooms: 3,
+                    bathrooms: 2
                 }
             },
             5: {
@@ -6172,7 +6226,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "1-2",
-                    condition: "طوب احمر"
+                    condition: "طوب احمر",
+                    bedrooms: 2,
+                    bathrooms: 1
                 }
             },
             6: {
@@ -6186,7 +6242,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "2-3",
-                    condition: "طوب احمر"
+                    condition: "طوب احمر",
+                    bedrooms: 3,
+                    bathrooms: 3
                 }
             },
             7: {
@@ -6209,7 +6267,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "1-2",
-                    condition: "متشطب"
+                    condition: "متشطب",
+                    bedrooms: 2,
+                    bathrooms: 1
                 }
             },
             8: {
@@ -6234,7 +6294,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "1-2",
-                    condition: "متشطب"
+                    condition: "متشطب",
+                    bedrooms: 2,
+                    bathrooms: 1
                 }
             },
             9: {
@@ -6248,7 +6310,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "2-3",
-                    condition: "طوب احمر"
+                    condition: "طوب احمر",
+                    bedrooms: 3,
+                    bathrooms: 3
                 }
             },
             10: {
@@ -6262,7 +6326,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "1-2",
-                    condition: "طوب احمر"
+                    condition: "طوب احمر",
+                    bedrooms: 3,
+                    bathrooms: 2
                 }
             },
             11: {
@@ -6276,7 +6342,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "1-2",
-                    condition: "طوب احمر"
+                    condition: "طوب احمر",
+                    bedrooms: 3,
+                    bathrooms: 2
                 }
             },
             12: {
@@ -6290,7 +6358,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "2-3",
-                    condition: "طوب احمر"
+                    condition: "طوب احمر",
+                    bedrooms: 3,
+                    bathrooms: 2
                 }
             },
             13: {
@@ -6304,7 +6374,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "2-3",
-                    condition: "طوب احمر"
+                    condition: "طوب احمر",
+                    bedrooms: 3,
+                    bathrooms: 2
                 }
             },
             14: {
@@ -6318,7 +6390,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "2-3",
-                    condition: "طوب احمر"
+                    condition: "طوب احمر",
+                    bedrooms: 3,
+                    bathrooms: 3
                 }
             },
             15: {
@@ -6332,7 +6406,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "2-3",
-                    condition: "طوب احمر"
+                    condition: "طوب احمر",
+                    bedrooms: 3,
+                    bathrooms: 2
                 }
             },
             16: {
@@ -6346,7 +6422,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "2-3",
-                    condition: "طوب احمر"
+                    condition: "طوب احمر",
+                    bedrooms: 3,
+                    bathrooms: 2
                 }
             },
             17: {
@@ -6360,7 +6438,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "1-2",
-                    condition: "طوب احمر"
+                    condition: "طوب احمر",
+                    bedrooms: 3,
+                    bathrooms: 2
                 }
             },
             18: {
@@ -6374,7 +6454,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "1-2",
-                    condition: "طوب احمر"
+                    condition: "طوب احمر",
+                    bedrooms: 3,
+                    bathrooms: 2
                 }
             },
             19: {
@@ -6392,7 +6474,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "3-5",
-                    condition: "طوب احمر"
+                    condition: "طوب احمر",
+                    bedrooms: 3,
+                    bathrooms: 3
                 }
             },
             20: {
@@ -6410,7 +6494,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "3-5",
-                    condition: "طوب احمر"
+                    condition: "طوب احمر",
+                    bedrooms: 3,
+                    bathrooms: 3
                 }
             },
             21: {
@@ -6430,7 +6516,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "2-3",
-                    condition: "متشطب"
+                    condition: "متشطب",
+                    bedrooms: 3,
+                    bathrooms: 2
                 }
             },
             22: {
@@ -6463,7 +6551,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "1-2",
-                    condition: "متشطب"
+                    condition: "متشطب",
+                    bedrooms: 3,
+                    bathrooms: 1
                 }
             },
             23: {
@@ -6484,7 +6574,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "1-2",
-                    condition: "متشطب"
+                    condition: "متشطب",
+                    bedrooms: 3,
+                    bathrooms: 2
                 }
             },
             24: {
@@ -6524,7 +6616,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "2-3",
-                    condition: "متشطب"
+                    condition: "متشطب",
+                    bedrooms: 3,
+                    bathrooms: 2
                 }
             },
             25: {
@@ -6549,7 +6643,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "1-2",
-                    condition: "متشطب"
+                    condition: "متشطب",
+                    bedrooms: 3,
+                    bathrooms: 2
                 }
             },
             26: {
@@ -6582,7 +6678,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "1-2",
-                    condition: "متشطب"
+                    condition: "متشطب",
+                    bedrooms: 3,
+                    bathrooms: 2
                 }
             },
             27: {
@@ -6617,7 +6715,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "1-2",
-                    condition: "متشطب"
+                    condition: "متشطب",
+                    bedrooms: 2,
+                    bathrooms: 1
                 }
             },
             28: {
@@ -6638,7 +6738,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "1-2",
-                    condition: "متشطب"
+                    condition: "متشطب",
+                    bedrooms: 2,
+                    bathrooms: 2
                 }
             },
             29: {
@@ -6667,7 +6769,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "2-3",
-                    condition: "متشطب"
+                    condition: "متشطب",
+                    bedrooms: 3,
+                    bathrooms: 2
                 }
             },
             30: {
@@ -6696,7 +6800,9 @@
                     type: "شقة",
                     location: "حدائق الاهرام",
                     priceRange: "1-2",
-                    condition: "متشطب"
+                    condition: "متشطب",
+                    bedrooms: 2,
+                    bathrooms: 1
                 }
             },
             31: {
@@ -6714,7 +6820,9 @@
                     type: "شقة",
                     location: "حدائق الأهرام",
                     priceRange: "1-2",
-                    condition: "طوب احمر"
+                    condition: "طوب احمر",
+                    bedrooms: 3,
+                    bathrooms: 2
                 }
             },
             32: {
@@ -6743,7 +6851,9 @@
                     type: "شقة",
                     location: "حدائق الأهرام",
                     priceRange: "1-2",
-                    condition: "متشطب"
+                    condition: "متشطب",
+                    bedrooms: 3,
+                    bathrooms: 2
                 }
             },
             33: {
@@ -6772,7 +6882,9 @@
                     type: "شقة",
                     location: "حدائق الأهرام",
                     priceRange: "3-5",
-                    condition: "متشطب"
+                    condition: "متشطب",
+                    bedrooms: 3,
+                    bathrooms: 3
                 }
             },
         };
@@ -7118,9 +7230,11 @@
             const type = document.getElementById('type').value;
             const price = document.getElementById('price').value;
             const condition = document.getElementById('condition').value;
+            const bedrooms = document.getElementById('bedrooms').value;
+            const bathrooms = document.getElementById('bathrooms').value;
 
             // التحقق إذا لم يتم اختيار أي معايير بحث
-            if (!location && !type && !price && !condition) {
+            if (!location && !type && !price && !condition && !bedrooms && !bathrooms) {
                 showSearchMessage('يرجى اختيار معيار بحث واحد على الأقل', 'error');
                 return;
             }
@@ -7167,7 +7281,9 @@
                         const propertyPrice = parseFloat(priceText);
 
                         // تحديد نطاق السعر بناءً على اختيار المستخدم
-                        if (price === '1-2' && (propertyPrice < 1000000 || propertyPrice > 2000000)) {
+                        if (price === '0-1' && propertyPrice > 1000000) {
+                            matches = false;
+                        } else if (price === '1-2' && (propertyPrice < 1000000 || propertyPrice > 2000000)) {
                             matches = false;
                         } else if (price === '2-3' && (propertyPrice < 2000000 || propertyPrice > 3000000)) {
                             matches = false;
@@ -7187,6 +7303,40 @@
                         const propCondition = propertyData.searchData?.condition || '';
                         if (propCondition !== condition) {
                             matches = false;
+                        }
+                    }
+
+                    // فلترة حسب عدد الغرف (إذا تم اختياره)
+                    if (bedrooms) {
+                        const propBedrooms = propertyData.searchData?.bedrooms || 0;
+                        const selectedBedrooms = parseInt(bedrooms);
+
+                        // إذا كان المستخدم اختار 4+، نعرض العقارات التي بها 4 غرف أو أكثر
+                        if (bedrooms === '4') {
+                            if (propBedrooms < 4) {
+                                matches = false;
+                            }
+                        } else {
+                            if (propBedrooms !== selectedBedrooms) {
+                                matches = false;
+                            }
+                        }
+                    }
+
+                    // فلترة حسب عدد الحمامات (إذا تم اختياره)
+                    if (bathrooms) {
+                        const propBathrooms = propertyData.searchData?.bathrooms || 0;
+                        const selectedBathrooms = parseInt(bathrooms);
+
+                        // إذا كان المستخدم اختار 4+، نعرض العقارات التي بها 4 حمامات أو أكثر
+                        if (bathrooms === '4') {
+                            if (propBathrooms < 4) {
+                                matches = false;
+                            }
+                        } else {
+                            if (propBathrooms !== selectedBathrooms) {
+                                matches = false;
+                            }
                         }
                     }
 
@@ -7243,6 +7393,8 @@
             document.getElementById('type').value = '';
             document.getElementById('price').value = '';
             document.getElementById('condition').value = '';
+            document.getElementById('bedrooms').value = '';
+            document.getElementById('bathrooms').value = '';
 
             // إظهار جميع العقارات
             const allProperties = document.querySelectorAll('.property-card');
