@@ -4515,10 +4515,8 @@
         /* زر إغلاق المودال - ثابت في مكانه */
         .modal-close {
             position: sticky;
-            /* يبقى ثابتاً عند التمرير */
             top: 0.75rem;
             left: 0.75rem;
-            /* يبقى على اليسار */
             width: 44px;
             height: 44px;
             border: none;
@@ -4533,45 +4531,35 @@
             transition: var(--transition);
             z-index: 100;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            margin-bottom: 0.5rem;
-            float: left;
-            /* للتأكد من أنه على اليسار */
-            clear: both;
-            /* لمنع أي تداخل */
             flex-shrink: 0;
+            margin-bottom: 10px;
+            /* إضافة مسافة بسيطة */
         }
 
-        /* تأكيد أن المودال يدعم الـ sticky */
         .modal-dialog {
             position: relative;
             background: #fff;
             width: min(95%, 800px);
             border-radius: 16px;
             padding: 1.5rem;
-            padding-top: 0.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            z-index: 1;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-dialog {
+            position: relative;
+            background: #fff;
+            width: min(95%, 800px);
+            border-radius: 16px;
+            padding: 1.5rem;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
             z-index: 1;
             max-height: 90vh;
             overflow-y: auto;
             isolation: isolate;
-            direction: ltr;
-            /* لضبط اتجاه النص للزر */
-        }
-
-        /* إعادة ضبط اتجاه النص للمحتوى العربي داخل المودال */
-        .modal-dialog *:not(.modal-close) {
-            direction: rtl;
-        }
-
-        /* تنسيق إضافي للهواتف */
-        @media (max-width: 767px) {
-            .modal-close {
-                top: 0.5rem;
-                left: 0.5rem;
-                width: 36px;
-                height: 36px;
-                font-size: 1.2rem;
-            }
+            /* أضف هذا السطر */
         }
     </style>
 
