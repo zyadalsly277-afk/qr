@@ -4503,32 +4503,37 @@
                 height: 100px;
             }
         }
+
         /* كل اثنين جنب بعض في جميع الشاشات */
-.search-box {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr) !important; /*强制执行两列*/
-    gap: 1rem;
-    width: 100%;
-}
+        .search-box {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) !important;
+            /*强制执行两列*/
+            gap: 1rem;
+            width: 100%;
+        }
 
-.search-group {
-    grid-column: span 1 !important; /* كل مجموعة تأخذ عمود واحد */
-    width: 100%;
-}
+        .search-group {
+            grid-column: span 1 !important;
+            /* كل مجموعة تأخذ عمود واحد */
+            width: 100%;
+        }
 
-.search-button,
-.search-reset-btn,
-.show-all-btn {
-    grid-column: span 2 !important; /* الأزرار تأخذ عرض كامل */
-    width: 100%;
-}
+        .search-button,
+        .search-reset-btn,
+        .show-all-btn {
+            grid-column: span 2 !important;
+            /* الأزرار تأخذ عرض كامل */
+            width: 100%;
+        }
 
-/* بدون أي استثناءات - كل حقلين جنب بعض في كل الأحوال */
-@media (max-width: 480px) {
-    .search-box {
-        grid-template-columns: repeat(2, 1fr) !important; /* حتى في أصغر الشاشات */
-    }
-}
+        /* بدون أي استثناءات - كل حقلين جنب بعض في كل الأحوال */
+        @media (max-width: 480px) {
+            .search-box {
+                grid-template-columns: repeat(2, 1fr) !important;
+                /* حتى في أصغر الشاشات */
+            }
+        }
     </style>
 
 </head>
