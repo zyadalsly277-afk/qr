@@ -4536,6 +4536,149 @@
                 /* حتى في أصغر الشاشات */
             }
         }
+
+        /* تنسيقات وسائل التواصل الاجتماعي */
+        .social-links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .social-platform {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .social-platform:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .social-link.facebook {
+            border-right: 4px solid #1877F2;
+        }
+
+        .social-link.instagram {
+            border-right: 4px solid #E4405F;
+        }
+
+        .social-link.whatsapp {
+            border-right: 4px solid #25D366;
+        }
+
+        .social-link.tiktok {
+            border-right: 4px solid #000000;
+        }
+
+        .social-link.youtube {
+            border-right: 4px solid #FF0000;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: white;
+        }
+
+        .social-link.facebook .social-icon {
+            background: #1877F2;
+        }
+
+        .social-link.instagram .social-icon {
+            background: linear-gradient(45deg, #405DE6, #E4405F, #FFDC80);
+        }
+
+        .social-link.whatsapp .social-icon {
+            background: #25D366;
+        }
+
+        .social-link.tiktok .social-icon {
+            background: #000000;
+        }
+
+        .social-link.youtube .social-icon {
+            background: #FF0000;
+        }
+
+        .social-info h4 {
+            margin: 0 0 5px 0;
+            color: #333;
+        }
+
+        .social-info p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .social-cta {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-cta p {
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .whatsapp-btn,
+        .call-btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+        }
+
+        .call-btn {
+            background: #1a5f7a;
+            color: white;
+        }
+
+        .whatsapp-btn:hover {
+            background: #1da851;
+            transform: translateY(-2px);
+        }
+
+        .call-btn:hover {
+            background: #0d455f;
+            transform: translateY(-2px);
+        }
     </style>
 
 </head>
@@ -5803,10 +5946,43 @@
                             </div>
                         </a>
                     </div>
-
                     <br>
-
                     <div class="social-platform">
+                        <a href="https://www.instagram.com/alsafa1.company?igsh=MjloZG5ybDBlNWJs" target="_blank"
+                            rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram">
+                            <div class="social-icon"><i class="fab fa-instagram"></i></div>
+                            <div class="social-info">
+                                <h4>إنستجرام</h4>
+                                <p>@alsafa1.company</p>
+                            </div>
+                        </a>
+                    </div>
+                    <br>
+                    <!-- تيك توك -->
+                    <div class="social-platform">
+                        <a href="https://www.tiktok.com/@alsafacompany2?_r=1&_t=ZS-94J4PELh32K" target="_blank"
+                            rel="noopener noreferrer" class="social-link tiktok" aria-label="TikTok">
+                            <div class="social-icon"><i class="fab fa-tiktok"></i></div>
+                            <div class="social-info">
+                                <h4>تيك توك</h4>
+                                <p>alsafacompany2</p>
+                            </div>
+                        </a>
+                    </div>
+                    <br>
+                    <!-- يوتيوب -->
+                    <div class="social-platform">
+                        <a href="https://youtube.com/@lolomark-b5p?si=wchEuL8Us3OIB9Qp" target="_blank"
+                            rel="noopener noreferrer" class="social-link youtube" aria-label="YouTube">
+                            <div class="social-icon"><i class="fab fa-youtube"></i></div>
+                            <div class="social-info">
+                                <h4>يوتيوب</h4>
+                                <p>القناه الرسميه لشركه الصفا العقاريه</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- <div class="social-platform">
                         <a href="https://wa.me/201090516145" target="_blank" rel="noopener noreferrer"
                             class="social-link whatsapp" aria-label="WhatsApp">
                             <div class="social-icon"><i class="fab fa-whatsapp"></i></div>
@@ -5815,19 +5991,7 @@
                                 <p>راسلنا مباشرة</p>
                             </div>
                         </a>
-                    </div>
-                    <div class="social-links-container">
-                        <div class="social-platform">
-                            <a href="https://www.instagram.com/alsafa1.company?igsh=MjloZG5ybDBlNWJs" target="_blank"
-                                rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram">
-                                <div class="social-icon"><i class="fab fa-instagram"></i></div>
-                                <div class="social-info">
-                                    <h4>إنستجرام</h4>
-                                    <p>@alsafa1.company</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    </div> -->
 
                     <div class="social-cta">
                         <p>تواصل معنا مباشرة عبر:</p>
