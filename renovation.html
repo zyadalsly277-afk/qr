@@ -1,0 +1,2123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>خدمات التشطيب والترميم | شركة الصفا</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="apple-touch-icon" href="images/alsaf.jpg" />
+    <link rel="icon" href="images/alsaf.jpg" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #f8fafc;
+            color: #1e272e;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --primary: #0a2540;
+            --gold: #d4af37;
+            --gold-light: #f1c40f;
+            --gradient-gold: linear-gradient(135deg, #d4af37, #f1c40f, #d4af37);
+            --gradient-dark: linear-gradient(135deg, #0a2540, #1a3a5f);
+            --shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 20px 40px rgba(212, 175, 55, 0.2);
+            --success: #28a745;
+            --danger: #dc3545;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(10, 37, 64, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 0.8rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            border-radius: 12px;
+            border: 2px solid var(--gold);
+            padding: 2px;
+            background: white;
+        }
+
+        @media (min-width: 768px) {
+            .logo-img {
+                height: 55px;
+            }
+        }
+
+        .logo span {
+            color: var(--gold);
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+
+        @media (min-width: 768px) {
+            .logo span {
+                font-size: 1.8rem;
+            }
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        @media (min-width: 768px) {
+            .logo-text {
+                font-size: 1.5rem;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: white;
+            font-size: 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 991px) {
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        nav {
+            transition: 0.3s;
+        }
+
+        @media (max-width: 991px) {
+            nav {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 80%;
+                max-width: 350px;
+                height: calc(100vh - 70px);
+                background: rgba(10, 37, 64, 0.98);
+                backdrop-filter: blur(10px);
+                padding: 2rem;
+                border-right: 1px solid rgba(212, 175, 55, 0.2);
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-button {
+            background: var(--gradient-gold);
+            color: var(--primary);
+            padding: 0.7rem 2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 576px) {
+            .cta-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 90vh;
+            background: linear-gradient(135deg, #0a2540 0%, #1a3a5f 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            color: white;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero-text h1 {
+                font-size: 4rem;
+                text-align: right;
+            }
+        }
+
+        .hero-text h1 span {
+            color: var(--gold);
+            display: block;
+            font-size: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-text h1 span {
+                font-size: 5rem;
+            }
+        }
+
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 992px) {
+            .hero-stats {
+                justify-content: flex-start;
+            }
+        }
+
+        .stat-item {
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--gold);
+            display: block;
+        }
+
+        .hero-image {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 30px;
+            border: 4px solid rgba(212, 175, 55, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .hero-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--gradient-gold);
+            color: var(--primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 900;
+            animation: pulse 2s infinite;
+        }
+
+        @media (min-width: 768px) {
+            .hero-badge {
+                top: -20px;
+                right: -20px;
+                padding: 1rem 2rem;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-section {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .why-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .why-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .why-header h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .why-header h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        .why-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-gold);
+            border-radius: 2px;
+        }
+
+        .why-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 576px) {
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .why-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .why-card {
+            background: #f8fafc;
+            border-radius: 30px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-gold);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .why-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .why-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .why-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.2));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: var(--gold);
+            transition: 0.3s;
+        }
+
+        .why-card:hover .why-icon {
+            transform: rotate(10deg) scale(1.1);
+            background: var(--gradient-gold);
+            color: var(--primary);
+        }
+
+        .why-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .why-card p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .why-features {
+            list-style: none;
+        }
+
+        .why-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .why-features li i {
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .why-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 4rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #fff);
+            border-radius: 50px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        @media (max-width: 576px) {
+            .why-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+        }
+
+        .why-stat-item {
+            text-align: center;
+        }
+
+        .why-stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--gold);
+            display: block;
+        }
+
+        .why-stat-label {
+            color: var(--primary);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* Before/After Section - قسم قبل وبعد */
+        .before-after-section {
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+        }
+
+        .before-after-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .before-after-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .before-after-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .before-after-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .before-after-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .ba-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .ba-header h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ba-header h3 i {
+            color: var(--gold);
+        }
+
+        .ba-type {
+            background: var(--gradient-gold);
+            color: var(--primary);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .ba-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background: #eee;
+            position: relative;
+        }
+
+        .ba-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .ba-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .before-after-card:hover .ba-image img {
+            transform: scale(1.1);
+        }
+
+        .ba-label {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            z-index: 2;
+            backdrop-filter: blur(5px);
+        }
+
+        .ba-image.before .ba-label {
+            background: var(--danger);
+        }
+
+        .ba-image.after .ba-label {
+            background: var(--success);
+        }
+
+        .ba-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            opacity: 0;
+            transition: 0.3s;
+            color: white;
+        }
+
+        .ba-image:hover .ba-overlay {
+            opacity: 1;
+        }
+
+        .ba-overlay i {
+            font-size: 3rem;
+        }
+
+        .ba-overlay i.fa-times-circle {
+            color: var(--danger);
+        }
+
+        .ba-overlay i.fa-check-circle {
+            color: var(--success);
+        }
+
+        .ba-details {
+            padding: 1.5rem;
+        }
+
+        .ba-features {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .ba-features span {
+            background: #f8fafc;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #555;
+            border: 1px solid #eee;
+        }
+
+        .ba-features span i {
+            color: var(--gold);
+        }
+
+        .ba-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .ba-progress {
+            margin-top: 1rem;
+        }
+
+        .ba-progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .ba-progress-bar {
+            height: 8px;
+            background: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .ba-progress-fill {
+            height: 100%;
+            background: var(--gradient-gold);
+            border-radius: 10px;
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        .before-after-card:hover .ba-progress-fill {
+            width: 95%;
+        }
+
+        /* Combined Gallery Section - تشطيب وديكورات مدمجة */
+        .combined-gallery-section {
+            padding: 4rem 5%;
+            background: white;
+        }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 576px) {
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .section-header h2 i {
+            color: var(--gold);
+            margin-left: 0.5rem;
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .category-badge {
+            display: inline-block;
+            background: var(--gradient-gold);
+            color: var(--primary);
+            padding: 0.3rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Combined Grid - شبكة مدمجة للتشطيب والديكورات */
+        .combined-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 576px) {
+            .combined-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .combined-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .combined-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .combined-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            height: 100%;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+        }
+
+        .combined-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .combined-image {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 576px) {
+            .combined-image {
+                height: 220px;
+            }
+        }
+
+        .combined-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .combined-card:hover .combined-image img {
+            transform: scale(1.2);
+        }
+
+        .combined-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--gradient-gold);
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .combined-zoom {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.3rem;
+            cursor: pointer;
+            transform: scale(0);
+            transition: 0.3s;
+            border: none;
+            z-index: 3;
+        }
+
+        .combined-card:hover .combined-zoom {
+            transform: scale(1);
+        }
+
+        .combined-info {
+            padding: 1.5rem;
+        }
+
+        .combined-info h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .combined-info p {
+            color: #666;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .combined-info p i {
+            color: var(--gold);
+        }
+
+        .combined-type-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Facade Gallery Section */
+        .facade-gallery-section {
+            padding: 4rem 5%;
+            background: #f8fafc;
+        }
+
+        .facade-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 576px) {
+            .facade-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .facade-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .facade-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            height: 100%;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .facade-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .facade-image {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 576px) {
+            .facade-image {
+                height: 250px;
+            }
+        }
+
+        .facade-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .facade-card:hover .facade-image img {
+            transform: scale(1.2);
+        }
+
+        .facade-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--gradient-gold);
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .facade-zoom {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.3rem;
+            cursor: pointer;
+            transform: scale(0);
+            transition: 0.3s;
+            border: none;
+            z-index: 3;
+        }
+
+        .facade-card:hover .facade-zoom {
+            transform: scale(1);
+        }
+
+        .facade-info {
+            padding: 1.5rem;
+        }
+
+        .facade-info h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .facade-info p {
+            color: #666;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .facade-info p i {
+            color: var(--gold);
+        }
+
+        /* Steps Section */
+        .steps-section {
+            padding: 5rem 5%;
+            background: var(--gradient-dark);
+            color: white;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 576px) {
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .steps-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            width: 35px;
+            height: 35px;
+            background: var(--gradient-gold);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+        }
+
+        @media (min-width: 768px) {
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+        }
+
+        .step-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 5% 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 576px) {
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .footer-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--gold);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+        }
+
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--gold);
+            transform: translateX(-5px);
+            display: inline-block;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        /* Lightbox Modal - مطور بمعرض صور كامل */
+        .lightbox-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            animation: fadeIn 0.3s;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 95%;
+            max-height: 95%;
+        }
+
+        @media (min-width: 768px) {
+            .lightbox-content {
+                max-width: 90%;
+            }
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 10px;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+
+        @media (min-width: 768px) {
+            .lightbox-image {
+                max-height: 90vh;
+                border-radius: 20px;
+                border: 4px solid var(--gold);
+            }
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-gold);
+            border: none;
+            border-radius: 50%;
+            color: var(--primary);
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .lightbox-close {
+                top: -50px;
+                left: -50px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+
+        .lightbox-close:hover {
+            transform: rotate(90deg);
+            background: #ff4444;
+            color: white;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-gold);
+            border: none;
+            border-radius: 50%;
+            color: var(--primary);
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .lightbox-nav:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 0 20px var(--gold);
+        }
+
+        .lightbox-nav.prev {
+            right: -20px;
+        }
+
+        .lightbox-nav.next {
+            left: -20px;
+        }
+
+        @media (min-width: 768px) {
+            .lightbox-nav.prev {
+                right: -70px;
+            }
+
+            .lightbox-nav.next {
+                left: -70px;
+            }
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1rem;
+            background: rgba(212, 175, 55, 0.3);
+            padding: 0.5rem 2rem;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            white-space: nowrap;
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .lightbox-title {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 1.2rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        @media (max-width: 576px) {
+            .lightbox-nav {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .lightbox-nav.prev {
+                right: 5px;
+            }
+
+            .lightbox-nav.next {
+                left: 5px;
+            }
+
+            .lightbox-counter {
+                bottom: -35px;
+                font-size: 0.8rem;
+                padding: 0.3rem 1rem;
+            }
+
+            .lightbox-title {
+                top: -35px;
+                font-size: 0.9rem;
+                padding: 0.3rem 1rem;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><img src="images/alsaf.jpg" alt="شعار شركة الصفا" class="logo-img"></a>
+                <span>شركة</span>
+                <span class="logo-text">الصفا</span>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html#home">الرئيسية</a></li>
+                    <li><a href="index.html#properties">العقارات</a></li>
+                    <li><a href="index.html#services">خدماتنا</a></li>
+                    <li><a href="index.html#about">عن الشركة</a></li>
+                    <li><a href="index.html#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <a href="index.html#contact" class="cta-button">تواصل معنا</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>
+                    خدمات التشطيب
+                    <span>والترميم</span>
+                </h1>
+                <p>نحوّل منزلك إلى تحفة فنية بلمسات عصرية واحترافية. أكثر من 500 مشروع ناجح في جميع أنحاء مصر</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">مشروع ناجح</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15</span>
+                        <span class="stat-label">عام خبرة</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">عملاء سعداء</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/alsaf.jpg" alt="مشروع تشطيب">
+                <div class="hero-badge">خصم 20%</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-section">
+        <div class="why-container">
+            <div class="why-header">
+                <h2>لماذا شركة الصفا؟</h2>
+                <p>أكثر من 15 عاماً من التميز والثقة في عالم التشطيبات والديكورات</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>خبرة وجودة</h3>
+                    <p>نمتلك خبرة تزيد عن 15 عاماً في مجال التشطيبات والديكورات، ونفخر بتقديم أعلى مستويات الجودة في كل
+                        مشروع.</p>
+                    <ul class="why-features">
+                        <li><i class="fas fa-check-circle"></i> أكثر من 500 مشروع ناجح</li>
+                        <li><i class="fas fa-check-circle"></i> فريق عمل محترف</li>
+                        <li><i class="fas fa-check-circle"></i> استخدام أفضل الخامات</li>
+                    </ul>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <h3>تشطيب وديكور</h3>
+                    <p>نقدم خدمة متكاملة تجمع بين التشطيب الهندسي والديكورات العصرية لتحصل على مساحة متكاملة الجمال.
+                    </p>
+                    <ul class="why-features">
+                        <li><i class="fas fa-check-circle"></i> تصميم داخلي عصري</li>
+                        <li><i class="fas fa-check-circle"></i> تشطيب عالي الجودة</li>
+                        <li><i class="fas fa-check-circle"></i> ديكورات فاخرة</li>
+                    </ul>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>التزام بالمواعيد</h3>
+                    <p>نلتزم بالجدول الزمني المتفق عليه ونضمن لك تسليم المشروع في الموعد المحدد دون أي تأخير.</p>
+                    <ul class="why-features">
+                        <li><i class="fas fa-check-circle"></i> جدول زمني واضح</li>
+                        <li><i class="fas fa-check-circle"></i> متابعة يومية</li>
+                        <li><i class="fas fa-check-circle"></i> تقارير دورية</li>
+                    </ul>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>ضمان على الأعمال</h3>
+                    <p>نقدم ضماناً على جميع أعمال التشطيب لمدة تصل إلى 5 سنوات، لضمان راحتك وثقتك الكاملة.</p>
+                    <ul class="why-features">
+                        <li><i class="fas fa-check-circle"></i> ضمان على الخامات</li>
+                        <li><i class="fas fa-check-circle"></i> ضمان على التنفيذ</li>
+                        <li><i class="fas fa-check-circle"></i> دعم فني مستمر</li>
+                    </ul>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <h3>أسعار تنافسية</h3>
+                    <p>نقدم أفضل الأسعار في السوق مع الحفاظ على أعلى مستويات الجودة، ونضمن لك أفضل قيمة مقابل أموالك.
+                    </p>
+                    <ul class="why-features">
+                        <li><i class="fas fa-check-circle"></i> عروض خاصة</li>
+                        <li><i class="fas fa-check-circle"></i> شفافية في الأسعار</li>
+                    </ul>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>دعم واستشارات</h3>
+                    <p>نقدم استشارات مجانية وندعمك في كل خطوة، من التصميم حتى الاستلام، لضمان تحقيق رؤيتك بالكامل.</p>
+                    <ul class="why-features">
+                        <li><i class="fas fa-check-circle"></i> استشارات مجانية</li>
+                        <li><i class="fas fa-check-circle"></i> متابعة مستمرة</li>
+                        <li><i class="fas fa-check-circle"></i> خدمة ما بعد البيع</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="why-stats">
+                <div class="why-stat-item">
+                    <span class="why-stat-number">500+</span>
+                    <span class="why-stat-label">مشروع مكتمل</span>
+                </div>
+                <div class="why-stat-item">
+                    <span class="why-stat-number">98%</span>
+                    <span class="why-stat-label">عملاء راضون</span>
+                </div>
+                <div class="why-stat-item">
+                    <span class="why-stat-number">15</span>
+                    <span class="why-stat-label">عام خبرة</span>
+                </div>
+                <div class="why-stat-item">
+                    <span class="why-stat-number">50+</span>
+                    <span class="why-stat-label">فريق عمل</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Section - قسم قبل وبعد (واجهات) -->
+    <section class="before-after-section">
+        <div class="section-header">
+            <span class="category-badge">قبل وبعد</span>
+            <h2><i class="fas fa-clipboard-check"></i> مشاريع واجهات قبل وبعد التشطيب</h2>
+            <p>شاهد الفرق بنفسك - تحولات مذهلة في واجهات العمارات بلمسات شركة الصفا</p>
+        </div>
+
+        <div class="before-after-container">
+            <!-- مشروع 1 - واجهة عمارة -->
+            <div class="before-after-card">
+                <div class="ba-header">
+                    <h3><i class="fas fa-map-marker-alt"></i> عمارة - حدائق اكتوبر</h3>
+                    <span class="ba-type">واجهة</span>
+                </div>
+                <div class="ba-comparison">
+                    <div class="ba-image before">
+                        <img src="images/1.jpeg" alt="قبل التشطيب">
+                        <div class="ba-label">قبل</div>
+                        <div class="ba-overlay">
+                            <i class="fas fa-times-circle"></i>
+                            <span>حالة الواجهة قبل</span>
+                        </div>
+                    </div>
+                    <div class="ba-image after">
+                        <img src="images/11.jpeg" alt="بعد التشطيب">
+                        <div class="ba-label">بعد</div>
+                        <div class="ba-overlay">
+                            <i class="fas fa-check-circle"></i>
+                            <span>بعد تشطيب الصفا</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ba-details">
+                    <div class="ba-features">
+                        <span><i class="fas fa-calendar-alt"></i> 45 يوم</span>
+                        <span><i class="fas fa-tag"></i> توفير 30%</span>
+                    </div>
+                    <p class="ba-description">
+                        تحويل واجهة عمارة قديمة إلى تصميم عصري - تغيير كامل للواجهة بالحجر الفرعوني مع إضافة إضاءة ليلية
+                        مذهلة
+                    </p>
+                    <div class="ba-progress">
+                        <div class="ba-progress-label">
+                            <span>نسبة التحسن</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="ba-progress-bar">
+                            <div class="ba-progress-fill" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- مشروع 2 - واجهة عمارة أخرى -->
+            <div class="before-after-card">
+                <div class="ba-header">
+                    <h3><i class="fas fa-map-marker-alt"></i> عمارة - حدائق الاهرام</h3>
+                    <span class="ba-type">واجهة</span>
+                </div>
+                <div class="ba-comparison">
+                    <div class="ba-image before">
+                        <img src="images/45/1.jpeg" alt="قبل التشطيب">
+                        <div class="ba-label">قبل</div>
+                        <div class="ba-overlay">
+                            <i class="fas fa-times-circle"></i>
+                            <span>حالة الواجهة قبل</span>
+                        </div>
+                    </div>
+                    <div class="ba-image after">
+                        <img src="images/132/1.jpeg" alt="بعد التشطيب">
+                        <div class="ba-label">بعد</div>
+                        <div class="ba-overlay">
+                            <i class="fas fa-check-circle"></i>
+                            <span>بعد تشطيب الصفا</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ba-details">
+                    <div class="ba-features">
+                        <span><i class="fas fa-calendar-alt"></i> 60 يوم</span>
+                        <span><i class="fas fa-tag"></i> توفير 35%</span>
+                    </div>
+                    <p class="ba-description">
+                        تجديد واجهة عمارة بالكامل - استخدام أحدث تقنيات العزل وألوان عصرية مع مدخل فخم من الرخام
+                    </p>
+                    <div class="ba-progress">
+                        <div class="ba-progress-label">
+                            <span>نسبة التحسن</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="ba-progress-bar">
+                            <div class="ba-progress-fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- مشروع 3 - واجهة فيلا -->
+            <div class="before-after-card">
+                <div class="ba-header">
+                    <h3><i class="fas fa-map-marker-alt"></i> فيلا - حدائق اكتوبر</h3>
+                    <span class="ba-type">ترميم واجهة</span>
+                </div>
+                <div class="ba-comparison">
+                    <div class="ba-image before">
+                        <img src="images/J/1.jpeg" alt="قبل الترميم">
+                        <div class="ba-label">قبل</div>
+                        <div class="ba-overlay">
+                            <i class="fas fa-times-circle"></i>
+                            <span>حالة الواجهة قبل</span>
+                        </div>
+                    </div>
+                    <div class="ba-image after">
+                        <img src="images/162/2.jpeg" alt="بعد الترميم">
+                        <div class="ba-label">بعد</div>
+                        <div class="ba-overlay">
+                            <i class="fas fa-check-circle"></i>
+                            <span>بعد ترميم الصفا</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ba-details">
+                    <div class="ba-features">
+                        <span><i class="fas fa-calendar-alt"></i> 50 يوم</span>
+                        <span><i class="fas fa-tag"></i> توفير 25%</span>
+                    </div>
+                    <p class="ba-description">
+                        ترميم واجهة فيلا قديمة - تغيير كامل للواجهة مع الحفاظ على الطابع المعماري الأصلي
+                    </p>
+                    <div class="ba-progress">
+                        <div class="ba-progress-label">
+                            <span>نسبة التحسن</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="ba-progress-bar">
+                            <div class="ba-progress-fill" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combined Section - تشطيب وديكورات مدمجة -->
+    <section class="combined-gallery-section">
+        <div class="section-header">
+            <span class="category-badge">تشطيب وديكورات</span>
+            <h2><i class="fas fa-paint-roller"></i> <i class="fas fa-couch"></i> تشطيب وديكورات داخلية</h2>
+            <p>مجموعة من أجمل مشاريع التشطيب والديكورات الداخلية الفاخرة</p>
+        </div>
+
+        <div class="combined-grid">
+            <!-- مشاريع تشطيب -->
+            <div class="combined-card">
+                <div class="combined-image">
+                    <img src="images/100m/7.jpeg" alt="تشطيب فاخر">
+                    <span class="combined-tag">تشطيب فاخر</span>
+                    <button class="combined-zoom" onclick="openLightbox(0, 'combined')"><i
+                            class="fas fa-search-plus"></i></button>
+                </div>
+                <div class="combined-info">
+                    <h3>تشطيب فيلا فاخرة</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> حدائق الأهرام</p>
+                    <span class="combined-type-badge">تشطيب كامل</span>
+                </div>
+            </div>
+
+            <div class="combined-card">
+                <div class="combined-image">
+                    <img src="images/95m/1.jpeg" alt="تشطيب شقة">
+                    <span class="combined-tag">تشطيب عصري</span>
+                    <button class="combined-zoom" onclick="openLightbox(1, 'combined')"><i
+                            class="fas fa-search-plus"></i></button>
+                </div>
+                <div class="combined-info">
+                    <h3>تشطيب شقة عصرية</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> حدائق الأهرام</p>
+                    <span class="combined-type-badge">تشطيب كامل</span>
+                </div>
+            </div>
+
+            <!-- مشاريع ديكورات -->
+            <div class="combined-card">
+                <div class="combined-image">
+                    <img src="images/45/1.jpeg" alt="ديكور صالة">
+                    <span class="combined-tag">ديكور فاخر</span>
+                    <button class="combined-zoom" onclick="openLightbox(2, 'combined')"><i
+                            class="fas fa-search-plus"></i></button>
+                </div>
+                <div class="combined-info">
+                    <h3>ديكور صالة فاخرة</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> حدائق الأهرام</p>
+                    <span class="combined-type-badge">ديكور داخلي</span>
+                </div>
+            </div>
+
+            <div class="combined-card">
+                <div class="combined-image">
+                    <img src="images/132/1.jpeg" alt="ديكور غرفة معيشة">
+                    <span class="combined-tag">ديكور عصري</span>
+                    <button class="combined-zoom" onclick="openLightbox(3, 'combined')"><i
+                            class="fas fa-search-plus"></i></button>
+                </div>
+                <div class="combined-info">
+                    <h3>ديكور غرفة معيشة</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> حدائق الأهرام</p>
+                    <span class="combined-type-badge">ديكور داخلي</span>
+                </div>
+            </div>
+
+            <div class="combined-card">
+                <div class="combined-image">
+                    <img src="images/J/1.jpeg" alt="تشطيب بنتهاوس">
+                    <span class="combined-tag">تشطيب فاخر</span>
+                    <button class="combined-zoom" onclick="openLightbox(4, 'combined')"><i
+                            class="fas fa-search-plus"></i></button>
+                </div>
+                <div class="combined-info">
+                    <h3>تشطيب بنتهاوس</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> حدائق الأهرام</p>
+                    <span class="combined-type-badge">تشطيب كامل</span>
+                </div>
+            </div>
+
+            <div class="combined-card">
+                <div class="combined-image">
+                    <img src="images/162/2.jpeg" alt="ديكور مدخل">
+                    <span class="combined-tag">ديكور فاخر</span>
+                    <button class="combined-zoom" onclick="openLightbox(5, 'combined')"><i
+                            class="fas fa-search-plus"></i></button>
+                </div>
+                <div class="combined-info">
+                    <h3>ديكور مدخل فخم</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> حدائق الأهرام</p>
+                    <span class="combined-type-badge">ديكور داخلي</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facade Section - واجهات خارجية فقط -->
+    <section class="facade-gallery-section">
+        <div class="section-header">
+            <span class="category-badge">واجهات خارجية</span>
+            <h2><i class="fas fa-building"></i> واجهات خارجية</h2>
+            <p>تصميم وتنفيذ واجهات متميزة تجمع بين الجمال والجودة</p>
+        </div>
+
+        <div class="facade-grid">
+            <div class="facade-card">
+                <div class="facade-image">
+                    <img src="images/11.jpeg" alt="واجهة عمارة">
+                    <span class="facade-tag">واجهة عصرية</span>
+                    <button class="facade-zoom" onclick="openLightbox(0, 'facade')"><i
+                            class="fas fa-search-plus"></i></button>
+                </div>
+                <div class="facade-info">
+                    <h3>واجهة عمارة - حجر هاشمي</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> حدائق اكتوبر</p>
+                </div>
+            </div>
+
+            <div class="facade-card">
+                <div class="facade-image">
+                    <img src="images/1.jpeg" alt="واجهة عمارة">
+                    <span class="facade-tag">واجهة كلاسيك</span>
+                    <button class="facade-zoom" onclick="openLightbox(1, 'facade')"><i
+                            class="fas fa-search-plus"></i></button>
+                </div>
+                <div class="facade-info">
+                    <h3>واجهة عمارة - كسر حجر</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> حدائق اكتوبر</p>
+                </div>
+            </div>
+
+            <div class="facade-card">
+                <div class="facade-image">
+                    <img src="images/45/1.jpeg" alt="واجهة فيلا">
+                    <span class="facade-tag">واجهة عصرية</span>
+                    <button class="facade-zoom" onclick="openLightbox(2, 'facade')"><i
+                            class="fas fa-search-plus"></i></button>
+                </div>
+                <div class="facade-info">
+                    <h3>واجهة فيلا - حجر فرعوني</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> حدائق الأهرام</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="steps-section">
+        <div class="section-header" style="color: white;">
+            <h2 style="color: white;">خطوات العمل</h2>
+            <p style="color: rgba(255, 255, 255, 0.9);">نظام عمل منظم ومنهجي لضمان أفضل النتائج</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-icon"><i class="fas fa-phone-alt"></i></div>
+                <h3>التواصل</h3>
+                <p>اتصل بنا لتحديد موعد معاينة مجانية</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-icon"><i class="fas fa-clipboard-check"></i></div>
+                <h3>المعاينة</h3>
+                <p>نزور العقار ونأخذ المقاسات</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-icon"><i class="fas fa-file-invoice"></i></div>
+                <h3>عرض السعر</h3>
+                <p>نقدم عرض سعر مفصل</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div class="step-icon"><i class="fas fa-hard-hat"></i></div>
+                <h3>بدء العمل</h3>
+                <p>نبدأ التنفيذ فور الاتفاق</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <div class="step-icon"><i class="fas fa-key"></i></div>
+                <h3>التسليم</h3>
+                <p>نسلمك العقار بجودة عالية</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="combined-gallery-section">
+        <div class="cta-card"
+            style="background: var(--gradient-gold); border-radius: 50px; padding: 3rem; text-align: center; max-width: 1200px; margin: 0 auto;">
+            <h2 style="color: var(--primary); font-size: 2rem; margin-bottom: 1rem;">حول فكرتك إلى واقع مع شركة الصفا
+            </h2>
+            <p style="color: var(--primary); margin-bottom: 2rem;">تواصل معنا اليوم للحصول على استشارة مجانية وعرض سعر
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://wa.me/201090516145" class="cta-button"
+                    style="background: var(--primary); color: white; padding: 1rem 3rem;" target="_blank">
+                    <i class="fab fa-whatsapp"></i> واتساب
+                </a>
+                <a href="tel:+201090516145" class="cta-button"
+                    style="background: white; color: var(--primary); padding: 1rem 3rem;">
+                    <i class="fas fa-phone-alt"></i> اتصل بنا
+                </a>
+                <a href="index.html#contact" class="cta-button"
+                    style="background: var(--primary); color: white; padding: 1rem 3rem;">
+                    <i class="fas fa-envelope"></i> نموذج التواصل
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo"><span>شركة</span> الصفا</div>
+                <p>الريادة والتميز في عالم العقارات والتشطيبات الفاخرة منذ أكثر من 15 عاماً.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/share/17ftsN15z4/" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/alsafa1.company" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/201090516145" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="index.html#home">الرئيسية</a></li>
+                    <li><a href="index.html#properties">العقارات</a></li>
+                    <li><a href="index.html#services">خدماتنا</a></li>
+                    <li><a href="index.html#about">عن الشركة</a></li>
+                    <li><a href="index.html#contact">اتصل بنا</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 شركة الصفا. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+            <button class="lightbox-nav prev" id="lightboxPrev"><i class="fas fa-chevron-right"></i></button>
+            <img src="" alt="" class="lightbox-image" id="lightboxImage">
+            <button class="lightbox-nav next" id="lightboxNext"><i class="fas fa-chevron-left"></i></button>
+            <div class="lightbox-counter" id="lightboxCounter"></div>
+            <div class="lightbox-title" id="lightboxTitle"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // بيانات الصور لكل قسم
+        const galleryData = {
+            combined: {
+                images: [
+                    'images/100m/7.jpeg',
+                    'images/95m/1.jpeg',
+                    'images/45/1.jpeg',
+                    'images/132/1.jpeg',
+                    'images/J/1.jpeg',
+                    'images/162/2.jpeg'
+                ],
+                titles: [
+                    'تشطيب فيلا فاخرة - حدائق الأهرام',
+                    'تشطيب شقة عصرية - حدائق الأهرام',
+                    'ديكور صالة فاخرة - حدائق الأهرام',
+                    'ديكور غرفة معيشة - حدائق الأهرام',
+                    'تشطيب بنتهاوس - حدائق الأهرام',
+                    'ديكور مدخل فخم - حدائق الأهرام'
+                ]
+            },
+            facade: {
+                images: [
+                    'images/11.jpeg',
+                    'images/1.jpeg',
+                    'images/45/1.jpeg'
+                ],
+                titles: [
+                    'واجهة عمارة - حجر هاشمي - حدائق اكتوبر',
+                    'واجهة عمارة - كسر حجر - حدائق اكتوبر',
+                    'واجهة فيلا - حجر فرعوني - حدائق الأهرام'
+                ]
+            }
+        };
+
+        let currentGallery = 'combined';
+        let currentIndex = 0;
+
+        const lightbox = document.getElementById('lightboxModal');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        const lightboxTitle = document.getElementById('lightboxTitle');
+
+        // فتح الـ Lightbox
+        function openLightbox(index, gallery) {
+            currentGallery = gallery;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        window.openLightbox = openLightbox;
+
+        // تحديث محتوى الـ Lightbox
+        function updateLightbox() {
+            const data = galleryData[currentGallery];
+            lightboxImage.src = data.images[currentIndex];
+            lightboxCounter.textContent = `${currentIndex + 1} / ${data.images.length}`;
+            lightboxTitle.textContent = data.titles[currentIndex];
+        }
+
+        // إغلاق الـ Lightbox
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // التنقل للصورة السابقة
+        lightboxPrev.addEventListener('click', () => {
+            const data = galleryData[currentGallery];
+            currentIndex = (currentIndex - 1 + data.images.length) % data.images.length;
+            updateLightbox();
+        });
+
+        // التنقل للصورة التالية
+        lightboxNext.addEventListener('click', () => {
+            const data = galleryData[currentGallery];
+            currentIndex = (currentIndex + 1) % data.images.length;
+            updateLightbox();
+        });
+
+        // التنقل بالأسهم
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+
+            if (e.key === 'Escape') {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            } else if (e.key === 'ArrowRight') {
+                const data = galleryData[currentGallery];
+                currentIndex = (currentIndex - 1 + data.images.length) % data.images.length;
+                updateLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                const data = galleryData[currentGallery];
+                currentIndex = (currentIndex + 1) % data.images.length;
+                updateLightbox();
+            }
+        });
+
+        // إغلاق عند النقر خارج الصورة
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Mobile menu
+        const menuToggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('nav');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && !menuToggle.contains(e.target) && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            }
+        });
+
+        // Header scroll
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 37, 64, 0.98)';
+                header.style.height = '70px';
+            } else {
+                header.style.background = 'rgba(10, 37, 64, 0.95)';
+                header.style.height = '80px';
+            }
+        });
+    </script>
+</body>
+
+</html>

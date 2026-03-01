@@ -228,7 +228,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            min-height: 600px;
+            min-height: 1000px;
             max-height: 1200px;
             background: linear-gradient(rgba(10, 37, 64, 0.8), rgba(10, 37, 64, 0.8)),
                 url("images/alsaf.jpg") no-repeat center center/cover;
@@ -2137,7 +2137,7 @@
         /* الهواتف الكبيرة (576px - 767px) */
         @media (max-width: 767px) {
             .hero {
-                min-height: 600px;
+                min-height: 700px;
                 padding: 0 3%;
             }
 
@@ -2393,7 +2393,7 @@
         /* الهواتف المتوسطة (375px - 575px) */
         @media (max-width: 575px) {
             .hero {
-                min-height: 550px;
+                min-height: 900px;
                 padding: 0 2%;
             }
 
@@ -2680,7 +2680,7 @@
         /* تحسينات للأجهزة ذات الشاشات العريضة (أفقية) */
         @media (max-height: 600px) and (orientation: landscape) {
             .hero {
-                min-height: 700px;
+                min-height: 800px;
             }
 
             .hero h1 {
@@ -4679,6 +4679,103 @@
             background: #0d455f;
             transform: translateY(-2px);
         }
+
+        /* Services Section - تنسيقات محسنة مع زر اكتشف المزيد */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--gold);
+            font-size: 1.8rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* تنسيق زر اكتشف المزيد */
+        .service-explore-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--gold);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            margin-top: auto;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .service-explore-btn i {
+            transition: transform 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .service-explore-btn:hover {
+            background: var(--gold);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .service-explore-btn:hover i {
+            transform: translateX(-5px);
+        }
+
+        /* تحسين للشاشات الصغيرة */
+        @media (max-width: 576px) {
+            .service-explore-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 1rem;
+            }
+        }
     </style>
 
 </head>
@@ -4737,12 +4834,21 @@
 
             <div class="search-container">
                 <form id="searchForm" class="search-box">
+                    <!-- حقل المدينة الرئيسي -->
                     <div class="search-group">
-                        <label for="location">المكان</label>
-                        <select id="location">
+                        <label for="city">المدينة</label>
+                        <select id="city">
                             <option value="">اختر المدينة</option>
                             <option value="حدائق الاهرام">حدائق الاهرام</option>
                             <option value="حدائق اكتوبر">حدائق اكتوبر</option>
+                        </select>
+                    </div>
+
+                    <!-- حقل المنطقة (يظهر حسب اختيار المدينة) -->
+                    <div class="search-group" id="areaGroup" style="display: none;">
+                        <label for="area">المنطقة</label>
+                        <select id="area">
+                            <option value="">اختر المنطقة (اختياري)</option>
                         </select>
                     </div>
                     <div class="search-group">
@@ -4802,6 +4908,7 @@
                             <option value="4">4+</option>
                         </select>
                     </div>
+
                     <button class="search-button" type="submit">
                         <i class="fas fa-search"></i>
                         بحث متقدم
@@ -5704,6 +5811,7 @@
     </section>
 
     <!-- Services Section -->
+    <!-- Services Section -->
     <section class="services-section" id="services">
         <div class="section-header">
             <h2>خدماتنا</h2>
@@ -5711,6 +5819,21 @@
         </div>
 
         <div class="services-grid">
+            <!-- خدمة التشطيب - جديدة مع زر اكتشف المزيد -->
+            <div class="service-card fade-in renovation-card">
+                <div class="service-icon">
+                    <i class="fas fa-paint-roller"></i>
+                </div>
+                <h3>خدمات التشطيب والترميم</h3>
+                <p>نحوّل منزلك إلى تحفة فنية بلمسات عصرية واحترافية. من التصميم إلى التنفيذ، فريقنا المتخصص يضمن لك
+                    نتيجة مبهرة.</p>
+                <a href="renovation.html" class="service-explore-btn" target="_blank">
+                    <span>اكتشف المزيد</span>
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+
+            <!-- باقي الخدمات (بدون أزرار) -->
             <div class="service-card fade-in">
                 <div class="service-icon">
                     <i class="fas fa-home"></i>
@@ -5760,7 +5883,6 @@
             </div>
         </div>
     </section>
-
     <!-- About Company Section -->
     <section class="about-section" id="about">
         <div class="section-header">
@@ -5971,7 +6093,7 @@
                     </div>
                     <br>
                     <!-- يوتيوب -->
-                    <div class="social-platform">
+                    <!-- <div class="social-platform">
                         <a href="https://youtube.com/@lolomark-b5p?si=wchEuL8Us3OIB9Qp" target="_blank"
                             rel="noopener noreferrer" class="social-link youtube" aria-label="YouTube">
                             <div class="social-icon"><i class="fab fa-youtube"></i></div>
@@ -5980,7 +6102,7 @@
                                 <p>القناه الرسميه لشركه الصفا العقاريه</p>
                             </div>
                         </a>
-                    </div>
+                    </div> -->
 
                     <!-- <div class="social-platform">
                         <a href="https://wa.me/201090516145" target="_blank" rel="noopener noreferrer"
@@ -6160,7 +6282,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 شركة الصفا جميع الحقوق محفوظة.</p>
+            <p>&copy; 2026 شركة الصفا جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
@@ -6266,7 +6388,7 @@
                 <h3 class="popup-title" id="popupPropertyTitle">شقة الترا سوبرلوكس</h3>
                 <p class="popup-location">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span id="popupPropertyLocation">حدائق الاهرام - منطقة (ل)</span>
+                    <span id="popupPropertyLocation">حدائق الاهرام - منطقة (ع)</span>
                 </p>
                 <div class="popup-price" id="popupPropertyPrice">1,600,000 ج.م</div>
                 <div class="popup-features" id="popupPropertyFeatures">
@@ -6303,6 +6425,7 @@
                 searchData: {
                     type: "شقة ارضي بحديقه",
                     location: "حدائق الاهرام",
+                    district: "منطقة (ع)",
                     priceRange: "1-2",
                     condition: "طوب احمر",
                     bedrooms: 2,
@@ -6319,6 +6442,7 @@
                 searchData: {
                     type: "شقة",
                     location: "حدائق الاهرام",
+                    district: "منطقة (ع)",
                     priceRange: "2-3",
                     condition: "طوب احمر",
                     bedrooms: 3,
@@ -6348,6 +6472,7 @@
                 searchData: {
                     type: "شقة",
                     location: "حدائق الاهرام",
+                    district: "منطقة (س)",
                     priceRange: "2-3",
                     condition: "متشطب",
                     bedrooms: 3,
@@ -6364,6 +6489,7 @@
                 searchData: {
                     type: "شقة",
                     location: "حدائق الاهرام",
+
                     priceRange: "1-2",
                     condition: "طوب احمر",
                     bedrooms: 3,
@@ -6569,7 +6695,7 @@
             },
             16: {
                 title: "شقة فاخر بحدائق الاهرام",
-                location: "حدائق الاهرام - منطقة (س)",
+                location: "حدائق الاهرام - منطقة (هـ)",
                 price: "2,380,000 ج.م",
                 features: ["3 غرف", "2 حمامات", "170 م²", "وجهه", "متاح جميع الادوار", "خطوات للبوابه"],
                 description: "واجهة - خطوات للبوابة – حرف (هـ)مساحة ممتازة وسعر قوي 170 متر -3 غرف – 2 حمام - طوب أحمر - متاح جميع الادوار - السعر : 2,380,000 جنيه📍 حدائق الأهرام – حرف (هـ)",
@@ -7382,7 +7508,8 @@
 
         // وظيفة البحث المتقدم - محسنة مع رسالة عدم وجود نتائج والتمرير للأسفل
         function performSearch() {
-            const location = document.getElementById('location').value;
+            const city = document.getElementById('city').value;
+            const area = document.getElementById('area').value;
             const type = document.getElementById('type').value;
             const price = document.getElementById('price').value;
             const condition = document.getElementById('condition').value;
@@ -7390,7 +7517,7 @@
             const bathrooms = document.getElementById('bathrooms').value;
 
             // التحقق إذا لم يتم اختيار أي معايير بحث
-            if (!location && !type && !price && !condition && !bedrooms && !bathrooms) {
+            if (!city && !area && !type && !price && !condition && !bedrooms && !bathrooms) {
                 showSearchMessage('يرجى اختيار معيار بحث واحد على الأقل', 'error');
                 return;
             }
@@ -7412,16 +7539,24 @@
                 if (propertyData) {
                     let matches = true;
 
-                    // فلترة حسب الموقع (إذا تم اختياره)
-                    if (location) {
-                        const propLocation = propertyData.searchData?.location || propertyData.location;
-                        if (!propLocation.includes(location)) {
+                    // فلترة حسب المدينة (إذا تم اختيارها)
+                    if (city) {
+                        const propLocation = propertyData.searchData?.location || propertyData.location || '';
+                        if (!propLocation.includes(city)) {
+                            matches = false;
+                        }
+                    }
+
+                    // فلترة حسب المنطقة (إذا تم اختيارها)
+                    if (area && matches) {
+                        const propDistrict = propertyData.searchData?.district || propertyData.location || '';
+                        if (!propDistrict.includes(area)) {
                             matches = false;
                         }
                     }
 
                     // فلترة حسب النوع (إذا تم اختياره)
-                    if (type) {
+                    if (type && matches) {
                         const propType = propertyData.searchData?.type || '';
                         if (propType !== type) {
                             matches = false;
@@ -7429,7 +7564,7 @@
                     }
 
                     // فلترة حسب السعر (إذا تم اختياره)
-                    if (price) {
+                    if (price && matches) {
                         const priceRange = propertyData.searchData?.priceRange || '';
 
                         // تحويل السعر من النص إلى رقم
@@ -7455,7 +7590,7 @@
                     }
 
                     // فلترة حسب حالة العقار (إذا تم اختياره)
-                    if (condition) {
+                    if (condition && matches) {
                         const propCondition = propertyData.searchData?.condition || '';
                         if (propCondition !== condition) {
                             matches = false;
@@ -7463,7 +7598,7 @@
                     }
 
                     // فلترة حسب عدد الغرف (إذا تم اختياره)
-                    if (bedrooms) {
+                    if (bedrooms && matches) {
                         const propBedrooms = propertyData.searchData?.bedrooms || 0;
                         const selectedBedrooms = parseInt(bedrooms);
 
@@ -7480,7 +7615,7 @@
                     }
 
                     // فلترة حسب عدد الحمامات (إذا تم اختياره)
-                    if (bathrooms) {
+                    if (bathrooms && matches) {
                         const propBathrooms = propertyData.searchData?.bathrooms || 0;
                         const selectedBathrooms = parseInt(bathrooms);
 
@@ -7545,12 +7680,16 @@
         // وظيفة إعادة تعيين البحث
         function resetSearch() {
             // إعادة تعيين حقول النموذج
-            document.getElementById('location').value = '';
+            document.getElementById('city').value = '';
+            document.getElementById('area').value = '';
             document.getElementById('type').value = '';
             document.getElementById('price').value = '';
             document.getElementById('condition').value = '';
             document.getElementById('bedrooms').value = '';
             document.getElementById('bathrooms').value = '';
+
+            // إخفاء حقل المنطقة
+            document.getElementById('areaGroup').style.display = 'none';
 
             // إظهار جميع العقارات
             const allProperties = document.querySelectorAll('.property-card');
@@ -7576,34 +7715,8 @@
 
         // وظيفة عرض كل العقارات
         function showAllProperties() {
-            // إظهار جميع العقارات
-            const allProperties = document.querySelectorAll('.property-card');
-            allProperties.forEach(property => {
-                property.style.display = 'block';
-            });
-
-            // إخفاء رسالة عدم وجود نتائج
-            const noResultsMessage = document.querySelector('.no-results-message');
-            if (noResultsMessage) {
-                noResultsMessage.style.display = 'none';
-            }
-
-            // إخفاء رسالة البحث إن وجدت
-            const messageEl = document.querySelector('.search-message');
-            if (messageEl) {
-                messageEl.style.display = 'none';
-            }
-
-            // عرض رسالة نجاح
-            showSearchMessage('تم عرض جميع العقارات', 'success');
-
-            // التمرير إلى قسم العقارات
-            setTimeout(() => {
-                document.getElementById('properties').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }, 300);
+            // إعادة تعيين حقول النموذج
+            resetSearch();
         }
 
         // عرض رسالة البحث
@@ -7693,12 +7806,6 @@
         const resetSearchBtn = document.getElementById('resetSearchBtn');
         if (resetSearchBtn) {
             resetSearchBtn.addEventListener('click', resetSearch);
-        }
-
-        // إضافة مستمع الحدث لزر عرض كل العقارات
-        const showAllBtn = document.getElementById('showAllBtn');
-        if (showAllBtn) {
-            showAllBtn.addEventListener('click', showAllProperties);
         }
 
         // إضافة مستمع الحدث لزر إعادة التعيين داخل رسالة عدم وجود نتائج
@@ -7801,7 +7908,104 @@
                 viewingSuccess.style.display = 'none';
             }, 5000);
         });
+        // ==========================================
+        // التحكم في ظهور المناطق حسب المدينة المختارة
+        // ==========================================
+        const citySelect = document.getElementById('city');
+        const areaGroup = document.getElementById('areaGroup');
+        const areaSelect = document.getElementById('area');
 
+        // تعريف المناطق لكل مدينة
+        const areas = {
+            'حدائق الاهرام': [
+                'منطقة (أ)', 'منطقة (ب)', 'منطقة (ج)', 'منطقة (ح)',
+                'منطقة (س)', 'منطقة (ط)', 'منطقة (ع)', 'منطقة (ك)',
+                'منطقة (ل)', 'منطقة (م)', 'منطقة (و)', 'منطقة (هـ)'
+            ],
+            'حدائق اكتوبر': [
+                'كمبوندات', 'حي أول', 'حي ثاني', 'حي ثالث'
+            ]
+        };
+
+        citySelect.addEventListener('change', function () {
+            const selectedCity = this.value;
+
+            if (selectedCity && areas[selectedCity]) {
+                // إظهار حقل المنطقة
+                areaGroup.style.display = 'block';
+
+                // تحديث خيارات المنطقة
+                areaSelect.innerHTML = '<option value="">اختر المنطقة (اختياري)</option>';
+                areas[selectedCity].forEach(area => {
+                    const option = document.createElement('option');
+                    option.value = area;
+                    option.textContent = area;
+                    areaSelect.appendChild(option);
+                });
+            } else {
+                // إخفاء حقل المنطقة
+                areaGroup.style.display = 'none';
+                areaSelect.innerHTML = '<option value="">اختر المنطقة (اختياري)</option>';
+            }
+        });
+
+        // إخفاء حقل المنطقة تلقائياً بعد 15 ثانية إذا لم يتم اختيار منطقة
+        let areaTimer;
+
+        citySelect.addEventListener('change', function () {
+            const selectedCity = this.value;
+
+            // إلغاء أي تايمر سابق
+            if (areaTimer) {
+                clearTimeout(areaTimer);
+            }
+
+            if (selectedCity && areas[selectedCity]) {
+                // إظهار حقل المنطقة
+                areaGroup.style.display = 'block';
+
+                // تحديث خيارات المنطقة
+                areaSelect.innerHTML = '<option value="">اختر المنطقة (اختياري)</option>';
+                areas[selectedCity].forEach(area => {
+                    const option = document.createElement('option');
+                    option.value = area;
+                    option.textContent = area;
+                    areaSelect.appendChild(option);
+                });
+
+                // بدء التايمر الجديد (15 ثانية)
+                areaTimer = setTimeout(function () {
+                    // لو لسة مخترش منطقة
+                    if (areaSelect.value === '') {
+                        areaGroup.style.display = 'none';
+                    }
+                }, 15000); // 15000 = 15 ثانية
+
+            } else {
+                // إخفاء حقل المنطقة
+                areaGroup.style.display = 'none';
+                areaSelect.innerHTML = '<option value="">اختر المنطقة (اختياري)</option>';
+            }
+        });
+
+        // لو اختار منطقة قبل الـ 15 ثانية، نلغي التايمر
+        areaSelect.addEventListener('change', function () {
+            if (areaTimer) {
+                clearTimeout(areaTimer);
+                areaTimer = null;
+            }
+        });
+
+        // إضافة مستمع الحدث لزر عرض كل العقارات (إذا كان موجوداً)
+        const showAllBtn = document.getElementById('showAllBtn');
+        if (showAllBtn) {
+            showAllBtn.addEventListener('click', showAllProperties);
+        }
+
+        // جعل الدوال الأصلية متاحة عالمياً
+        window.performSearch = performSearch;
+        window.resetSearch = resetSearch;
+        window.showAllProperties = showAllProperties;
     </script>
 </body>
 
